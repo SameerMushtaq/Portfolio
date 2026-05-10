@@ -300,10 +300,7 @@ nav a:hover{
     animation:floatingFrame 5s ease-in-out infinite;
 }
 /* =========================================
-   SMOOTH RED + WHITE GLOW FRAME
-========================================= */
-/* =========================================
-   MINIMAL HOVER GLOW FRAME
+   SUBTLE RED LIGHT FRAME
 ========================================= */
 
 .neon-border-flow{
@@ -312,7 +309,7 @@ nav a:hover{
 
     display:inline-block;
 
-    padding:8px;
+    padding:10px;
 
     border-radius:3rem;
 
@@ -321,7 +318,7 @@ nav a:hover{
     transition:all .35s ease;
 }
 
-/* SIMPLE BORDER */
+/* LIGHT BORDER */
 
 .neon-border-flow::before{
 
@@ -333,9 +330,16 @@ nav a:hover{
 
     border-radius:3rem;
 
-    border:2px solid rgba(255,255,255,.22);
-
     z-index:1;
+
+    border:2px solid rgba(255,255,255,.18);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.04),
+            rgba(255,0,60,.08)
+        );
 
     transition:all .35s ease;
 }
@@ -355,24 +359,25 @@ nav a:hover{
     transition:all .35s ease;
 }
 
-/* VERY LIGHT HOVER GLOW */
+/* HOVER EFFECT */
 
 .neon-border-flow:hover::before{
 
-    border-color:rgba(255,0,60,.55);
+    border-color:rgba(255,0,60,.45);
 
     box-shadow:
-        0 0 10px rgba(255,255,255,.18),
-        0 0 22px rgba(255,0,60,.18);
+        0 0 12px rgba(255,0,60,.18),
+        0 0 28px rgba(255,0,60,.12);
+
 }
 
 .neon-border-flow:hover img{
 
     box-shadow:
-        0 0 20px rgba(255,0,60,.12);
-}
-/* FOOTER */
+        0 0 18px rgba(255,0,60,.12);
 
+    transform:scale(1.01);
+}
 footer{
 
     background:
