@@ -95,47 +95,100 @@
         .stack-icon { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
 
         /* ADDED: Flowing Neon Lightning Border Animation for the Picture */
-        .neon-border-flow {
-            position: relative;
-            /* Ensures the animation sits within the borders */
-            overflow: hidden;
-            border-radius: 2.5rem; /* Match the my-photo border-radius */
-            z-index: 1; /* Ensure text is above */
-        }
+        /* UPDATED NEON ELECTRIC BORDER EFFECT */
 
-        .neon-border-flow::before {
-            content: '';
-            position: absolute;
-            z-index: -1;
-            left: -50%;
-            top: -50%;
-            width: 200%;
-            height: 200%;
-            background-color: transparent;
-            background-repeat: no-repeat;
-            background-size: 50% 50%, 50% 50%;
-            background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-            /* Continuous flow that switches between blue and purple */
-            background-image: 
-                linear-gradient(var(--neon-blue), var(--neon-blue)), 
-                linear-gradient(var(--neon-purple), var(--neon-purple)), 
-                linear-gradient(var(--neon-blue), var(--neon-blue)), 
-                linear-gradient(var(--neon-purple), var(--neon-purple));
-            animation: flow 4s linear infinite;
-        }
+.neon-border-flow {
+    position: relative;
+    display: inline-block;
+    padding: 8px; /* increased border width */
+    border-radius: 3rem;
+    overflow: hidden;
+}
 
-        .neon-border-flow::after {
-            content: '';
-            position: absolute;
-            z-index: -1;
-            left: 2px; /* Slight offset to leave a "lightning" edge */
-            top: 2px;
-            width: calc(100% - 4px);
-            height: calc(100% - 4px);
-            background: var(--bg-color); /* Creates the border by covering the background */
-            border-radius: calc(2.5rem - 2px);
-        }
+/* ROTATING NEON ENERGY */
 
+.neon-border-flow::before {
+    content: "";
+    position: absolute;
+    inset: -220%;
+
+    background:
+        conic-gradient(
+            from 0deg,
+            transparent 0deg,
+            #3b82f6 30deg,
+            #60a5fa 55deg,
+            #8b5cf6 90deg,
+            #c084fc 120deg,
+            transparent 150deg,
+            transparent 210deg,
+            #3b82f6 250deg,
+            #8b5cf6 300deg,
+            #c084fc 330deg,
+            transparent 360deg
+        );
+
+    animation: neonRotate 2.8s linear infinite;
+
+    filter:
+        blur(16px)
+        drop-shadow(0 0 20px #3b82f6)
+        drop-shadow(0 0 45px #8b5cf6);
+
+    opacity: 1;
+}
+
+/* INNER MASK */
+
+.neon-border-flow::after {
+    content: "";
+    position: absolute;
+    inset: 8px; /* match padding */
+    background: var(--bg-color);
+    border-radius: calc(3rem - 8px);
+    z-index: 1;
+}
+
+/* KEEP IMAGE ABOVE EFFECT */
+
+.neon-border-flow img {
+    position: relative;
+    z-index: 2;
+    display: block;
+}
+
+/* IMAGE GLOW PULSE */
+
+.neon-border-flow img.my-photo {
+    animation: neonPulse 2s ease-in-out infinite;
+}
+
+/* ROTATION */
+
+@keyframes neonRotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ELECTRIC GLOW */
+
+@keyframes neonPulse {
+
+    0%, 100% {
+        box-shadow:
+            0 0 18px rgba(59,130,246,0.5),
+            0 0 40px rgba(168,85,247,0.45),
+            0 0 70px rgba(59,130,246,0.25);
+    }
+
+    50% {
+        box-shadow:
+            0 0 35px rgba(59,130,246,0.95),
+            0 0 80px rgba(168,85,247,0.9),
+            0 0 120px rgba(59,130,246,0.45);
+    }
+}
         @keyframes flow {
             100% {
                 transform: rotate(1fr); /* Continuous flow around the image */
