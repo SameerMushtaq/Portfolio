@@ -99,6 +99,8 @@
 
 /* UPDATED RED NEON ELECTRIC BORDER EFFECT */
 
+/* UPDATED WHITE NEON ELECTRIC BORDER EFFECT */
+
 .neon-border-flow {
     position: relative;
     display: inline-block;
@@ -107,7 +109,7 @@
     overflow: hidden;
 }
 
-/* ROTATING RED NEON ENERGY */
+/* ROTATING WHITE NEON ENERGY */
 
 .neon-border-flow::before {
     content: "";
@@ -118,15 +120,15 @@
         conic-gradient(
             from 0deg,
             transparent 0deg,
-            #ff0000 30deg,
-            #ff3b3b 55deg,
-            #ff1a1a 90deg,
-            #ff6666 120deg,
+            #ffffff 30deg,
+            #f5f5f5 55deg,
+            #e5e5e5 90deg,
+            #ffffff 120deg,
             transparent 150deg,
             transparent 210deg,
-            #ff0000 250deg,
-            #ff1a1a 300deg,
-            #ff6666 330deg,
+            #ffffff 250deg,
+            #f0f0f0 300deg,
+            #ffffff 330deg,
             transparent 360deg
         );
 
@@ -134,8 +136,8 @@
 
     filter:
         blur(16px)
-        drop-shadow(0 0 20px #ff0000)
-        drop-shadow(0 0 45px #ff1a1a);
+        drop-shadow(0 0 20px #ffffff)
+        drop-shadow(0 0 45px #ffffff);
 
     opacity: 1;
 }
@@ -173,22 +175,22 @@
     }
 }
 
-/* RED ELECTRIC GLOW */
+/* WHITE ELECTRIC GLOW */
 
 @keyframes neonPulse {
 
     0%, 100% {
         box-shadow:
-            0 0 18px rgba(255,0,0,0.5),
-            0 0 40px rgba(255,40,40,0.45),
-            0 0 70px rgba(255,0,0,0.25);
+            0 0 18px rgba(255,255,255,0.5),
+            0 0 40px rgba(255,255,255,0.45),
+            0 0 70px rgba(255,255,255,0.25);
     }
 
     50% {
         box-shadow:
-            0 0 35px rgba(255,0,0,0.95),
-            0 0 80px rgba(255,50,50,0.9),
-            0 0 120px rgba(255,0,0,0.45);
+            0 0 35px rgba(255,255,255,0.95),
+            0 0 80px rgba(255,255,255,0.9),
+            0 0 120px rgba(255,255,255,0.45);
     }
 }
         @keyframes flow {
