@@ -301,7 +301,7 @@ nav a:hover{
 }
 
 /* =========================================
-   REAL ELECTRIC CURRENT FRAME
+   REAL ELECTRIC ARC FRAME
 ========================================= */
 
 .neon-border-flow{
@@ -310,7 +310,7 @@ nav a:hover{
 
     display:inline-block;
 
-    padding:12px;
+    padding:14px;
 
     border-radius:3rem;
 
@@ -319,7 +319,7 @@ nav a:hover{
     isolation:isolate;
 }
 
-/* ELECTRIC ENERGY */
+/* ELECTRIC OUTER ARC */
 
 .neon-border-flow::before{
 
@@ -327,41 +327,35 @@ nav a:hover{
 
     position:absolute;
 
-    inset:-8px;
+    inset:-6px;
 
     border-radius:3.2rem;
 
     z-index:1;
 
     background:
-        linear-gradient(
-            90deg,
-            transparent 0%,
-            #ff003c 10%,
-            #ffffff 20%,
-            #ff003c 30%,
-            transparent 40%,
-            transparent 60%,
-            #ff003c 70%,
-            #ffffff 80%,
-            #ff003c 90%,
-            transparent 100%
-        );
+        repeating-conic-gradient(
+            from 0deg,
 
-    background-size:300% 300%;
+            #ff003c 0deg 6deg,
+            #ffffff 6deg 8deg,
+            #ff003c 8deg 14deg,
+            transparent 14deg 20deg
+        );
 
     filter:
         blur(2px)
-        drop-shadow(0 0 12px #ff003c)
-        drop-shadow(0 0 28px #ff003c)
-        drop-shadow(0 0 60px rgba(255,0,60,.95));
+        drop-shadow(0 0 10px #ff003c)
+        drop-shadow(0 0 24px #ff003c)
+        drop-shadow(0 0 55px rgba(255,0,60,.95));
 
     animation:
-        electricMove 1.2s linear infinite,
-        electricFlash .18s infinite alternate;
+        electricRotate .8s linear infinite,
+        electricFlicker .12s infinite alternate,
+        electricShake .08s infinite;
 }
 
-/* SECONDARY ARC */
+/* INNER ELECTRIC FRAME */
 
 .neon-border-flow::after{
 
@@ -369,55 +363,54 @@ nav a:hover{
 
     position:absolute;
 
-    inset:-3px;
+    inset:2px;
 
-    border-radius:3rem;
-
-    z-index:2;
+    border-radius:2.9rem;
 
     border:3px solid rgba(255,255,255,.95);
 
-    filter:
-        blur(1px)
-        drop-shadow(0 0 10px #ffffff)
-        drop-shadow(0 0 20px #ff003c)
-        drop-shadow(0 0 45px #ff003c);
+    z-index:2;
 
-    opacity:.95;
+    filter:
+        blur(.5px)
+        drop-shadow(0 0 8px #ffffff)
+        drop-shadow(0 0 20px #ff003c)
+        drop-shadow(0 0 40px #ff003c);
 
     animation:
-        electricJitter .08s infinite,
-        electricPulse .6s infinite alternate;
+        pulseGlow .4s infinite alternate,
+        electricShake .05s infinite;
 }
 
-/* GLOW */
+/* IMAGE */
 
-.absolute.-inset-16{
+.neon-border-flow img{
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,0,60,.22),
-            transparent 70%
-        ) !important;
+    position:relative;
 
-    opacity:.85 !important;
+    z-index:5;
+
+    display:block;
+
+    border-radius:2.6rem;
 }
 
-/* ANIMATIONS */
+/* ROTATING ARC ENERGY */
 
-@keyframes electricMove{
+@keyframes electricRotate{
 
     0%{
-        background-position:0% 50%;
+        transform:rotate(0deg);
     }
 
     100%{
-        background-position:300% 50%;
+        transform:rotate(360deg);
     }
 }
 
-@keyframes electricJitter{
+/* CHAOTIC SHAKE */
+
+@keyframes electricShake{
 
     0%{
         transform:translate(0px,0px);
@@ -444,10 +437,12 @@ nav a:hover{
     }
 }
 
-@keyframes electricFlash{
+/* ELECTRIC FLICKER */
+
+@keyframes electricFlicker{
 
     0%{
-        opacity:.72;
+        opacity:.7;
     }
 
     100%{
@@ -455,35 +450,26 @@ nav a:hover{
     }
 }
 
-@keyframes electricPulse{
+/* RED PLASMA PULSE */
+
+@keyframes pulseGlow{
 
     0%{
 
         box-shadow:
-            0 0 8px #ffffff,
-            0 0 20px #ff003c,
-            0 0 40px rgba(255,0,60,.6);
+            0 0 10px #ffffff,
+            0 0 25px #ff003c,
+            0 0 45px rgba(255,0,60,.55);
 
     }
 
     100%{
 
         box-shadow:
-            0 0 15px #ffffff,
-            0 0 40px #ff003c,
-            0 0 90px rgba(255,0,60,1);
+            0 0 18px #ffffff,
+            0 0 45px #ff003c,
+            0 0 100px rgba(255,0,60,1);
 
-    }
-}
-
-@keyframes floatingFrame{
-
-    0%,100%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(-12px);
     }
 }
 
