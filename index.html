@@ -93,6 +93,54 @@
         @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
 
         .stack-icon { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
+
+        /* ADDED: Flowing Neon Lightning Border Animation for the Picture */
+        .neon-border-flow {
+            position: relative;
+            /* Ensures the animation sits within the borders */
+            overflow: hidden;
+            border-radius: 2.5rem; /* Match the my-photo border-radius */
+            z-index: 1; /* Ensure text is above */
+        }
+
+        .neon-border-flow::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            left: -50%;
+            top: -50%;
+            width: 200%;
+            height: 200%;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-size: 50% 50%, 50% 50%;
+            background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+            /* Continuous flow that switches between blue and purple */
+            background-image: 
+                linear-gradient(var(--neon-blue), var(--neon-blue)), 
+                linear-gradient(var(--neon-purple), var(--neon-purple)), 
+                linear-gradient(var(--neon-blue), var(--neon-blue)), 
+                linear-gradient(var(--neon-purple), var(--neon-purple));
+            animation: flow 4s linear infinite;
+        }
+
+        .neon-border-flow::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            left: 2px; /* Slight offset to leave a "lightning" edge */
+            top: 2px;
+            width: calc(100% - 4px);
+            height: calc(100% - 4px);
+            background: var(--bg-color); /* Creates the border by covering the background */
+            border-radius: calc(2.5rem - 2px);
+        }
+
+        @keyframes flow {
+            100% {
+                transform: rotate(1fr); /* Continuous flow around the image */
+            }
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -131,7 +179,9 @@
             <div class="flex justify-center relative">
                 <div class="floating relative">
                     <div class="absolute -inset-16 bg-purple-500/10 blur-3xl rounded-full opacity-60"></div>
-                    <img src="pic.png" alt="Sameer Mushtaq Tantray" class="my-photo">
+                    <div class="neon-border-flow">
+                        <img src="pic.png" alt="Sameer Mushtaq Tantray" class="my-photo">
+                    </div>
                 </div>
             </div>
         </div>
