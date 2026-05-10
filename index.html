@@ -17,7 +17,7 @@
         body { background-color: var(--bg-color); color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         .glass-nav { background: rgba(3, 0, 20, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
         .hero-gradient { background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.12) 0%, rgba(3, 0, 20, 1) 70%); }
-        .section-card { background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 2.2rem; transition: all 0.4s ease; height: 100%; }
+        .section-card { background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 2.5rem; transition: all 0.4s ease; height: 100%; }
         .section-card:hover { border-color: rgba(168, 85, 247, 0.4); transform: translateY(-5px); background: rgba(255, 255, 255, 0.05); }
         .service-card { border-left: 3px solid var(--neon-blue); padding-left: 1.5rem; }
         .floating { animation: float 6s ease-in-out infinite; }
@@ -31,7 +31,7 @@
     <nav class="fixed top-0 w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center text-xs font-bold uppercase tracking-widest">
             <div class="text-xl">SMT<span class="text-purple-500">.</span></div>
-            <div class="space-x-8 hidden md:flex">
+            <div class="hidden md:flex space-x-8 text-xs font-medium text-gray-400 uppercase tracking-widest">
                 <a href="#home" class="hover:text-white transition">Home</a>
                 <a href="#profile" class="hover:text-white transition">Profile</a>
                 <a href="#services" class="hover:text-white transition">Services</a>
@@ -45,9 +45,13 @@
             <div class="space-y-6 text-center md:text-left">
                 <h3 class="text-blue-400 font-mono tracking-widest text-sm uppercase">PhD Scholar & Project Research Scientist</h3>
                 <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">Sameer Mushtaq <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Tantray</span></h1>
-                <p class="text-gray-400 text-lg">Forging a path from local resilience to global scientific innovation.</p>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    Decoding biological complexity through computational excellence.<br>
+                    <span class="text-blue-400/80 text-base font-semibold">Implementing programming skills in 3D Spatial Genomics and Bioinformatics.</span><br>
+                    <span class="text-purple-400/80 text-base">Engineering scalable solutions at the intersection of life sciences and data.</span>
+                </p>
                 <div class="flex justify-center md:justify-start gap-4">
-                    <a href="#profile" class="px-8 py-4 bg-purple-600 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all">Read My Story</a>
+                    <a href="#profile" class="px-8 py-4 bg-purple-600 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all">View Research Profile</a>
                 </div>
             </div>
             <div class="flex justify-center">
@@ -63,14 +67,14 @@
         <div class="grid md:grid-cols-2 gap-12">
             <div class="section-card">
                 <h2 class="text-2xl font-bold mb-6 text-blue-400 uppercase tracking-tighter border-b border-blue-500/20 pb-2">Professional Summary</h2>
-                <p class="text-gray-400 leading-relaxed text-sm text-justify italic">
-                    I grew up in the war-torn land of Kashmir, a landscape that instilled in me a profound sense of resilience and a relentless drive for knowledge despite the surrounding uncertainties. My educational journey began in a local locality school, followed by graduation-level studies in the town of Bijbehara, where I first discovered my passion for the intersection of technology and science. This spark led me to the Islamic University of Science and Technology (IUST) for my MCA, and eventually to the University of Kashmir, where I am currently pursuing a PhD in Computer Science. Today, I stand as a Project Research Scientist at the Chromatin and Epigenetics Lab (CIRI), specializing in the highly complex field of 3D Spatial Genomics and Bioinformatics. My background has taught me to treat challenges as computational puzzles, leading me to develop expert-level proficiency in Python and root-level system administration. I am recognized for implementing sophisticated programming skills to solve intricate biological questions within high-performance computing environments. My technical expertise also spans deep-tier debugging and lossless system recovery, ensuring that even the most critical data remains preserved. I bridge the gap between my humble beginnings in a conflict zone and my current role at the cutting edge of genomic research, committed to proving that intellectual innovation can thrive in any environment.
+                <p class="text-gray-400 leading-relaxed text-sm text-justify">
+                    My journey in science is rooted in the resilience of Kashmir, where I began my primary education within my local locality before moving to Bijbehara town for my graduation studies. These early years shaped my ability to navigate complex environments, leading me to the Islamic University of Science and Technology (IUST) for my MCA and eventually to the University of Kashmir, where I am currently pursuing a PhD in Computer Science. Today, I serve as a Project Research Scientist at the Chromatin and Epigenetics Lab (CIRI), specializing in the high-stakes field of 3D Spatial Genomics and Bioinformatics. My work involves implementing advanced programming skills to decode intricate biological puzzles using high-performance computing pipelines. My technical background is uniquely balanced by expert-level root-system administration, allowing me to manage multi-platform OS environments with deep-tier debugging capabilities. I am recognized for my mastery in lossless system recovery and password restoration, ensuring total data preservation in critical research scenarios. Beyond pure informatics, I provide professional software engineering services, including the deployment of patched software solutions tailored for diverse professional purposes. My career is defined by the seamless fusion of hardware-level optimization and advanced data-driven discovery, proving that technological excellence can be forged from any path.
                 </p>
             </div>
             <div class="section-card">
                 <h2 class="text-2xl font-bold mb-6 text-purple-400 uppercase tracking-tighter border-b border-purple-500/20 pb-2">Strategic Objective</h2>
-                <p class="text-gray-400 leading-relaxed text-sm text-justify italic">
-                    My strategic objective is to pioneer the development of advanced computational models and AI-driven methodologies specifically designed to decode the complexities of 3D Spatial Genomics and chromatin organization. I aim to leverage my diverse background in computer applications to architect highly scalable, cloud-native frameworks capable of performing real-time multi-dimensional analysis on massive biological datasets. Through my doctoral research at the University of Kashmir, I seek to integrate advanced Machine Learning models into chromatin architecture studies to identify hidden organizational patterns previously invisible to traditional methods. I am dedicated to engineering open-source analytical tools and interactive visualizers that make abstract multi-omic landscapes actionable for the global scientific community. My vision involves developing high-fidelity predictive simulations that can forecast genomic structural changes under varying environmental and experimental conditions. I intend to lead multidisciplinary research teams at the nexus of Computer Science and Life Sciences, fostering a legacy of innovation through computational excellence and automated discovery. Ultimately, I strive to establish secure, ethically-sound computational environments that protect sensitive scientific data while accelerating the pace of therapeutic breakthroughs. My goal is to use the power of programming to transform raw genomic data into a clear language of health and discovery, pushing the frontier of human knowledge.
+                <p class="text-gray-400 leading-relaxed text-sm text-justify">
+                    My objective is to pioneer the development of advanced computational models and AI-driven methodologies specifically designed to decode the complexities of 3D Spatial Genomics and chromatin organization. I aim to leverage my diverse background in computer applications to architect highly scalable, cloud-native frameworks capable of performing real-time multi-dimensional analysis on massive biological datasets. Through my doctoral research at the University of Kashmir, I seek to integrate advanced Machine Learning models into chromatin architecture studies to identify hidden organizational patterns previously invisible to traditional methods. I am dedicated to engineering open-source analytical tools and interactive visualizers that make abstract multi-omic landscapes actionable for the global scientific community. My vision involves developing high-fidelity predictive simulations that can forecast genomic structural changes under varying environmental and experimental conditions. I intend to lead multidisciplinary research teams at the nexus of Computer Science and Life Sciences, fostering a legacy of innovation through computational excellence and automated discovery. Ultimately, I strive to establish secure, ethically-sound computational environments that protect sensitive scientific data while accelerating the pace of therapeutic breakthroughs.
                 </p>
             </div>
         </div>
@@ -80,14 +84,14 @@
         <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Services Provided</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="section-card service-card">
-                <i class="fas fa-user-shield text-blue-400 text-2xl mb-4"></i>
+                <i class="fas fa-terminal text-blue-400 text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">System Technician</h3>
                 <p class="text-sm text-gray-400">Root-level OS installation, maintenance, and lossless system recovery via advanced password breaking.</p>
             </div>
             <div class="section-card service-card">
-                <i class="fas fa-file-code text-purple-400 text-2xl mb-4"></i>
+                <i class="fas fa-file-shield text-purple-400 text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">Software Engineering</h3>
-                <p class="text-sm text-gray-400">Providing professionally patched software solutions and cracked environments for diverse OS architectures.</p>
+                <p class="text-sm text-gray-400">Professionally patched software solutions and cracked environments for diverse OS architectures.</p>
             </div>
             <div class="section-card service-card">
                 <i class="fas fa-dna text-blue-400 text-2xl mb-4"></i>
@@ -107,7 +111,7 @@
             <div class="section-card service-card">
                 <i class="fas fa-laptop-code text-purple-400 text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">MS Office Automation</h3>
-                <p class="text-sm text-gray-400">Specialized automation and modeling using Excel, Access, Word, and PowerPoint.</p>
+                <p class="text-sm text-gray-400">Professional automation and modeling using Excel, Access, Word, and PowerPoint.</p>
             </div>
         </div>
     </section>
@@ -153,7 +157,7 @@
                     <li><i class="fas fa-shield-alt mr-2 text-blue-400"></i>Data Integrity & Security</li>
                     <li><i class="fas fa-users-cog mr-2 text-purple-400"></i>Technical Project Leadership</li>
                     <li><i class="fas fa-microchip mr-2 text-blue-400"></i>Hardware Lifecycle Management</li>
-                    <li><i class="fas fa-network-wired mr-2 text-purple-400"></i>Advanced System Recovery</li>
+                    <li><i class="fas fa-network-wired mr-2 text-purple-400"></i>Lossless System Recovery</li>
                 </ul>
             </div>
         </div>
