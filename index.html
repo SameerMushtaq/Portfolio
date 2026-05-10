@@ -97,15 +97,17 @@
         /* ADDED: Flowing Neon Lightning Border Animation for the Picture */
         /* UPDATED NEON ELECTRIC BORDER EFFECT */
 
+/* UPDATED RED NEON ELECTRIC BORDER EFFECT */
+
 .neon-border-flow {
     position: relative;
     display: inline-block;
-    padding: 8px; /* increased border width */
+    padding: 8px;
     border-radius: 3rem;
     overflow: hidden;
 }
 
-/* ROTATING NEON ENERGY */
+/* ROTATING RED NEON ENERGY */
 
 .neon-border-flow::before {
     content: "";
@@ -116,24 +118,24 @@
         conic-gradient(
             from 0deg,
             transparent 0deg,
-            #3b82f6 30deg,
-            #60a5fa 55deg,
-            #8b5cf6 90deg,
-            #c084fc 120deg,
+            #ff0000 30deg,
+            #ff3b3b 55deg,
+            #ff1a1a 90deg,
+            #ff6666 120deg,
             transparent 150deg,
             transparent 210deg,
-            #3b82f6 250deg,
-            #8b5cf6 300deg,
-            #c084fc 330deg,
+            #ff0000 250deg,
+            #ff1a1a 300deg,
+            #ff6666 330deg,
             transparent 360deg
         );
 
-    animation: neonRotate 4s linear infinite;
+    animation: neonRotate 2.8s linear infinite;
 
     filter:
         blur(16px)
-        drop-shadow(0 0 20px #3b82f6)
-        drop-shadow(0 0 45px #8b5cf6);
+        drop-shadow(0 0 20px #ff0000)
+        drop-shadow(0 0 45px #ff1a1a);
 
     opacity: 1;
 }
@@ -143,7 +145,7 @@
 .neon-border-flow::after {
     content: "";
     position: absolute;
-    inset: 8px; /* match padding */
+    inset: 8px;
     background: var(--bg-color);
     border-radius: calc(3rem - 8px);
     z-index: 1;
@@ -171,22 +173,22 @@
     }
 }
 
-/* ELECTRIC GLOW */
+/* RED ELECTRIC GLOW */
 
 @keyframes neonPulse {
 
     0%, 100% {
         box-shadow:
-            0 0 18px rgba(59,130,246,0.5),
-            0 0 40px rgba(168,85,247,0.45),
-            0 0 70px rgba(59,130,246,0.25);
+            0 0 18px rgba(255,0,0,0.5),
+            0 0 40px rgba(255,40,40,0.45),
+            0 0 70px rgba(255,0,0,0.25);
     }
 
     50% {
         box-shadow:
-            0 0 35px rgba(59,130,246,0.95),
-            0 0 80px rgba(168,85,247,0.9),
-            0 0 120px rgba(59,130,246,0.45);
+            0 0 35px rgba(255,0,0,0.95),
+            0 0 80px rgba(255,50,50,0.9),
+            0 0 120px rgba(255,0,0,0.45);
     }
 }
         @keyframes flow {
