@@ -23,27 +23,26 @@
             color: #f8fafc; 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             scroll-behavior: smooth; 
-            position: relative; /* Essential for watermark positioning */
+            position: relative;
         }
 
-        /* URDU WATERMARK STYLING */
+        /* IMPROVED WATERMARK: Full visibility on screen */
         .urdu-watermark {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-15deg); /* Centered and slightly tilted */
-            font-family: 'Noto Nastaliq Urdu', serif; /* Use a suitable Urdu font */
-            font-size: 35vw; /* Extremely large size based on viewport width */
-            color: rgba(255, 255, 255, 0.02); /* White with very low visibility (2%) */
+            inset: 0; /* Covers full viewport */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 25vw; /* Adjusted size to ensure it fits horizontally */
+            color: rgba(255, 255, 255, 0.05); /* Increased visibility to 5% */
             white-space: nowrap;
-            pointer-events: none; /* Allows clicks to pass through */
-            z-index: -1; /* Places it behind all content */
-            user-select: none; /* Prevents text selection */
-            width: 100%;
-            text-align: center;
+            pointer-events: none;
+            z-index: -1;
+            user-select: none;
+            transform: rotate(-10deg); /* Slight tilt for aesthetic */
         }
 
-        /* Exiting Website Styling (Unchanged) */
         .glass-nav { 
             background: rgba(3, 0, 20, 0.8); 
             backdrop-filter: blur(12px); 
@@ -60,6 +59,7 @@
             border-radius: 1.5rem; 
             padding: 2.5rem; 
             transition: all 0.4s ease; 
+            height: 100%; 
         }
         .section-card:hover { 
             border-color: rgba(168, 85, 247, 0.4); 
@@ -196,7 +196,7 @@
                     <div><i class="fas fa-bezier-curve stack-icon text-blue-400"></i><p class="text-[10px]">Graphics</p></div>
                     <div><i class="fas fa-terminal stack-icon text-purple-400"></i><p class="text-[10px]">OS Setup</p></div>
                     <div><i class="fas fa-unlock stack-icon text-blue-400"></i><p class="text-[10px]">Recovery</p></div>
-                    <div><i class="fas fa-calculator stack-icon text-blue-400"></i><p class="text-[10px]">Tally</p></div>
+                    <div><i class="fas fa-file-invoice-dollar stack-icon text-purple-400"></i><p class="text-[10px]">Tally</p></div>
                     <div><i class="fas fa-robot stack-icon text-blue-400"></i><p class="text-[10px]">Bio-ML</p></div>
                     <div><i class="fas fa-code stack-icon text-purple-400"></i><p class="text-[10px]">C/C++</p></div>
                 </div>
