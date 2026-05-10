@@ -304,6 +304,10 @@ nav a:hover{
    REAL ELECTRIC ARC FRAME
 ========================================= */
 
+/* =========================================
+   REALISTIC RED ELECTRIC CURRENT FRAME
+========================================= */
+
 .neon-border-flow{
 
     position:relative;
@@ -317,6 +321,167 @@ nav a:hover{
     overflow:visible;
 
     isolation:isolate;
+}
+
+/* MAIN ELECTRIC ARC */
+
+.neon-border-flow::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-8px;
+
+    border-radius:3.2rem;
+
+    z-index:1;
+
+    background:
+        repeating-conic-gradient(
+
+            from 0deg,
+
+            #ff003c 0deg 4deg,
+            #ffffff 4deg 6deg,
+            #ff003c 6deg 10deg,
+            transparent 10deg 18deg,
+
+            #ff3355 18deg 22deg,
+            #ffffff 22deg 24deg,
+            transparent 24deg 32deg
+
+        );
+
+    filter:
+        blur(1.5px)
+        drop-shadow(0 0 10px #ff003c)
+        drop-shadow(0 0 25px #ff003c)
+        drop-shadow(0 0 60px rgba(255,0,60,.95));
+
+    animation:
+        electricSpin .55s linear infinite,
+        electricChaos .06s infinite,
+        electricFlash .12s infinite alternate;
+}
+
+/* INNER CURRENT */
+
+.neon-border-flow::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:2px;
+
+    border-radius:2.9rem;
+
+    border:3px solid rgba(255,255,255,.92);
+
+    z-index:2;
+
+    filter:
+        blur(.3px)
+        drop-shadow(0 0 10px #ffffff)
+        drop-shadow(0 0 25px #ff003c)
+        drop-shadow(0 0 45px #ff003c);
+
+    animation:
+        innerPulse .3s infinite alternate,
+        electricChaos .04s infinite;
+}
+
+/* IMAGE */
+
+.neon-border-flow img{
+
+    position:relative;
+
+    z-index:5;
+
+    display:block;
+
+    border-radius:2.6rem;
+}
+
+/* FAST ELECTRIC SPIN */
+
+@keyframes electricSpin{
+
+    0%{
+        transform:rotate(0deg);
+    }
+
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+/* CHAOTIC MOVEMENT */
+
+@keyframes electricChaos{
+
+    0%{
+        transform:translate(0px,0px) scale(1);
+    }
+
+    20%{
+        transform:translate(1px,-1px) scale(1.002);
+    }
+
+    40%{
+        transform:translate(-1px,1px) scale(.998);
+    }
+
+    60%{
+        transform:translate(1px,1px) scale(1.003);
+    }
+
+    80%{
+        transform:translate(-1px,-1px) scale(.997);
+    }
+
+    100%{
+        transform:translate(0px,0px) scale(1);
+    }
+}
+
+/* RANDOM FLASH */
+
+@keyframes electricFlash{
+
+    0%{
+        opacity:.72;
+    }
+
+    100%{
+        opacity:1;
+    }
+}
+
+/* INNER PULSE */
+
+@keyframes innerPulse{
+
+    0%{
+
+        box-shadow:
+            0 0 10px #ffffff,
+            0 0 20px #ff003c,
+            0 0 40px rgba(255,0,60,.55);
+
+    }
+
+    100%{
+
+        box-shadow:
+            0 0 18px #ffffff,
+            0 0 40px #ff003c,
+            0 0 90px rgba(255,0,60,1);
+
+    }
+}
 }
 
 /* ELECTRIC OUTER ARC */
