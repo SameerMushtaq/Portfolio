@@ -198,6 +198,283 @@
                 transform: rotate(1fr); /* Continuous flow around the image */
             }
         }
+
+
+/* =========================================
+   CYBERPUNK RED + BLACK THEME OVERRIDE
+========================================= */
+
+:root{
+    --bg-color:#020208;
+    --neon-purple:#ff003c;
+    --neon-blue:#ff3355;
+    --card-bg:rgba(10,10,18,0.82);
+
+    --red:#ff003c;
+    --red-soft:#ff3355;
+
+    --text:#f8fafc;
+    --muted:#9ca3af;
+}
+
+/* BODY */
+
+body{
+
+    background:
+        radial-gradient(circle at top right,
+        rgba(255,0,60,0.14),
+        transparent 28%),
+
+        radial-gradient(circle at left center,
+        rgba(255,0,60,0.08),
+        transparent 40%),
+
+        linear-gradient(
+            135deg,
+            #020208 0%,
+            #050512 40%,
+            #020208 100%
+        );
+
+    color:var(--text);
+}
+
+/* RED PARTICLES */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background-image:
+        radial-gradient(rgba(255,0,60,0.35) 1px, transparent 1px);
+
+    background-size:140px 140px;
+
+    opacity:0.08;
+
+    pointer-events:none;
+
+    z-index:-1;
+}
+
+/* WATERMARK */
+
+.urdu-watermark{
+
+    color:rgba(255,255,255,0.03);
+
+    filter:
+        blur(1px)
+        drop-shadow(0 0 25px rgba(255,0,60,0.12));
+}
+
+/* NAVBAR */
+
+.glass-nav{
+
+    background:rgba(0,0,0,0.55);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,0,60,0.12);
+
+    box-shadow:
+        0 0 30px rgba(255,0,60,0.05);
+}
+
+/* HERO */
+
+.hero-gradient{
+
+    background:
+        radial-gradient(circle at 70% 30%,
+        rgba(255,0,60,0.14),
+        transparent 35%),
+
+        linear-gradient(
+            135deg,
+            #020208 0%,
+            #050512 45%,
+            #020208 100%
+        );
+}
+
+/* SECTION CARDS */
+
+.section-card{
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(12,12,20,0.92),
+            rgba(6,6,14,0.96)
+        );
+
+    border:1px solid rgba(255,0,60,0.12);
+
+    box-shadow:
+        0 0 20px rgba(255,0,60,0.04),
+        inset 0 0 25px rgba(255,255,255,0.015);
+}
+
+/* CARD HOVER */
+
+.section-card:hover{
+
+    border-color:rgba(255,0,60,0.45);
+
+    transform:translateY(-8px);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(18,18,28,0.96),
+            rgba(8,8,18,1)
+        );
+
+    box-shadow:
+        0 0 40px rgba(255,0,60,0.14),
+        0 0 80px rgba(255,0,60,0.08);
+}
+
+/* RED HEADINGS */
+
+.text-blue-400,
+.text-purple-400,
+.text-purple-500,
+.text-blue-500{
+
+    color:var(--red) !important;
+
+    text-shadow:
+        0 0 12px rgba(255,0,60,0.35);
+}
+
+/* MAIN NAME */
+
+h1 span{
+
+    color:var(--red) !important;
+
+    background:none !important;
+
+    -webkit-text-fill-color:unset !important;
+
+    text-shadow:
+        0 0 20px rgba(255,0,60,0.6),
+        0 0 45px rgba(255,0,60,0.25);
+}
+
+/* TEXT */
+
+.text-gray-400{
+    color:#9ca3af !important;
+}
+
+.text-gray-500{
+    color:#71717a !important;
+}
+
+/* ICONS */
+
+.stack-icon,
+.fa-dna,
+.fa-brain,
+.fa-chart-area,
+.fa-microscope,
+.fa-server,
+.fa-code,
+.fa-terminal,
+.fa-laptop-code,
+.fa-users-cog,
+.fa-network-wired,
+.fa-baseball-bat-ball,
+.fa-volleyball,
+.fa-utensils,
+.fa-plane-departure,
+.fa-mountain-sun,
+.fa-person-walking{
+
+    color:var(--red) !important;
+
+    filter:
+        drop-shadow(0 0 12px rgba(255,0,60,0.5));
+}
+
+/* NAV LINKS */
+
+nav a:hover{
+
+    color:var(--red) !important;
+
+    text-shadow:
+        0 0 12px rgba(255,0,60,0.7);
+}
+
+/* FOOTER */
+
+footer{
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,0.65),
+            rgba(0,0,0,0.95)
+        );
+
+    border-top:1px solid rgba(255,0,60,0.12);
+}
+
+/* FOOTER ICONS */
+
+footer a:hover{
+
+    color:var(--red) !important;
+
+    filter:
+        drop-shadow(0 0 14px rgba(255,0,60,0.7));
+}
+
+/* RED GLOW BEHIND IMAGE */
+
+.absolute.-inset-16{
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,0,60,0.22),
+            transparent 70%
+        ) !important;
+
+    opacity:.85 !important;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#050510;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:
+        linear-gradient(
+            180deg,
+            #ff003c,
+            #700018
+        );
+
+    border-radius:999px;
+}
     </style>
 </head>
 <body class="overflow-x-hidden">
