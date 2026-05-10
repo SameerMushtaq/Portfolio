@@ -17,6 +17,7 @@
             --neon-purple: #a855f7;
             --neon-blue: #3b82f6;
             --card-bg: rgba(255, 255, 255, 0.03);
+            --lightning-flash: rgba(255, 255, 255, 0.95);
         }
 
         body { 
@@ -26,77 +27,69 @@
             scroll-behavior: smooth; 
         }
 
-        /* NAVIGATION STYLES */
         .glass-nav { 
             background: rgba(3, 0, 20, 0.8); 
             backdrop-filter: blur(12px); 
             border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
         }
 
-        /* HERO STYLES */
         .hero-gradient { 
             background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.12) 0%, rgba(3, 0, 20, 1) 70%); 
         }
 
-        /* SECTION CARDS */
         .section-card { 
             background: var(--card-bg); 
             border: 1px solid rgba(255, 255, 255, 0.05); 
             border-radius: 1.5rem; 
             padding: 2.5rem; 
             transition: all 0.4s ease; 
-            height: 100%; 
         }
-        .section-card:hover { 
-            border-color: rgba(168, 85, 247, 0.4); 
-            transform: translateY(-5px); 
-            background: rgba(255, 255, 255, 0.05); 
-        }
-        .service-card { border-left: 3px solid var(--neon-blue); padding-left: 1.5rem; }
 
-        /* THE PARTICLE PHOTO CONTAINER */
-        #particle-photo-container {
+        /* --- MIRROR & LIGHTNING EFFECT --- */
+        #mirror-stage {
             width: 350px;
             height: 350px;
             position: relative;
             border-radius: 2rem;
-            /* Creates the frame look before assembly */
-            border: 2px solid rgba(255, 255, 255, 0.05);
-            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.4);
             overflow: hidden;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-            /* Soft neon glow around the frame */
-            transition: border-color 1s ease, box-shadow 1s ease;
         }
 
-        /* Subtle glow when fully assembled (Triggered by JS) */
-        #particle-photo-container.assembled {
-            border-color: rgba(59, 130, 246, 0.3);
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
-        }
-
-        /* The actual canvas tsParticles draws on */
-        #tsparticles-photo {
+        #tsparticles-mirror {
             width: 100%;
             height: 100%;
-            border-radius: 2rem;
+            position: absolute;
+            z-index: 2;
         }
 
-        /* Standard Photo fallback (invisible unless particles fail) */
-        .my-photo-fallback { 
+        .final-photo { 
             width: 100%; 
             height: 100%; 
             object-fit: cover; 
             border-radius: 2rem;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0; /* JS will reveal this when assembly is done */
-            transition: opacity 1.5s ease;
-            z-index: 1; /* Sits behind particles during assembly */
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
         }
 
-        /* TECH STACK ICONS */
+        #flash-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--lightning-flash);
+            opacity: 0;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .animate-flash { animation: flash-hit 0.6s ease-out forwards; }
+        @keyframes flash-hit {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
         .stack-icon { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
     </style>
 </head>
@@ -105,7 +98,7 @@
     <nav class="fixed top-0 w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center text-xs font-bold uppercase tracking-widest">
             <div class="text-xl">SMT<span class="text-purple-500">.</span></div>
-            <div class="hidden md:flex space-x-8 text-xs font-medium text-gray-400 uppercase tracking-widest">
+            <div class="space-x-8 hidden md:flex">
                 <a href="#home" class="hover:text-white transition">Home</a>
                 <a href="#profile" class="hover:text-white transition">Profile</a>
                 <a href="#services" class="hover:text-white transition">Services</a>
@@ -124,18 +117,13 @@
                     <span class="text-blue-400/80 text-base font-semibold">Implementing programming skills in 3D Spatial Genomics and Bioinformatics.</span><br>
                     <span class="text-purple-400/80 text-base">Engineering scalable solutions at the intersection of life sciences and data.</span>
                 </p>
-                <div class="flex justify-center md:justify-start gap-4">
-                    <a href="#profile" class="px-8 py-4 bg-purple-600 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all">View Research Profile</a>
-                </div>
             </div>
             
             <div class="flex justify-center relative">
-                <div class="absolute -inset-10 bg-purple-500/10 blur-3xl rounded-full opacity-50"></div>
-                
-                <div id="particle-photo-container">
-                    <div id="tsparticles-photo"></div>
-                    
-                    <img src="Pic.jpg" alt="Sameer Mushtaq Tantray" class="my-photo-fallback" id="final-photo">
+                <div id="mirror-stage">
+                    <div id="tsparticles-mirror"></div>
+                    <img src="pic.jpg" alt="Profile" class="final-photo" id="final-pic">
+                    <div id="flash-overlay"></div>
                 </div>
             </div>
         </div>
@@ -143,16 +131,16 @@
 
     <section id="profile" class="py-24 px-6 max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 gap-12">
-            <div class="section-card">
-                <h2 class="text-2xl font-bold mb-6 text-blue-400 uppercase tracking-tighter border-b border-blue-500/20 pb-2">Professional Summary</h2>
+            <div class="section-card border-l-4 border-blue-500">
+                <h2 class="text-2xl font-bold mb-6 text-blue-400 uppercase tracking-tighter">Professional Summary</h2>
                 <p class="text-gray-400 leading-relaxed text-sm text-justify">
-                    My journey in science is rooted in the resilience of Kashmir, where I began my primary education within my local locality before moving to Bijbehara town for my graduation studies. These early years shaped my ability to navigate complex environments, leading me to the Islamic University of Science and Technology (IUST) for my MCA and eventually to the University of Kashmir, where I am currently pursuing a PhD in Computer Science. Today, I serve as a Project Research Scientist at CIRI, specializing in 3D Spatial Genomics and Bioinformatics, implementing complex programming skills to solve intricate biological puzzles within high-performance environments. My background is uniquely balanced by expert-level root-system administration, deep-tier debugging, and lossless system recovery, forging a seamless fusion of hardware-level optimization and advanced data-driven discovery.
+                    My journey in science is rooted in the resilience of Kashmir, where I began my primary education within my local locality before moving to Bijbehara town for my graduation studies. These early years shaped my ability to navigate complex environments, leading me to the Islamic University of Science and Technology (IUST) for my MCA and eventually to the University of Kashmir, where I am currently pursuing a PhD in Computer Science. Today, I serve as a Project Research Scientist at the Chromatin and Epigenetics Lab (CIRI), specializing in the high-stakes field of 3D Spatial Genomics and Bioinformatics. My work involves implementing advanced programming skills to decode intricate biological puzzles using high-performance computing pipelines. I am recognized for my mastery in lossless system recovery and password restoration, ensuring total data preservation in critical research scenarios.
                 </p>
             </div>
-            <div class="section-card">
-                <h2 class="text-2xl font-bold mb-6 text-purple-400 uppercase tracking-tighter border-b border-purple-500/20 pb-2">Strategic Objective</h2>
+            <div class="section-card border-r-4 border-purple-500">
+                <h2 class="text-2xl font-bold mb-6 text-purple-400 uppercase tracking-tighter">Strategic Objective</h2>
                 <p class="text-gray-400 leading-relaxed text-sm text-justify">
-                    My objective is to pioneer advanced computational models and AI-driven methodologies specifically designed to decode the complexities of 3D Spatial Genomics and chromatin organization. I aim to leverage my computer applications background to architect scalable, AI-driven pipelines that transform raw biological data into high-fidelity scientific insights. I seek to establish new benchmarks in bioinformatic data analysis and predictive modeling, leading multidisciplinary teams at the intersection of Computer Science and Life Sciences, committed to accelerating therapeutic breakthroughs and proving that technological excellence can be forged from any path.
+                    My objective is to pioneer the development of advanced computational models and AI-driven methodologies specifically designed to decode the complexities of 3D Spatial Genomics and chromatin organization. I aim to leverage my diverse background in computer applications to architect highly scalable, cloud-native frameworks capable of performing real-time multi-dimensional analysis on massive biological datasets. Through my doctoral research at the University of Kashmir, I seek to integrate advanced Machine Learning models into chromatin architecture studies to identify hidden organizational patterns previously invisible to traditional methods. I am dedicated to engineering open-source analytical tools and interactive visualizers that make abstract multi-omic landscapes actionable for the global scientific community.
                 </p>
             </div>
         </div>
@@ -161,83 +149,78 @@
     <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
         <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Services Provided</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="section-card service-card">
+            <div class="section-card border-l-2 border-blue-500">
                 <i class="fas fa-terminal text-blue-400 text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">System Technician</h3>
                 <p class="text-sm text-gray-400">Root-level OS installation, maintenance, and lossless system recovery via advanced password breaking.</p>
             </div>
-            <div class="section-card service-card">
+            <div class="section-card border-l-2 border-purple-500">
                 <i class="fas fa-file-shield text-purple-400 text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">Software Engineering</h3>
                 <p class="text-sm text-gray-400">Professionally patched software solutions and cracked environments for diverse OS architectures.</p>
             </div>
-            <div class="section-card service-card">
+            <div class="section-card border-l-2 border-blue-500">
                 <i class="fas fa-dna text-blue-400 text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">Genomic Analysis</h3>
                 <p class="text-sm text-gray-400">High-performance pipelines for HI-C, Micro-C, RNA-Seq, ATAC-Seq, and Chip-Seq analysis.</p>
             </div>
-            <div class="section-card service-card">
+            <div class="section-card border-l-2 border-purple-500">
                 <i class="fas fa-code-branch text-purple-400 text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">Academic Web Dev</h3>
                 <p class="text-sm text-gray-400">Deployment and Version Control (Git) for Masters Level Projects and Internships.</p>
             </div>
-            <div class="section-card service-card">
+            <div class="section-card border-l-2 border-blue-500">
                 <i class="fas fa-chart-pie text-blue-400 text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">Data Analysis</h3>
                 <p class="text-sm text-gray-400">Comprehensive analysis of 3D Spatial Genomics implementing advanced programming logic.</p>
             </div>
-            <div class="section-card service-card">
+            <div class="section-card border-l-2 border-purple-500">
                 <i class="fas fa-laptop-code text-purple-400 text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">MS Office Automation</h3>
-                <p class="text-sm text-gray-400">Specialized automation and modeling using Excel, Access, Word, and PowerPoint.</p>
+                <p class="text-sm text-gray-400">Professional automation and modeling using Excel, Access, Word, and PowerPoint.</p>
             </div>
         </div>
     </section>
 
-    <section id="expertise" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="section-card">
-                <h2 class="text-2xl font-bold mb-6 text-blue-400 uppercase tracking-tighter">Academic Path</h2>
-                <div class="space-y-4">
-                    <div class="border-l-2 border-blue-500 pl-4"><h4 class="font-bold text-blue-400">PhD Computer Science</h4><p class="text-xs text-gray-500">University of Kashmir | Present</p></div>
-                    <div class="border-l-2 border-purple-500 pl-4"><h4 class="font-bold text-purple-400">Masters (MCA)</h4><p class="text-xs text-gray-500 italic">Islamic Univ of Sci & Tech (IUST)</p></div>
-                    <div class="border-l-2 border-blue-500 pl-4"><h4 class="font-bold text-blue-400">B.Sc</h4><p class="text-xs text-gray-500">University of Kashmir (Bijbehara Town)</p></div>
-                    <div class="pt-4 border-t border-white/10"><p class="text-[10px] text-gray-400 uppercase font-bold mb-2">Vocational Certs</p><div class="flex flex-wrap gap-2 text-[10px]"><span class="text-yellow-500">CCCA - NIELIT</span> | <span class="text-green-500">Field Tech - PMKVY</span> | <span class="text-red-500">CCTV Tech - PMKVY</span></div></div>
-                </div>
+    <section id="expertise" class="py-24 px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
+        <div class="section-card">
+            <h2 class="text-2xl font-bold mb-6 text-blue-400 uppercase tracking-tighter">Academic Path</h2>
+            <div class="space-y-4">
+                <div class="border-l-2 border-blue-500 pl-4"><h4 class="font-bold text-blue-400">PhD Computer Science</h4><p class="text-xs text-gray-500">University of Kashmir | Present</p></div>
+                <div class="border-l-2 border-purple-500 pl-4"><h4 class="font-bold text-purple-400">Masters (MCA)</h4><p class="text-xs text-gray-500 italic">IUST</p></div>
+                <div class="border-l-2 border-blue-500 pl-4"><h4 class="font-bold text-blue-400">B.Sc</h4><p class="text-xs text-gray-500">University of Kashmir (Bijbehara Town)</p></div>
             </div>
-            <div class="section-card">
-                <h2 class="text-2xl font-bold mb-6 text-purple-400 uppercase tracking-tighter">Technical Stack</h2>
-                <div class="grid grid-cols-4 gap-4 text-center">
-                    <div><i class="fab fa-python stack-icon text-blue-400"></i><p class="text-[10px]">Python</p></div>
-                    <div><i class="fas fa-globe stack-icon text-purple-400"></i><p class="text-[10px]">Web Design</p></div>
-                    <div><i class="fas fa-bezier-curve stack-icon text-blue-400"></i><p class="text-[10px]">Graphics</p></div>
-                    <div><i class="fas fa-terminal stack-icon text-purple-400"></i><p class="text-[10px]">OS Setup</p></div>
-                    <div><i class="fas fa-unlock stack-icon text-blue-400"></i><p class="text-[10px]">Recovery</p></div>
-                    <div><i class="fas fa-file-invoice-dollar stack-icon text-purple-400"></i><p class="text-[10px]">Tally</p></div>
-                    <div><i class="fas fa-robot stack-icon text-blue-400"></i><p class="text-[10px]">Bio-ML</p></div>
-                    <div><i class="fas fa-code stack-icon text-purple-400"></i><p class="text-[10px]">C/C++</p></div>
-                </div>
+        </div>
+        <div class="section-card">
+            <h2 class="text-2xl font-bold mb-6 text-purple-400 uppercase tracking-tighter">Technical Stack</h2>
+            <div class="grid grid-cols-4 gap-4 text-center">
+                <div><i class="fab fa-python stack-icon text-blue-400"></i><p class="text-[10px]">Python</p></div>
+                <div><i class="fas fa-globe stack-icon text-purple-400"></i><p class="text-[10px]">Web Design</p></div>
+                <div><i class="fas fa-bezier-curve stack-icon text-blue-400"></i><p class="text-[10px]">Graphics</p></div>
+                <div><i class="fas fa-terminal stack-icon text-purple-400"></i><p class="text-[10px]">OS Setup</p></div>
+                <div><i class="fas fa-unlock stack-icon text-blue-400"></i><p class="text-[10px]">Recovery</p></div>
+                <div><i class="fas fa-calculator stack-icon text-blue-400"></i><p class="text-[10px]">Tally</p></div>
+                <div><i class="fas fa-robot stack-icon text-blue-400"></i><p class="text-[10px]">Bio-ML</p></div>
+                <div><i class="fas fa-code stack-icon text-purple-400"></i><p class="text-[10px]">C/C++</p></div>
             </div>
-            <div class="section-card">
-                <h2 class="text-2xl font-bold mb-6 text-blue-400 uppercase tracking-tighter">Research Domain</h2>
-                <ul class="space-y-4 text-sm text-gray-400">
-                    <li><i class="fas fa-dna mr-2 text-blue-500"></i>3D Spatial Genomics</li>
-                    <li><i class="fas fa-brain mr-2 text-purple-500"></i>Machine Learning</li>
-                    <li><i class="fas fa-microscope mr-2 text-blue-500"></i>Computational Biology</li>
-                    <li><i class="fas fa-chart-area mr-2 text-purple-500"></i>Data Analysis</li>
-                </ul>
-            </div>
-            <div class="section-card">
-                <h2 class="text-2xl font-bold mb-6 text-purple-400 uppercase tracking-tighter">Additional Skills</h2>
-                <ul class="space-y-3 text-sm text-gray-400">
-                    <li><i class="fas fa-server mr-2 text-blue-400"></i>HPC Cluster Management</li>
-                    <li><i class="fas fa-chart-line mr-2 text-purple-400"></i>Complex Data Visualization</li>
-                    <li><i class="fas fa-shield-alt mr-2 text-blue-400"></i>Data Integrity & Security</li>
-                    <li><i class="fas fa-users-cog mr-2 text-purple-400"></i>Technical Project Leadership</li>
-                    <li><i class="fas fa-microchip mr-2 text-blue-400"></i>Hardware Lifecycle Management</li>
-                    <li><i class="fas fa-network-wired mr-2 text-purple-400"></i>Lossless System Recovery</li>
-                </ul>
-            </div>
+        </div>
+        <div class="section-card">
+            <h2 class="text-2xl font-bold mb-6 text-blue-400 uppercase tracking-tighter">Research Domain</h2>
+            <ul class="space-y-4 text-sm text-gray-400">
+                <li><i class="fas fa-dna mr-2 text-blue-500"></i>3D Spatial Genomics</li>
+                <li><i class="fas fa-brain mr-2 text-purple-500"></i>Machine Learning</li>
+                <li><i class="fas fa-microscope mr-2 text-blue-500"></i>Computational Biology</li>
+                <li><i class="fas fa-chart-area mr-2 text-purple-500"></i>Data Analysis</li>
+            </ul>
+        </div>
+        <div class="section-card">
+            <h2 class="text-2xl font-bold mb-6 text-purple-400 uppercase tracking-tighter">Additional Skills</h2>
+            <ul class="space-y-3 text-sm text-gray-400">
+                <li><i class="fas fa-server mr-2 text-blue-400"></i>HPC Cluster Management</li>
+                <li><i class="fas fa-chart-line mr-2 text-purple-400"></i>Data Visualization</li>
+                <li><i class="fas fa-shield-alt mr-2 text-blue-400"></i>Data Integrity & Security</li>
+                <li><i class="fas fa-users-cog mr-2 text-purple-400"></i>Technical Project Leadership</li>
+            </ul>
         </div>
     </section>
 
@@ -251,99 +234,37 @@
     </footer>
 
     <script>
-        // Ensure the library loads correctly
-        if (typeof tsParticles === 'undefined') {
-            console.error('tsParticles library failed to load. The animation will not work.');
-            // Fallback: just show the photo if JS fails
-            document.getElementById('final-photo').style.opacity = '1';
-        } else {
-            // LOAD THE ANIMATION
-            tsParticles.load("tsparticles-photo", {
-                fpsLimit: 60,
-                particles: {
-                    number: {
-                        value: 5000, // HIGH count for detailed image assembly
-                        density: { enable: false }
-                    },
-                    color: { value: "#ffffff" }, // Base color (ignored during image sampling)
-                    shape: { type: "circle" },
-                    opacity: { value: 1 },
-                    size: { value: 1 }, // Tiniest particles for high fidelity image
-                    
-                    // INITIAL STATE: DISPERSED WIND
-                    move: {
-                        enable: true,
-                        speed: 10, // Initial speed of the "wind"
-                        direction: "random",
-                        random: true,
-                        straight: false,
-                        outModes: { default: "out" }, // Particles can fly out of bounds initially
-                        
-                        // SAMPLING THE IMAGE (Crucial step)
-                        // REPLACE "pic.jpg" here if your filename is different
-                        image: {
-                            src: "pic.jpg", 
-                            width: 350,
-                            height: 350
-                        }
-                    }
-                },
-                
-                // ASSEMBLY EFFECT: Magnetic Pull on Page Load
-                interactivity: {
-                    detectsOn: "canvas",
-                    events: {
-                        onDiv: {
-                            enable: true,
-                            selectors: "#tsparticles-photo", // Target the canvas div itself
-                            mode: "bubble", // Special mode for sampling colors/positions
-                            type: "rectangle" // Cover the whole container
-                        }
-                    },
-                    modes: {
-                        bubble: {
-                            distance: 400, // Magnetic reach
-                            duration: 2,
-                            opacity: 1,
-                            size: 1,
-                            color: "#ffffff",
-                            // This signals tsParticles to pull particles 
-                            // to the correct image coordinates/color
-                            mix: false, 
-                            divs: {
-                                selectors: "#tsparticles-photo",
-                                bubble: true
-                            }
-                        }
-                    }
-                },
-                detectRetina: true
-            }).then(() => {
-                console.log("Particle Photo Assembly Initialized.");
-                
-                const container = document.getElementById('particle-photo-container');
-                const fallbackPhoto = document.getElementById('final-photo');
-                
-                // PHASE 1: Assembly (JS triggers the tsParticles magnetism automatically)
-                // PHASE 2: Lock-in & Transition
-                // tsParticles samples on load, so magnetism is immediate. We wait for it.
-                
-                // We simulate the time it takes for particles to assemble (approx 4s)
+        tsParticles.load("tsparticles-mirror", {
+            fpsLimit: 60,
+            particles: {
+                number: { value: 1500 },
+                color: { value: "#ffffff" },
+                shape: { type: "polygon", options: { polygon: { sides: 3 } } },
+                opacity: { value: 0.8 },
+                size: { value: 3 },
+                move: {
+                    enable: true,
+                    speed: 12,
+                    direction: "inside",
+                    outModes: { default: "destroy" },
+                    image: { src: "pic.jpg", width: 350, height: 350 }
+                }
+            },
+            interactivity: {
+                detectsOn: "canvas",
+                modes: { bubble: { distance: 400, duration: 2, opacity: 1, size: 3, color: "#ffffff", mix: false } }
+            }
+        }).then(() => {
+            const pic = document.getElementById('final-pic');
+            const flash = document.getElementById('flash-overlay');
+            setTimeout(() => {
+                flash.classList.add('animate-flash');
                 setTimeout(() => {
-                    // Start fading in the high-res fallback photo behind particles
-                    fallbackPhoto.style.opacity = "1";
-                    
-                    // Add assembled styling (border glow) to the frame
-                    container.classList.add('assembled');
-                    
-                    // Optionally: Slowly stop the particle simulation to save CPU
-                    // (But keep canvas visible for fidelity)
-                    // const canvas = document.querySelector('#tsparticles-photo canvas');
-                    // setTimeout(() => { canvas.style.opacity = '0.1'; }, 1000);
-
-                }, 4500); // Wait 4.5 seconds after load to finalize
-            });
-        }
+                    pic.style.opacity = "1";
+                    document.querySelector('#tsparticles-mirror canvas').style.opacity = '0';
+                }, 100);
+            }, 3000);
+        });
     </script>
 </body>
 </html>
