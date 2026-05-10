@@ -4,25 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sameer Mushtaq Tantray | Project Research Scientist & PhD Scholar</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono&display=swap');
+        
         :root {
             --bg-color: #030014;
             --neon-purple: #a855f7;
             --neon-blue: #3b82f6;
             --card-bg: rgba(255, 255, 255, 0.03);
         }
-        body { background-color: var(--bg-color); color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        .glass-nav { background: rgba(3, 0, 20, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-        .hero-gradient { background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.12) 0%, rgba(3, 0, 20, 1) 70%); }
-        .section-card { background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 2.5rem; transition: all 0.4s ease; height: 100%; }
-        .section-card:hover { border-color: rgba(168, 85, 247, 0.4); transform: translateY(-5px); background: rgba(255, 255, 255, 0.05); }
+
+        body { 
+            background-color: var(--bg-color); 
+            color: #f8fafc; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            scroll-behavior: smooth; 
+        }
+
+        /* NAVIGATION STYLES */
+        .glass-nav { 
+            background: rgba(3, 0, 20, 0.8); 
+            backdrop-filter: blur(12px); 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+        }
+
+        /* HERO STYLES */
+        .hero-gradient { 
+            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.12) 0%, rgba(3, 0, 20, 1) 70%); 
+        }
+
+        /* SECTION CARDS */
+        .section-card { 
+            background: var(--card-bg); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            border-radius: 1.5rem; 
+            padding: 2.5rem; 
+            transition: all 0.4s ease; 
+            height: 100%; 
+        }
+        .section-card:hover { 
+            border-color: rgba(168, 85, 247, 0.4); 
+            transform: translateY(-5px); 
+            background: rgba(255, 255, 255, 0.05); 
+        }
         .service-card { border-left: 3px solid var(--neon-blue); padding-left: 1.5rem; }
-        .floating { animation: float 6s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-        .my-photo { width: 300px; height: 300px; object-fit: cover; border-radius: 2rem; border: 2px solid rgba(255, 255, 255, 0.1); z-index: 10; position: relative; }
+
+        /* THE PARTICLE PHOTO CONTAINER */
+        #particle-photo-container {
+            width: 350px;
+            height: 350px;
+            position: relative;
+            border-radius: 2rem;
+            /* Creates the frame look before assembly */
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            /* Soft neon glow around the frame */
+            transition: border-color 1s ease, box-shadow 1s ease;
+        }
+
+        /* Subtle glow when fully assembled (Triggered by JS) */
+        #particle-photo-container.assembled {
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
+        }
+
+        /* The actual canvas tsParticles draws on */
+        #tsparticles-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 2rem;
+        }
+
+        /* Standard Photo fallback (invisible unless particles fail) */
+        .my-photo-fallback { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            border-radius: 2rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0; /* JS will reveal this when assembly is done */
+            transition: opacity 1.5s ease;
+            z-index: 1; /* Sits behind particles during assembly */
+        }
+
+        /* TECH STACK ICONS */
         .stack-icon { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
     </style>
 </head>
@@ -54,10 +128,14 @@
                     <a href="#profile" class="px-8 py-4 bg-purple-600 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all">View Research Profile</a>
                 </div>
             </div>
-            <div class="flex justify-center">
-                <div class="floating relative">
-                    <div class="absolute -inset-4 bg-purple-500/20 blur-3xl rounded-full"></div>
-                    <img src="pic.jpg" alt="Sameer Mushtaq Tantray" class="my-photo">
+            
+            <div class="flex justify-center relative">
+                <div class="absolute -inset-10 bg-purple-500/10 blur-3xl rounded-full opacity-50"></div>
+                
+                <div id="particle-photo-container">
+                    <div id="tsparticles-photo"></div>
+                    
+                    <img src="pic.jpg" alt="Sameer Mushtaq Tantray" class="my-photo-fallback" id="final-photo">
                 </div>
             </div>
         </div>
@@ -68,13 +146,13 @@
             <div class="section-card">
                 <h2 class="text-2xl font-bold mb-6 text-blue-400 uppercase tracking-tighter border-b border-blue-500/20 pb-2">Professional Summary</h2>
                 <p class="text-gray-400 leading-relaxed text-sm text-justify">
-                    My journey in science is rooted in the resilience of Kashmir, where I began my primary education within my local locality before moving to Bijbehara town for my graduation studies. These early years shaped my ability to navigate complex environments, leading me to the Islamic University of Science and Technology (IUST) for my MCA and eventually to the University of Kashmir, where I am currently pursuing a PhD in Computer Science. Today, I serve as a Project Research Scientist at the Chromatin and Epigenetics Lab (CIRI), specializing in the high-stakes field of 3D Spatial Genomics and Bioinformatics. My work involves implementing advanced programming skills to decode intricate biological puzzles using high-performance computing pipelines. My technical background is uniquely balanced by expert-level root-system administration, allowing me to manage multi-platform OS environments with deep-tier debugging capabilities. I am recognized for my mastery in lossless system recovery and password restoration, ensuring total data preservation in critical research scenarios. Beyond pure informatics, I provide professional software engineering services, including the deployment of patched software solutions tailored for diverse professional purposes. My career is defined by the seamless fusion of hardware-level optimization and advanced data-driven discovery, proving that technological excellence can be forged from any path.
+                    My journey in science is rooted in the resilience of Kashmir, where I began my primary education within my local locality before moving to Bijbehara town for my graduation studies. These early years shaped my ability to navigate complex environments, leading me to the Islamic University of Science and Technology (IUST) for my MCA and eventually to the University of Kashmir, where I am currently pursuing a PhD in Computer Science. Today, I serve as a Project Research Scientist at CIRI, specializing in 3D Spatial Genomics and Bioinformatics, implementing complex programming skills to solve intricate biological puzzles within high-performance environments. My background is uniquely balanced by expert-level root-system administration, deep-tier debugging, and lossless system recovery, forging a seamless fusion of hardware-level optimization and advanced data-driven discovery.
                 </p>
             </div>
             <div class="section-card">
                 <h2 class="text-2xl font-bold mb-6 text-purple-400 uppercase tracking-tighter border-b border-purple-500/20 pb-2">Strategic Objective</h2>
                 <p class="text-gray-400 leading-relaxed text-sm text-justify">
-                    My objective is to pioneer the development of advanced computational models and AI-driven methodologies specifically designed to decode the complexities of 3D Spatial Genomics and chromatin organization. I aim to leverage my diverse background in computer applications to architect highly scalable, cloud-native frameworks capable of performing real-time multi-dimensional analysis on massive biological datasets. Through my doctoral research at the University of Kashmir, I seek to integrate advanced Machine Learning models into chromatin architecture studies to identify hidden organizational patterns previously invisible to traditional methods. I am dedicated to engineering open-source analytical tools and interactive visualizers that make abstract multi-omic landscapes actionable for the global scientific community. My vision involves developing high-fidelity predictive simulations that can forecast genomic structural changes under varying environmental and experimental conditions. I intend to lead multidisciplinary research teams at the nexus of Computer Science and Life Sciences, fostering a legacy of innovation through computational excellence and automated discovery. Ultimately, I strive to establish secure, ethically-sound computational environments that protect sensitive scientific data while accelerating the pace of therapeutic breakthroughs.
+                    My objective is to pioneer advanced computational models and AI-driven methodologies specifically designed to decode the complexities of 3D Spatial Genomics and chromatin organization. I aim to leverage my computer applications background to architect scalable, AI-driven pipelines that transform raw biological data into high-fidelity scientific insights. I seek to establish new benchmarks in bioinformatic data analysis and predictive modeling, leading multidisciplinary teams at the intersection of Computer Science and Life Sciences, committed to accelerating therapeutic breakthroughs and proving that technological excellence can be forged from any path.
                 </p>
             </div>
         </div>
@@ -111,7 +189,7 @@
             <div class="section-card service-card">
                 <i class="fas fa-laptop-code text-purple-400 text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">MS Office Automation</h3>
-                <p class="text-sm text-gray-400">Professional automation and modeling using Excel, Access, Word, and PowerPoint.</p>
+                <p class="text-sm text-gray-400">Specialized automation and modeling using Excel, Access, Word, and PowerPoint.</p>
             </div>
         </div>
     </section>
@@ -172,5 +250,100 @@
         <p class="text-gray-700 text-[10px] uppercase tracking-[0.4em]">&copy; 2026 SAMEER MUSHTAQ TANTRAY</p>
     </footer>
 
+    <script>
+        // Ensure the library loads correctly
+        if (typeof tsParticles === 'undefined') {
+            console.error('tsParticles library failed to load. The animation will not work.');
+            // Fallback: just show the photo if JS fails
+            document.getElementById('final-photo').style.opacity = '1';
+        } else {
+            // LOAD THE ANIMATION
+            tsParticles.load("tsparticles-photo", {
+                fpsLimit: 60,
+                particles: {
+                    number: {
+                        value: 5000, // HIGH count for detailed image assembly
+                        density: { enable: false }
+                    },
+                    color: { value: "#ffffff" }, // Base color (ignored during image sampling)
+                    shape: { type: "circle" },
+                    opacity: { value: 1 },
+                    size: { value: 1 }, // Tiniest particles for high fidelity image
+                    
+                    // INITIAL STATE: DISPERSED WIND
+                    move: {
+                        enable: true,
+                        speed: 10, // Initial speed of the "wind"
+                        direction: "random",
+                        random: true,
+                        straight: false,
+                        outModes: { default: "out" }, // Particles can fly out of bounds initially
+                        
+                        // SAMPLING THE IMAGE (Crucial step)
+                        // REPLACE "pic.jpg" here if your filename is different
+                        image: {
+                            src: "pic.jpg", 
+                            width: 350,
+                            height: 350
+                        }
+                    }
+                },
+                
+                // ASSEMBLY EFFECT: Magnetic Pull on Page Load
+                interactivity: {
+                    detectsOn: "canvas",
+                    events: {
+                        onDiv: {
+                            enable: true,
+                            selectors: "#tsparticles-photo", // Target the canvas div itself
+                            mode: "bubble", // Special mode for sampling colors/positions
+                            type: "rectangle" // Cover the whole container
+                        }
+                    },
+                    modes: {
+                        bubble: {
+                            distance: 400, // Magnetic reach
+                            duration: 2,
+                            opacity: 1,
+                            size: 1,
+                            color: "#ffffff",
+                            // This signals tsParticles to pull particles 
+                            // to the correct image coordinates/color
+                            mix: false, 
+                            divs: {
+                                selectors: "#tsparticles-photo",
+                                bubble: true
+                            }
+                        }
+                    }
+                },
+                detectRetina: true
+            }).then(() => {
+                console.log("Particle Photo Assembly Initialized.");
+                
+                const container = document.getElementById('particle-photo-container');
+                const fallbackPhoto = document.getElementById('final-photo');
+                
+                // PHASE 1: Assembly (JS triggers the tsParticles magnetism automatically)
+                // PHASE 2: Lock-in & Transition
+                // tsParticles samples on load, so magnetism is immediate. We wait for it.
+                
+                // We simulate the time it takes for particles to assemble (approx 4s)
+                setTimeout(() => {
+                    // Start fading in the high-res fallback photo behind particles
+                    fallbackPhoto.style.opacity = "1";
+                    
+                    // Add assembled styling (border glow) to the frame
+                    container.classList.add('assembled');
+                    
+                    // Optionally: Slowly stop the particle simulation to save CPU
+                    // (But keep canvas visible for fidelity)
+                    // const canvas = document.querySelector('#tsparticles-photo canvas');
+                    // setTimeout(() => { canvas.style.opacity = '0.1'; }, 1000);
+
+                }, 4500); // Wait 4.5 seconds after load to finalize
+            });
+        }
+    </script>
 </body>
 </html>
