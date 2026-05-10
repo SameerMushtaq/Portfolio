@@ -9,7 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono&family=Noto+Nastaliq+Urdu&display=swap');
         
         :root {
             --bg-color: #030014;
@@ -23,8 +23,27 @@
             color: #f8fafc; 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             scroll-behavior: smooth; 
+            position: relative; /* Essential for watermark positioning */
         }
 
+        /* URDU WATERMARK STYLING */
+        .urdu-watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg); /* Centered and slightly tilted */
+            font-family: 'Noto Nastaliq Urdu', serif; /* Use a suitable Urdu font */
+            font-size: 35vw; /* Extremely large size based on viewport width */
+            color: rgba(255, 255, 255, 0.02); /* White with very low visibility (2%) */
+            white-space: nowrap;
+            pointer-events: none; /* Allows clicks to pass through */
+            z-index: -1; /* Places it behind all content */
+            user-select: none; /* Prevents text selection */
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Exiting Website Styling (Unchanged) */
         .glass-nav { 
             background: rgba(3, 0, 20, 0.8); 
             backdrop-filter: blur(12px); 
@@ -64,6 +83,8 @@
     </style>
 </head>
 <body class="overflow-x-hidden">
+
+    <div class="urdu-watermark">کشمیر</div>
 
     <nav class="fixed top-0 w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -175,7 +196,7 @@
                     <div><i class="fas fa-bezier-curve stack-icon text-blue-400"></i><p class="text-[10px]">Graphics</p></div>
                     <div><i class="fas fa-terminal stack-icon text-purple-400"></i><p class="text-[10px]">OS Setup</p></div>
                     <div><i class="fas fa-unlock stack-icon text-blue-400"></i><p class="text-[10px]">Recovery</p></div>
-                    <div><i class="fas fa-file-invoice-dollar stack-icon text-purple-400"></i><p class="text-[10px]">Tally</p></div>
+                    <div><i class="fas fa-calculator stack-icon text-blue-400"></i><p class="text-[10px]">Tally</p></div>
                     <div><i class="fas fa-robot stack-icon text-blue-400"></i><p class="text-[10px]">Bio-ML</p></div>
                     <div><i class="fas fa-code stack-icon text-purple-400"></i><p class="text-[10px]">C/C++</p></div>
                 </div>
