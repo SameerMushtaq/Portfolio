@@ -301,11 +301,7 @@ nav a:hover{
 }
 
 /* =========================================
-   REAL ELECTRIC ARC FRAME
-========================================= */
-
-/* =========================================
-   REALISTIC RED ELECTRIC CURRENT FRAME
+   REAL ELECTRIC CURRENT FRAME
 ========================================= */
 
 .neon-border-flow{
@@ -323,7 +319,7 @@ nav a:hover{
     isolation:isolate;
 }
 
-/* MAIN ELECTRIC ARC */
+/* OUTER ELECTRIC ENERGY */
 
 .neon-border-flow::before{
 
@@ -331,9 +327,9 @@ nav a:hover{
 
     position:absolute;
 
-    inset:-8px;
+    inset:-10px;
 
-    border-radius:3.2rem;
+    border-radius:3.3rem;
 
     z-index:1;
 
@@ -342,185 +338,29 @@ nav a:hover{
 
             from 0deg,
 
-            #ff003c 0deg 4deg,
-            #ffffff 4deg 6deg,
-            #ff003c 6deg 10deg,
-            transparent 10deg 18deg,
+            #ff003c 0deg 3deg,
+            #ffffff 3deg 4deg,
+            transparent 4deg 8deg,
 
-            #ff3355 18deg 22deg,
-            #ffffff 22deg 24deg,
-            transparent 24deg 32deg
+            #ff003c 8deg 11deg,
+            #ffffff 11deg 12deg,
+            transparent 12deg 16deg
 
         );
 
     filter:
-        blur(1.5px)
+        blur(1px)
         drop-shadow(0 0 10px #ff003c)
         drop-shadow(0 0 25px #ff003c)
         drop-shadow(0 0 60px rgba(255,0,60,.95));
 
     animation:
-        electricSpin .55s linear infinite,
-        electricChaos .06s infinite,
-        electricFlash .12s infinite alternate;
+        electricRotate .5s linear infinite,
+        electricFlicker .08s infinite alternate,
+        electricShake .05s infinite;
 }
 
-/* INNER CURRENT */
-
-.neon-border-flow::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:2px;
-
-    border-radius:2.9rem;
-
-    border:3px solid rgba(255,255,255,.92);
-
-    z-index:2;
-
-    filter:
-        blur(.3px)
-        drop-shadow(0 0 10px #ffffff)
-        drop-shadow(0 0 25px #ff003c)
-        drop-shadow(0 0 45px #ff003c);
-
-    animation:
-        innerPulse .3s infinite alternate,
-        electricChaos .04s infinite;
-}
-
-/* IMAGE */
-
-.neon-border-flow img{
-
-    position:relative;
-
-    z-index:5;
-
-    display:block;
-
-    border-radius:2.6rem;
-}
-
-/* FAST ELECTRIC SPIN */
-
-@keyframes electricSpin{
-
-    0%{
-        transform:rotate(0deg);
-    }
-
-    100%{
-        transform:rotate(360deg);
-    }
-}
-
-/* CHAOTIC MOVEMENT */
-
-@keyframes electricChaos{
-
-    0%{
-        transform:translate(0px,0px) scale(1);
-    }
-
-    20%{
-        transform:translate(1px,-1px) scale(1.002);
-    }
-
-    40%{
-        transform:translate(-1px,1px) scale(.998);
-    }
-
-    60%{
-        transform:translate(1px,1px) scale(1.003);
-    }
-
-    80%{
-        transform:translate(-1px,-1px) scale(.997);
-    }
-
-    100%{
-        transform:translate(0px,0px) scale(1);
-    }
-}
-
-/* RANDOM FLASH */
-
-@keyframes electricFlash{
-
-    0%{
-        opacity:.72;
-    }
-
-    100%{
-        opacity:1;
-    }
-}
-
-/* INNER PULSE */
-
-@keyframes innerPulse{
-
-    0%{
-
-        box-shadow:
-            0 0 10px #ffffff,
-            0 0 20px #ff003c,
-            0 0 40px rgba(255,0,60,.55);
-
-    }
-
-    100%{
-
-        box-shadow:
-            0 0 18px #ffffff,
-            0 0 40px #ff003c,
-            0 0 90px rgba(255,0,60,1);
-
-    }
-}
-}
-
-/* ELECTRIC OUTER ARC */
-
-.neon-border-flow::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:-6px;
-
-    border-radius:3.2rem;
-
-    z-index:1;
-
-    background:
-        repeating-conic-gradient(
-            from 0deg,
-
-            #ff003c 0deg 6deg,
-            #ffffff 6deg 8deg,
-            #ff003c 8deg 14deg,
-            transparent 14deg 20deg
-        );
-
-    filter:
-        blur(2px)
-        drop-shadow(0 0 10px #ff003c)
-        drop-shadow(0 0 24px #ff003c)
-        drop-shadow(0 0 55px rgba(255,0,60,.95));
-
-    animation:
-        electricRotate .8s linear infinite,
-        electricFlicker .12s infinite alternate,
-        electricShake .08s infinite;
-}
-
-/* INNER ELECTRIC FRAME */
+/* INNER ELECTRIC LINE */
 
 .neon-border-flow::after{
 
@@ -537,14 +377,14 @@ nav a:hover{
     z-index:2;
 
     filter:
-        blur(.5px)
-        drop-shadow(0 0 8px #ffffff)
-        drop-shadow(0 0 20px #ff003c)
-        drop-shadow(0 0 40px #ff003c);
+        blur(.4px)
+        drop-shadow(0 0 10px #ffffff)
+        drop-shadow(0 0 25px #ff003c)
+        drop-shadow(0 0 45px #ff003c);
 
     animation:
-        pulseGlow .4s infinite alternate,
-        electricShake .05s infinite;
+        pulseGlow .25s infinite alternate,
+        electricShake .04s infinite;
 }
 
 /* IMAGE */
@@ -560,7 +400,7 @@ nav a:hover{
     border-radius:2.6rem;
 }
 
-/* ROTATING ARC ENERGY */
+/* ROTATION */
 
 @keyframes electricRotate{
 
@@ -573,7 +413,7 @@ nav a:hover{
     }
 }
 
-/* CHAOTIC SHAKE */
+/* CHAOTIC ELECTRIC SHAKE */
 
 @keyframes electricShake{
 
@@ -607,7 +447,7 @@ nav a:hover{
 @keyframes electricFlicker{
 
     0%{
-        opacity:.7;
+        opacity:.72;
     }
 
     100%{
@@ -622,9 +462,9 @@ nav a:hover{
     0%{
 
         box-shadow:
-            0 0 10px #ffffff,
-            0 0 25px #ff003c,
-            0 0 45px rgba(255,0,60,.55);
+            0 0 8px #ffffff,
+            0 0 18px #ff003c,
+            0 0 35px rgba(255,0,60,.5);
 
     }
 
@@ -632,7 +472,7 @@ nav a:hover{
 
         box-shadow:
             0 0 18px #ffffff,
-            0 0 45px #ff003c,
+            0 0 40px #ff003c,
             0 0 100px rgba(255,0,60,1);
 
     }
