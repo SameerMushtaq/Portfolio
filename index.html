@@ -12,22 +12,22 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono&family=Noto+Sans+Arabic:wght@900&display=swap');
 
         :root {
-            /* LIGHT MODE: AESTHETIC BLUE BG, NEON PURPLE ACCENTS, INTENSE RED GLOW */
-            --bg-color: white; /* Aesthetic Light Blue */
-            --bg-gradient: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            --card-bg: rgba(0, 255, 100, 0.9);
-            --text: #1e293b;
-            --muted: #64748b;
-            --accent-primary: #a855f7; /* Neon Purple */
-            --glow-color: rgba(239, 68, 68, 1); /* Red Glow - Increased Intensity */
-            --glow-intensity: 60px; /* Increased Size */
-            --border: rgba(168, 85, 247, 0.15);
-            --nav-bg: rgba(240, 249, 255, 0.9);
-            --watermark-color: rgba(168, 85, 247, 0.05);
+            /* LIGHT MODE: WHITE BG, GREEN TEXT, YELLOW GLOW */
+            --bg-color: #ffffff;
+            --bg-gradient: linear-gradient(135deg, #ffffff 0%, #f7fee7 100%);
+            --card-bg: #ffffff;
+            --text: #166534; /* Dark Green for readability */
+            --muted: #3f6212;
+            --accent-primary: #22c55e; /* Green Accent */
+            --glow-color: rgba(250, 204, 21, 0.9); /* Intense Yellow Glow */
+            --glow-intensity: 60px;
+            --border: rgba(34, 197, 94, 0.2);
+            --nav-bg: rgba(255, 255, 255, 0.9);
+            --watermark-color: rgba(22, 101, 52, 0.04);
         }
 
         .dark {
-            /* DARK MODE: BLACK BG, NEON RED ACCENTS, WHITE GLOW */
+            /* DARK MODE: BLACK BG, RED ACCENTS, WHITE GLOW */
             --bg-color: #020208;
             --bg-gradient: linear-gradient(135deg, #020208 0%, #050512 40%, #020208 100%);
             --card-bg: rgba(10, 10, 18, 0.85);
@@ -59,7 +59,7 @@
             inset: 0;
             background-image: radial-gradient(var(--accent-primary) 1px, transparent 1px);
             background-size: 140px 140px;
-            opacity: 0.12;
+            opacity: 0.1;
             pointer-events: none;
             z-index: -2;
         }
@@ -99,7 +99,7 @@
             padding: 2.5rem;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             height: 100%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
 
         .section-card:hover {
@@ -140,13 +140,12 @@
             object-fit: cover;
             border-radius: 2.7rem;
             border: 2px solid var(--border);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
             transition: all 0.4s ease;
         }
 
         .neon-border-flow:hover .my-photo {
             box-shadow: 0 0 var(--glow-intensity) var(--glow-color);
-            border-color: var(--accent-primary);
         }
 
         @media(min-width:768px) { .my-photo { width: 500px; height: 500px; } }
@@ -167,7 +166,7 @@
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: var(--bg-color); }
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--accent-primary), #700018);
+            background: linear-gradient(180deg, var(--accent-primary), #064e3b);
             border-radius: 999px;
         }
     </style>
@@ -222,13 +221,13 @@
 
     <section id="profile" class="py-24 px-6 max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 gap-12">
-            <div class="section-card border-l-4 border-accent">
+            <div class="section-card border-l-4 border-accent-primary">
                 <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter border-b border-black/5 dark:border-white/10 pb-2">Professional Summary</h2>
                 <p class="opacity-80 leading-relaxed text-sm text-justify">
                     My journey in science is rooted in the resilience of Kashmir, where I began my primary education within my local locality before moving to Bijbehara town for my graduation studies. These formative years shaped my ability to navigate complex environments with persistence, eventually leading me to the Islamic University of Science and Technology (IUST) for my MCA and now to the University of Kashmir, where I am pursuing a PhD in Computer Science. Currently, I serve as a Project Research Scientist at the Chromatin and Epigenetics Lab (CIRI), specializing in the cutting-edge fields of 3D Spatial Genomics and Bioinformatics. My core expertise lies in implementing advanced programming skills to decode intricate biological puzzles using high-performance computing pipelines. I possess a unique technical balance, combining doctoral-level research with expert root-level system administration and kernel debugging. I am recognized for my mastery in lossless system recovery and password restoration, ensuring total data preservation in critical research scenarios. Throughout my career, I have successfully managed large-scale multi-platform OS environments while providing professional software engineering services, including patched software solutions tailored for diverse professional purposes. My professional path is defined by the seamless fusion of hardware-level optimization and advanced data-driven discovery.
                 </p>
             </div>
-            <div class="section-card border-r-4 border-accent">
+            <div class="section-card border-r-4 border-accent-primary">
                 <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter border-b border-black/5 dark:border-white/10 pb-2">Strategic Objective</h2>
                 <p class="opacity-80 leading-relaxed text-sm text-justify">
                     My objective is to pioneer the development of advanced computational models and AI-driven methodologies specifically designed to decode the complexities of 3D Spatial Genomics and chromatin organization. I aim to leverage my computer applications background to architect highly scalable, cloud-native frameworks capable of performing real-time multi-dimensional analysis on massive biological datasets. Through my doctoral research at the University of Kashmir, I seek to integrate advanced Machine Learning models into chromatin architecture studies to identify hidden organizational patterns previously invisible to traditional methods. I am dedicated to engineering open-source analytical tools and interactive visualizers that make abstract multi-omic landscapes actionable for the global scientific community. My vision involves developing high-fidelity predictive simulations that can forecast genomic structural changes under varying environmental and experimental conditions. I intend to lead multidisciplinary research teams at the nexus of Computer Science and Life Sciences, fostering a legacy of innovation through computational excellence and automated discovery.
@@ -242,9 +241,9 @@
             <div class="section-card">
                 <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter">Academic Path</h2>
                 <div class="space-y-4">
-                    <div class="border-l-2 border-accent pl-4"><h4 class="font-bold text-accent-theme">PhD Computer Science</h4><p class="text-xs opacity-70">University of Kashmir | Present</p></div>
-                    <div class="border-l-2 border-accent pl-4"><h4 class="font-bold text-accent-theme">Masters (MCA)</h4><p class="text-xs opacity-70 italic">IUST</p></div>
-                    <div class="border-l-2 border-accent pl-4"><h4 class="font-bold text-accent-theme">B.Sc</h4><p class="text-xs opacity-70">University of Kashmir (Bijbehara Town)</p></div>
+                    <div class="border-l-2 border-accent-primary pl-4"><h4 class="font-bold text-accent-theme">PhD Computer Science</h4><p class="text-xs opacity-70">University of Kashmir | Present</p></div>
+                    <div class="border-l-2 border-accent-primary pl-4"><h4 class="font-bold text-accent-theme">Masters (MCA)</h4><p class="text-xs opacity-70 italic">IUST</p></div>
+                    <div class="border-l-2 border-accent-primary pl-4"><h4 class="font-bold text-accent-theme">B.Sc</h4><p class="text-xs opacity-70">University of Kashmir (Bijbehara Town)</p></div>
                     <div class="pt-4 border-t border-black/5 dark:border-white/10">
                         <p class="text-[10px] opacity-70 uppercase font-bold mb-2">Vocational Certs</p>
                         <div class="flex flex-wrap gap-2 text-[10px]">
@@ -292,32 +291,32 @@
     <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
         <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-accent-theme">Services Provided</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="section-card border-l-2 border-accent">
+            <div class="section-card border-l-2 border-accent-primary">
                 <i class="fas fa-terminal text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">System Technician</h3>
                 <p class="text-sm opacity-80">Root-level OS installation, maintenance, and lossless system recovery via advanced password breaking.</p>
             </div>
-            <div class="section-card border-l-2 border-accent">
+            <div class="section-card border-l-2 border-accent-primary">
                 <i class="fas fa-file-shield text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">Software Engineering</h3>
                 <p class="text-sm opacity-80">Professionally patched software solutions and cracked environments for diverse OS architectures.</p>
             </div>
-            <div class="section-card border-l-2 border-accent">
+            <div class="section-card border-l-2 border-accent-primary">
                 <i class="fas fa-dna text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">Genomic Analysis</h3>
                 <p class="text-sm opacity-80">High-performance pipelines for HI-C, Micro-C, RNA-Seq, ATAC-Seq, and Chip-Seq analysis.</p>
             </div>
-            <div class="section-card border-l-2 border-accent">
+            <div class="section-card border-l-2 border-accent-primary">
                 <i class="fas fa-code-branch text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">Academic Web Dev</h3>
                 <p class="text-sm opacity-80">Deployment and Version Control (Git) for Masters Level Projects and Internships.</p>
             </div>
-            <div class="section-card border-l-2 border-accent">
+            <div class="section-card border-l-2 border-accent-primary">
                 <i class="fas fa-chart-pie text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">Data Analysis</h3>
                 <p class="text-sm opacity-80">Comprehensive analysis of 3D Spatial Genomics implementing advanced programming logic.</p>
             </div>
-            <div class="section-card border-l-2 border-accent">
+            <div class="section-card border-l-2 border-accent-primary">
                 <i class="fas fa-laptop-code text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">MS Office Automation</h3>
                 <p class="text-sm opacity-80">Professional automation and modeling using Excel, Access, Word, and PowerPoint.</p>
