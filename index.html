@@ -12,33 +12,33 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono&family=Noto+Sans+Arabic:wght@900&display=swap');
 
         :root {
-            /* Light Mode Variables - Glow as Red */
+            /* LIGHT MODE: RED GLOW */
             --bg-color: #f8fafc;
             --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 40%, #f8fafc 100%);
             --card-bg: rgba(255, 255, 255, 0.9);
-            --text: #0f172a;
+            --text: #020208;
             --muted: #64748b;
-            --accent-primary: #e11d48; /* Red */
-            --glow-color: rgba(225, 29, 72, 0.3);
-            --glow-spread: 20px;
-            --border: rgba(225, 29, 72, 0.15);
+            --accent: #ff003c; /* Red Accent */
+            --glow-color: rgba(255, 0, 60, 0.35);
+            --glow-intensity: 25px;
+            --border: rgba(255, 0, 60, 0.12);
             --nav-bg: rgba(255, 255, 255, 0.8);
-            --watermark-opacity: rgba(225, 29, 72, 0.08);
+            --watermark-color: rgba(255, 0, 60, 0.05);
         }
 
         .dark {
-            /* Dark Mode Variables - Glow as Intense White */
+            /* DARK MODE: BLACK & RED THEME WITH WHITE GLOW */
             --bg-color: #020208;
             --bg-gradient: linear-gradient(135deg, #020208 0%, #050512 40%, #020208 100%);
             --card-bg: rgba(10, 10, 18, 0.82);
             --text: #f8fafc;
             --muted: #9ca3af;
-            --accent-primary: #ffffff; /* Intense White */
-            --glow-color: rgba(255, 255, 255, 0.6);
-            --glow-spread: 45px;
-            --border: rgba(255, 255, 255, 0.12);
+            --accent: #ff003c; /* Still Red Accent */
+            --glow-color: rgba(255, 255, 255, 0.8); /* Intense White Glow */
+            --glow-intensity: 55px; /* Increased Intensity */
+            --border: rgba(255, 0, 60, 0.12);
             --nav-bg: rgba(0, 0, 0, 0.55);
-            --watermark-opacity: rgba(255, 255, 255, 0.05);
+            --watermark-color: rgba(255, 255, 255, 0.03);
         }
 
         body {
@@ -47,17 +47,17 @@
             color: var(--text);
             font-family: 'Plus Jakarta Sans', sans-serif;
             scroll-behavior: smooth;
-            transition: background 0.4s ease, color 0.4s ease;
+            transition: all 0.4s ease;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* CYBERPUNK GRID */
+        /* GRID */
         body::before {
             content: "";
             position: fixed;
             inset: 0;
-            background-image: radial-gradient(var(--accent-primary) 1px, transparent 1px);
+            background-image: radial-gradient(var(--accent) 1px, transparent 1px);
             background-size: 140px 140px;
             opacity: 0.08;
             pointer-events: none;
@@ -74,7 +74,7 @@
             font-family: 'Noto Sans Arabic', sans-serif;
             font-size: 25vw;
             font-weight: 900;
-            color: var(--watermark-opacity);
+            color: var(--watermark-color);
             white-space: nowrap;
             pointer-events: none;
             z-index: -1;
@@ -100,16 +100,16 @@
             padding: 2.5rem;
             transition: all .4s ease;
             height: 100%;
-            box-shadow: 0 0 20px rgba(0,0,0,0.04), inset 0 0 25px rgba(255, 255, 255, 0.015);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
 
         .section-card:hover {
-            border-color: var(--accent-primary);
+            border-color: var(--accent);
             transform: translateY(-8px);
-            box-shadow: 0 0 var(--glow-spread) var(--glow-color);
+            box-shadow: 0 0 var(--glow-intensity) var(--glow-color);
         }
 
-        /* TOGGLE BUTTON */
+        /* THEME TOGGLE */
         #theme-toggle {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -124,32 +124,29 @@
         }
 
         #theme-toggle:hover {
-            border-color: var(--accent-primary);
-            transform: rotate(15deg);
             box-shadow: 0 0 15px var(--glow-color);
         }
 
-        /* TEXT STYLES */
-        .text-accent { color: var(--accent-primary) !important; }
-        .text-muted-theme { color: var(--muted) !important; }
+        /* TEXT AND ICONS */
+        .text-accent-theme { color: var(--accent) !important; }
         
         h1 span {
-            color: var(--accent-primary) !important;
-            text-shadow: 0 0 var(--glow-spread) var(--glow-color);
+            color: var(--accent) !important;
+            text-shadow: 0 0 var(--glow-intensity) var(--glow-color);
         }
 
-        /* ICON GLOWS */
         .stack-icon, .fas, .fab {
-            color: var(--accent-primary) !important;
-            filter: drop-shadow(0 0 8px var(--glow-color));
+            color: var(--accent) !important;
+            filter: drop-shadow(0 0 10px var(--glow-color));
         }
 
+        /* PHOTO */
         .my-photo {
             width: 300px; height: 300px;
             object-fit: cover;
             border-radius: 2.7rem;
             border: 2px solid var(--border);
-            box-shadow: 0 0 60px var(--glow-color);
+            box-shadow: 0 0 50px rgba(0,0,0,0.65);
             transition: all 0.4s ease;
         }
 
@@ -179,32 +176,32 @@
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: var(--bg-color); }
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--accent-primary), #700018);
+            background: linear-gradient(180deg, var(--accent), #700018);
             border-radius: 999px;
         }
     </style>
 </head>
+<body class="overflow-x-hidden">
 
-<body>
     <div class="urdu-watermark" dir="rtl">کشمیر</div>
 
     <nav class="fixed top-0 w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-4">
                 <img src="icon.png" alt="Logo" class="w-14 h-14 object-contain">
-                <span class="text-2xl font-extrabold tracking-tighter uppercase">Digital <span class="text-accent">Ninja</span></span>
+                <span class="text-2xl font-extrabold tracking-tighter uppercase">Digital <span class="text-accent-theme">Ninja</span></span>
             </div>
             
             <div class="flex items-center gap-8">
-                <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-muted-theme">
-                    <a href="#home" class="hover:text-accent transition">Home</a>
-                    <a href="#profile" class="hover:text-accent transition">Profile</a>
-                    <a href="#services" class="hover:text-accent transition">Services</a>
-                    <a href="#expertise" class="hover:text-accent transition">Expertise</a>
-                    <a href="#interests" class="hover:text-accent transition">Interests</a>
+                <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest opacity-70">
+                    <a href="#home" class="hover:text-accent-theme transition">Home</a>
+                    <a href="#profile" class="hover:text-accent-theme transition">Profile</a>
+                    <a href="#services" class="hover:text-accent-theme transition">Services</a>
+                    <a href="#expertise" class="hover:text-accent-theme transition">Expertise</a>
+                    <a href="#interests" class="hover:text-accent-theme transition">Interests</a>
                 </div>
-                <button id="theme-toggle" aria-label="Toggle Theme">
-                    <i id="theme-icon" class="fas fa-moon text-accent"></i>
+                <button id="theme-toggle">
+                    <i id="theme-icon" class="fas fa-moon text-accent-theme"></i>
                 </button>
             </div>
         </div>
@@ -213,18 +210,18 @@
     <section id="home" class="min-h-screen flex items-center px-6 pt-32 pb-16">
         <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div class="space-y-6 text-center md:text-left">
-                <h3 class="text-accent font-mono tracking-widest text-sm uppercase">PhD Scholar & Project Research Scientist</h3>
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">Sameer Mushtaq <span class="text-accent">Tantray</span></h1>
-                <p class="text-muted-theme text-lg leading-relaxed">
+                <h3 class="text-accent-theme font-mono tracking-widest text-sm uppercase">PhD Scholar & Project Research Scientist</h3>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">Sameer Mushtaq <span class="text-accent-theme">Tantray</span></h1>
+                <p class="opacity-80 text-lg leading-relaxed">
                     Decoding biological complexity through computational excellence.<br>
-                    <span class="text-accent font-semibold">Implementing programming skills in 3D Spatial Genomics and Bioinformatics.</span><br>
-                    <span class="opacity-80 text-base">Engineering scalable solutions at the intersection of life sciences and data.</span>
+                    <span class="text-accent-theme font-semibold">Implementing programming skills in 3D Spatial Genomics and Bioinformatics.</span><br>
+                    <span class="opacity-60">Engineering scalable solutions at the intersection of life sciences and data.</span>
                 </p>
             </div>
             
             <div class="flex justify-center relative">
                 <div class="floating relative">
-                    <div class="absolute -inset-20 bg-white/5 dark:bg-white/10 blur-[80px] rounded-full opacity-60"></div>
+                    <div class="absolute -inset-16 bg-white/5 dark:bg-white/10 blur-3xl rounded-full opacity-60"></div>
                     <div class="neon-border-flow">
                         <img src="pic.png" alt="Sameer Mushtaq Tantray" class="my-photo">
                     </div>
@@ -236,15 +233,15 @@
     <section id="profile" class="py-24 px-6 max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 gap-12">
             <div class="section-card border-l-4 border-accent">
-                <h2 class="text-2xl font-bold mb-6 text-accent uppercase tracking-tighter border-b border-white/10 pb-2">Professional Summary</h2>
-                <p class="text-muted-theme leading-relaxed text-sm text-justify">
-                    My journey in science is rooted in the resilience of Kashmir, where I began my primary education within my local locality before moving to Bijbehara town for my graduation studies. Formative years shaped my ability to navigate complex environments with persistence, eventually leading me to the Islamic University of Science and Technology (IUST) for my MCA and now to the University of Kashmir, where I am pursuing a PhD in Computer Science. Currently, I serve as a Project Research Scientist at the Chromatin and Epigenetics Lab (CIRI), specializing in the cutting-edge fields of 3D Spatial Genomics and Bioinformatics. I possess a unique technical balance, combining doctoral-level research with expert root-level system administration and kernel debugging.
+                <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter border-b border-white/10 pb-2">Professional Summary</h2>
+                <p class="opacity-70 leading-relaxed text-sm text-justify">
+                    My journey in science is rooted in the resilience of Kashmir, where I began my primary education within my local locality before moving to Bijbehara town for my graduation studies. These formative years shaped my ability to navigate complex environments with persistence, eventually leading me to the Islamic University of Science and Technology (IUST) for my MCA and now to the University of Kashmir, where I am pursuing a PhD in Computer Science. Currently, I serve as a Project Research Scientist at the Chromatin and Epigenetics Lab (CIRI), specializing in the cutting-edge fields of 3D Spatial Genomics and Bioinformatics. My core expertise lies in implementing advanced programming skills to decode intricate biological puzzles using high-performance computing pipelines. I possess a unique technical balance, combining doctoral-level research with expert root-level system administration and kernel debugging. I am recognized for my mastery in lossless system recovery and password restoration, ensuring total data preservation in critical research scenarios. Throughout my career, I have successfully managed large-scale multi-platform OS environments while providing professional software engineering services, including patched software solutions tailored for diverse professional purposes. My professional path is defined by the seamless fusion of hardware-level optimization and advanced data-driven discovery.
                 </p>
             </div>
             <div class="section-card border-r-4 border-accent">
-                <h2 class="text-2xl font-bold mb-6 text-accent uppercase tracking-tighter border-b border-white/10 pb-2">Strategic Objective</h2>
-                <p class="text-muted-theme leading-relaxed text-sm text-justify">
-                    My objective is to pioneer the development of advanced computational models and AI-driven methodologies specifically designed to decode the complexities of 3D Spatial Genomics and chromatin organization. I aim to leverage my computer applications background to architect highly scalable, cloud-native frameworks capable of performing real-time multi-dimensional analysis on massive biological datasets. Through my doctoral research at the University of Kashmir, I seek to integrate advanced Machine Learning models into chromatin architecture studies to identify hidden organizational patterns previously invisible to traditional methods.
+                <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter border-b border-white/10 pb-2">Strategic Objective</h2>
+                <p class="opacity-70 leading-relaxed text-sm text-justify">
+                    My objective is to pioneer the development of advanced computational models and AI-driven methodologies specifically designed to decode the complexities of 3D Spatial Genomics and chromatin organization. I aim to leverage my computer applications background to architect highly scalable, cloud-native frameworks capable of performing real-time multi-dimensional analysis on massive biological datasets. Through my doctoral research at the University of Kashmir, I seek to integrate advanced Machine Learning models into chromatin architecture studies to identify hidden organizational patterns previously invisible to traditional methods. I am dedicated to engineering open-source analytical tools and interactive visualizers that make abstract multi-omic landscapes actionable for the global scientific community. My vision involves developing high-fidelity predictive simulations that can forecast genomic structural changes under varying environmental and experimental conditions. I intend to lead multidisciplinary research teams at the nexus of Computer Science and Life Sciences, fostering a legacy of innovation through computational excellence and automated discovery.
                 </p>
             </div>
         </div>
@@ -253,13 +250,13 @@
     <section id="expertise" class="py-24 px-6 max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="section-card">
-                <h2 class="text-2xl font-bold mb-6 text-accent uppercase tracking-tighter">Academic Path</h2>
+                <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter">Academic Path</h2>
                 <div class="space-y-4">
-                    <div class="border-l-2 border-accent pl-4"><h4 class="font-bold text-accent">PhD Computer Science</h4><p class="text-xs text-muted-theme italic">University of Kashmir | Present</p></div>
-                    <div class="border-l-2 border-accent pl-4"><h4 class="font-bold text-accent">Masters (MCA)</h4><p class="text-xs text-muted-theme italic">IUST</p></div>
-                    <div class="border-l-2 border-accent pl-4"><h4 class="font-bold text-accent">B.Sc</h4><p class="text-xs text-muted-theme">University of Kashmir (Bijbehara Town)</p></div>
+                    <div class="border-l-2 border-accent pl-4"><h4 class="font-bold text-accent-theme">PhD Computer Science</h4><p class="text-xs opacity-60">University of Kashmir | Present</p></div>
+                    <div class="border-l-2 border-accent pl-4"><h4 class="font-bold text-accent-theme">Masters (MCA)</h4><p class="text-xs opacity-60 italic">IUST</p></div>
+                    <div class="border-l-2 border-accent pl-4"><h4 class="font-bold text-accent-theme">B.Sc</h4><p class="text-xs opacity-60">University of Kashmir (Bijbehara Town)</p></div>
                     <div class="pt-4 border-t border-white/10">
-                        <p class="text-[10px] text-muted-theme uppercase font-bold mb-2">Vocational Certs</p>
+                        <p class="text-[10px] opacity-60 uppercase font-bold mb-2">Vocational Certs</p>
                         <div class="flex flex-wrap gap-2 text-[10px]">
                             <span class="text-yellow-500">CCCA - NIELIT</span> | <span class="text-green-500">Field Tech - PMKVY</span> | <span class="text-red-500">CCTV Tech - PMKVY</span>
                         </div>
@@ -267,60 +264,96 @@
                 </div>
             </div>
             <div class="section-card">
-                <h2 class="text-2xl font-bold mb-6 text-accent uppercase tracking-tighter">Technical Stack</h2>
+                <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter">Technical Stack</h2>
                 <div class="grid grid-cols-4 gap-4 text-center">
-                    <div><i class="fab fa-python text-3xl mb-1"></i><p class="text-[10px]">Python</p></div>
-                    <div><i class="fas fa-globe text-3xl mb-1"></i><p class="text-[10px]">Web Design</p></div>
-                    <div><i class="fas fa-bezier-curve text-3xl mb-1"></i><p class="text-[10px]">Graphics</p></div>
-                    <div><i class="fas fa-terminal text-3xl mb-1"></i><p class="text-[10px]">OS Setup</p></div>
-                    <div><i class="fas fa-unlock text-3xl mb-1"></i><p class="text-[10px]">Recovery</p></div>
-                    <div><i class="fas fa-file-invoice-dollar text-3xl mb-1"></i><p class="text-[10px]">Tally</p></div>
-                    <div><i class="fas fa-robot text-3xl mb-1"></i><p class="text-[10px]">Bio-ML</p></div>
-                    <div><i class="fas fa-code text-3xl mb-1"></i><p class="text-[10px]">C/C++</p></div>
+                    <div><i class="fab fa-python text-3xl"></i><p class="text-[10px]">Python</p></div>
+                    <div><i class="fas fa-globe text-3xl"></i><p class="text-[10px]">Web Design</p></div>
+                    <div><i class="fas fa-bezier-curve text-3xl"></i><p class="text-[10px]">Graphics</p></div>
+                    <div><i class="fas fa-terminal text-3xl"></i><p class="text-[10px]">OS Setup</p></div>
+                    <div><i class="fas fa-unlock text-3xl"></i><p class="text-[10px]">Recovery</p></div>
+                    <div><i class="fas fa-file-invoice-dollar text-3xl"></i><p class="text-[10px]">Tally</p></div>
+                    <div><i class="fas fa-robot text-3xl"></i><p class="text-[10px]">Bio-ML</p></div>
+                    <div><i class="fas fa-code text-3xl"></i><p class="text-[10px]">C/C++</p></div>
                 </div>
+            </div>
+            <div class="section-card">
+                <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter">Research Domain</h2>
+                <ul class="space-y-4 text-sm opacity-70">
+                    <li><i class="fas fa-dna mr-2"></i>3D Spatial Genomics</li>
+                    <li><i class="fas fa-brain mr-2"></i>Machine Learning</li>
+                    <li><i class="fas fa-microscope mr-2"></i>Computational Biology</li>
+                    <li><i class="fas fa-chart-area mr-2"></i>Data Analysis</li>
+                </ul>
+            </div>
+            <div class="section-card">
+                <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter">Additional Skills</h2>
+                <ul class="space-y-3 text-sm opacity-70">
+                    <li><i class="fas fa-server mr-2"></i>HPC Cluster Management</li>
+                    <li><i class="fas fa-chart-line mr-2"></i>Complex Data Visualization</li>
+                    <li><i class="fas fa-shield-alt mr-2"></i>Data Integrity & Security</li>
+                    <li><i class="fas fa-users-cog mr-2"></i>Technical Project Leadership</li>
+                    <li><i class="fas fa-microchip mr-2"></i>Hardware Lifecycle Management</li>
+                    <li><i class="fas fa-network-wired mr-2"></i>Advanced System Recovery</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-accent">Services Provided</h2>
+        <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-accent-theme">Services Provided</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="section-card border-l-2 border-accent">
                 <i class="fas fa-terminal text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">System Technician</h3>
-                <p class="text-sm text-muted-theme">Root-level OS installation, maintenance, and lossless system recovery via advanced password breaking.</p>
+                <p class="text-sm opacity-70">Root-level OS installation, maintenance, and lossless system recovery via advanced password breaking.</p>
+            </div>
+            <div class="section-card border-l-2 border-accent">
+                <i class="fas fa-file-shield text-2xl mb-4"></i>
+                <h3 class="font-bold text-lg mb-2">Software Engineering</h3>
+                <p class="text-sm opacity-70">Professionally patched software solutions and cracked environments for diverse OS architectures.</p>
             </div>
             <div class="section-card border-l-2 border-accent">
                 <i class="fas fa-dna text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">Genomic Analysis</h3>
-                <p class="text-sm text-muted-theme">High-performance pipelines for HI-C, Micro-C, RNA-Seq, ATAC-Seq, and Chip-Seq analysis.</p>
+                <p class="text-sm opacity-70">High-performance pipelines for HI-C, Micro-C, RNA-Seq, ATAC-Seq, and Chip-Seq analysis.</p>
+            </div>
+            <div class="section-card border-l-2 border-accent">
+                <i class="fas fa-code-branch text-2xl mb-4"></i>
+                <h3 class="font-bold text-lg mb-2">Academic Web Dev</h3>
+                <p class="text-sm opacity-70">Deployment and Version Control (Git) for Masters Level Projects and Internships.</p>
+            </div>
+            <div class="section-card border-l-2 border-accent">
+                <i class="fas fa-chart-pie text-2xl mb-4"></i>
+                <h3 class="font-bold text-lg mb-2">Data Analysis</h3>
+                <p class="text-sm opacity-70">Comprehensive analysis of 3D Spatial Genomics implementing advanced programming logic.</p>
             </div>
             <div class="section-card border-l-2 border-accent">
                 <i class="fas fa-laptop-code text-2xl mb-4"></i>
                 <h3 class="font-bold text-lg mb-2">MS Office Automation</h3>
-                <p class="text-sm text-muted-theme">Professional automation and modeling using Excel, Access, Word, and PowerPoint.</p>
+                <p class="text-sm opacity-70">Professional automation and modeling using Excel, Access, Word, and PowerPoint.</p>
             </div>
         </div>
     </section>
 
     <section id="interests" class="py-24 px-6 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-accent">Interests</h2>
-        <div class="grid grid-cols-2 md:grid-cols-6 gap-6">
-            <div class="section-card text-center group"><i class="fas fa-baseball-bat-ball text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs">CRICKET</p></div>
-            <div class="section-card text-center group"><i class="fas fa-plane-departure text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs">TRAVEL</p></div>
-            <div class="section-card text-center group"><i class="fas fa-utensils text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs">COOKING</p></div>
-            <div class="section-card text-center group"><i class="fas fa-mountain-sun text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs">NATURE</p></div>
-            <div class="section-card text-center group"><i class="fas fa-volleyball text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs">VOLLEYBALL</p></div>
-            <div class="section-card text-center group"><i class="fas fa-person-walking text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs">WALKING</p></div>
+        <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-accent-theme">Interests & Hobbies</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            <div class="section-card text-center group"><i class="fas fa-baseball-bat-ball text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Cricket</p></div>
+            <div class="section-card text-center group"><i class="fas fa-volleyball text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Volleyball</p></div>
+            <div class="section-card text-center group"><i class="fas fa-utensils text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Cooking</p></div>
+            <div class="section-card text-center group"><i class="fas fa-plane-departure text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Travelling</p></div>
+            <div class="section-card text-center group"><i class="fas fa-mountain-sun text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Nature Exploring</p></div>
+            <div class="section-card text-center group"><i class="fas fa-person-walking text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Long Walk</p></div>
         </div>
     </section>
 
-    <footer class="py-12 px-6 border-t border-white/5 text-center">
-        <div class="flex justify-center gap-10 mb-8">
-            <a href="https://www.linkedin.com/in/sameer-mushtaq-931068b2/" target="_blank" class="text-muted-theme hover:text-accent transition text-3xl"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/thephoenix1921/" target="_blank" class="text-muted-theme hover:text-accent transition text-3xl"><i class="fab fa-instagram"></i></a>
+    <footer class="py-20 px-6 border-t border-white/5 text-center">
+        <div class="flex flex-wrap justify-center gap-10 mb-8">
+            <a href="https://www.facebook.com/DigitalNinjaOfficial/" target="_blank" class="opacity-50 hover:text-accent-theme transition text-3xl"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/thephoenix1921/" target="_blank" class="opacity-50 hover:text-accent-theme transition text-3xl"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/sameer-mushtaq-931068b2/" target="_blank" class="opacity-50 hover:text-accent-theme transition text-3xl"><i class="fab fa-linkedin"></i></a>
         </div>
-        <p class="text-muted-theme text-[10px] uppercase tracking-[0.4em]">&copy; 2026 SAMEER MUSHTAQ TANTRAY</p>
+        <p class="opacity-30 text-[10px] uppercase tracking-[0.4em]">&copy; 2026 SAMEER MUSHTAQ TANTRAY</p>
     </footer>
 
     <script>
