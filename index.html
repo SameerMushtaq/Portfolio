@@ -200,6 +200,18 @@
             transform: scale(1.05);
             box-shadow: 0 0 20px var(--glow-color);
         }
+
+        @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -354,45 +366,91 @@ Decoding biological complexity through computational excellence.<br>
     </section>
 
     <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-accent-theme">Services Provided</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="section-card border-l-2 border-accent-primary">
-                <i class="fas fa-terminal text-2xl mb-4"></i>
-                <h3 class="font-bold text-lg mb-2">System Technician</h3>
-    
-             <p class="text-sm opacity-80">Root-level OS installation, maintenance, and lossless system recovery via advanced password breaking.</p>
-            </div>
-            <div class="section-card border-l-2 border-accent-primary">
-                <i class="fas fa-file-shield text-2xl mb-4"></i>
-                <h3 class="font-bold text-lg mb-2">Software Engineering</h3>
-        
-         <p class="text-sm opacity-80">Professionally patched software solutions and cracked environments for diverse OS architectures.</p>
-            </div>
-            <div class="section-card border-l-2 border-accent-primary">
-                <i class="fas fa-dna text-2xl mb-4"></i>
-                <h3 class="font-bold text-lg mb-2">Genomic Analysis</h3>
-             
-    <p class="text-sm opacity-80">High-performance pipelines for HI-C, Micro-C, RNA-Seq, ATAC-Seq, and Chip-Seq analysis.</p>
-            </div>
-            <div class="section-card border-l-2 border-accent-primary">
-                <i class="fas fa-code-branch text-2xl mb-4"></i>
-                <h3 class="font-bold text-lg mb-2">Academic Web Dev</h3>
-                <p class="text-sm 
- opacity-80">Deployment and Version Control (Git) for Masters Level Projects and Internships.</p>
-            </div>
-            <div class="section-card border-l-2 border-accent-primary">
-                <i class="fas fa-chart-pie text-2xl mb-4"></i>
-                <h3 class="font-bold text-lg mb-2">Data Analysis</h3>
-                <p class="text-sm opacity-80">Comprehensive analysis of 3D Spatial 
- Genomics implementing advanced programming logic.</p>
-            </div>
-            <div class="section-card border-l-2 border-accent-primary">
-                <i class="fas fa-laptop-code text-2xl mb-4"></i>
-                <h3 class="font-bold text-lg mb-2">MS Office Automation</h3>
-                <p class="text-sm opacity-80">Professional automation and modeling using Excel, Access, Word, and PowerPoint.</p>
- 
-            </div>
+
+    <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-accent-theme">
+        Services Provided
+    </h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- GENOMIC ANALYSIS -->
+        <div onclick="openServiceModal('genomics')" class="section-card border-l-2 border-accent-primary cursor-pointer">
+            <i class="fas fa-dna text-2xl mb-4"></i>
+            <h3 class="font-bold text-lg mb-2">Genomic Analysis</h3>
+            <p class="text-sm opacity-80">
+                High-performance pipelines for genomic and chromatin interaction data analysis.
+            </p>
         </div>
+
+        <!-- SYSTEM TECHNICIAN -->
+        <div onclick="openServiceModal('system')" class="section-card border-l-2 border-accent-primary cursor-pointer">
+            <i class="fas fa-terminal text-2xl mb-4"></i>
+            <h3 class="font-bold text-lg mb-2">System Technician</h3>
+            <p class="text-sm opacity-80">
+                OS installation, recovery, activation, and advanced troubleshooting services.
+            </p>
+        </div>
+
+        <!-- SOFTWARE ENGINEERING -->
+        <div onclick="openServiceModal('software')" class="section-card border-l-2 border-accent-primary cursor-pointer">
+            <i class="fas fa-file-shield text-2xl mb-4"></i>
+            <h3 class="font-bold text-lg mb-2">Software Engineering</h3>
+            <p class="text-sm opacity-80">
+                Software installation, activation, patches, modifications, and support.
+            </p>
+        </div>
+
+        <!-- WEB DEVELOPMENT -->
+        <div onclick="openServiceModal('web')" class="section-card border-l-2 border-accent-primary cursor-pointer">
+            <i class="fas fa-code-branch text-2xl mb-4"></i>
+            <h3 class="font-bold text-lg mb-2">Web Development & Deployment</h3>
+            <p class="text-sm opacity-80">
+                Academic project development, deployment, debugging, and maintenance.
+            </p>
+        </div>
+
+        <!-- GRAPHICS -->
+        <div onclick="openServiceModal('graphics')" class="section-card border-l-2 border-accent-primary cursor-pointer">
+            <i class="fas fa-bezier-curve text-2xl mb-4"></i>
+            <h3 class="font-bold text-lg mb-2">Graphics Designing</h3>
+            <p class="text-sm opacity-80">
+                Posters, banners, flyers, presentations, brochures, and academic designs.
+            </p>
+        </div>
+
+        <!-- OFFICE -->
+        <div onclick="openServiceModal('office')" class="section-card border-l-2 border-accent-primary cursor-pointer">
+            <i class="fas fa-laptop-code text-2xl mb-4"></i>
+            <h3 class="font-bold text-lg mb-2">Office Automation</h3>
+            <p class="text-sm opacity-80">
+                Professional document creation, spreadsheets, presentations, databases, and academic formatting.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- SERVICE MODAL -->
+<div id="serviceModal"
+     class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-[9999] p-6">
+
+    <div class="section-card max-w-3xl w-full relative animate-[fadeIn_.3s_ease]">
+
+        <button onclick="closeServiceModal()"
+                class="absolute top-5 right-5 text-2xl hover:text-accent-theme transition">
+            <i class="fas fa-xmark"></i>
+        </button>
+
+        <h2 id="modalTitle"
+            class="text-3xl font-extrabold mb-8 text-accent-theme uppercase tracking-widest">
+        </h2>
+
+        <div id="modalContent"
+             class="grid md:grid-cols-2 gap-4 text-sm opacity-90">
+        </div>
+
+    </div>
+</div>
     </section>
 
     <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
@@ -464,6 +522,145 @@ Decoding biological complexity through computational excellence.<br>
                 localStorage.setItem('theme', 'dark');
             }
         });
+
+    const serviceData = {
+
+    genomics: {
+        title: "Genomic Analysis",
+        items: [
+            "HI-C Data Analysis",
+            "Micro-C Data Analysis",
+            "RNA-Seq Data Analysis",
+            "Chip-Seq Data Analysis",
+            "ATAC-Seq Data Analysis",
+            "FastQ Processing",
+            "Pairs File Generation",
+            "Cool / Mcool File Generation",
+            "Genome Interaction Pipelines",
+            "Chromatin Structure Analysis"
+        ]
+    },
+
+    system: {
+        title: "System Technician",
+        items: [
+            "OS Installation",
+            "OS Upgradation",
+            "OS Activation",
+            "System Recovery",
+            "Password Recovery",
+            "USB Data Recovery",
+            "HDD Recovery",
+            "SSD Recovery",
+            "Driver Installation",
+            "System Optimization"
+        ]
+    },
+
+    software: {
+        title: "Software Engineering",
+        items: [
+            "Windows Software Installation",
+            "Mac OS Software Installation",
+            "Cracks & Patches",
+            "Software Activation",
+            "Software Modification",
+            "Application Deployment",
+            "Professional Tool Setup",
+            "Environment Configuration",
+            "Troubleshooting",
+            "Custom Software Support"
+        ]
+    },
+
+    web: {
+        title: "Web Development & Deployment",
+        items: [
+            "Semester Projects",
+            "Final Year Projects",
+            "Web Development",
+            "Deployment",
+            "Version Control",
+            "Bug Fixing",
+            "Custom Modules",
+            "Frontend Development",
+            "Backend Integration",
+            "Project Maintenance"
+        ]
+    },
+
+    graphics: {
+        title: "Graphics Designing",
+        items: [
+            "Canva Designing",
+            "Adobe Illustrator",
+            "CorelDraw",
+            "PhotoShop",
+            "Inkscape",
+            "Posters",
+            "Banners",
+            "Flyers",
+            "Presentations",
+            "Brochures",
+            "Academic Designs"
+        ]
+    },
+
+    office: {
+        title: "Office Automation",
+        items: [
+            "MS Word Documents",
+            "MS Excel Workbooks",
+            "MS PowerPoint Presentations",
+            "MS Access Databases",
+            "Libre Office",
+            "Mendeley Formatting",
+            "Academic Formatting",
+            "Research Documentation",
+            "Data Sheets",
+            "Presentation Design"
+        ]
+    }
+
+};
+
+function openServiceModal(serviceKey) {
+
+    const modal = document.getElementById("serviceModal");
+
+    const title = document.getElementById("modalTitle");
+
+    const content = document.getElementById("modalContent");
+
+    title.innerText = serviceData[serviceKey].title;
+
+    content.innerHTML = "";
+
+    serviceData[serviceKey].items.forEach(item => {
+
+        content.innerHTML += `
+            <div class="border border-[var(--border)] rounded-2xl px-5 py-4 hover:border-[var(--accent-primary)] transition">
+                ${item}
+            </div>
+        `;
+
+    });
+
+    modal.classList.remove("hidden");
+
+    modal.classList.add("flex");
+
+}
+
+function closeServiceModal() {
+
+    const modal = document.getElementById("serviceModal");
+
+    modal.classList.remove("flex");
+
+    modal.classList.add("hidden");
+
+}
  </script>
 </body>
 </html>
