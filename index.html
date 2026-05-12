@@ -149,6 +149,54 @@
             transition: all 0.4s ease;
         }
 
+        .neon-border-flow::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: inherit;
+
+    background: conic-gradient(
+        from 0deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #7a00ff,
+        #ff00c8,
+        #ff0000
+    );
+
+    animation: rainbowRotate 4s linear infinite;
+
+    z-index: -1;
+
+    filter: blur(12px);
+
+    opacity: 0.95;
+}
+
+    .neon-border-flow::after {
+        content: "";
+        position: absolute;
+        inset: 4px;
+        border-radius: inherit;
+        background: var(--bg-color);
+        z-index: -1;
+    }
+
+    @keyframes rainbowRotate {
+
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+
+    }
         .neon-border-flow:hover .my-photo {
             box-shadow: 0 0 var(--glow-intensity) var(--glow-color);
         }
@@ -166,11 +214,12 @@
         }
 
         .neon-border-flow {
-            position: relative;
-            display: inline-block;
-            padding: 10px;
-            border-radius: 3rem;
-        }
+        position: relative;
+        display: inline-block;
+        padding: 10px;
+        border-radius: 3rem;
+        isolation: isolate;
+    }
 
         ::-webkit-scrollbar { width: 10px;
         }
