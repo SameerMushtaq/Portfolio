@@ -454,6 +454,18 @@ Decoding biological complexity through computational excellence.<br>
     "10.png"
 ];
 
+const imageCache = [];
+
+profileImages.forEach((imgSrc) => {
+
+    const img = new Image();
+
+    img.src = imgSrc;
+
+    imageCache.push(img);
+
+});
+
 let currentImageIndex = 0;
 
 const profileImageElement = document.getElementById('profile-image');
