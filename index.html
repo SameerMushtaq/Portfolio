@@ -250,7 +250,7 @@ Decoding biological complexity through computational excellence.<br>
             <div class="flex justify-center relative">
                 <div class="floating relative">
                     <div class="neon-border-flow">
-                        <img id="profile-image" src="1.png" alt="Sameer Mushtaq Tantray" class="my-photo">
+                        <img src="2.png" alt="Sameer Mushtaq Tantray" class="my-photo">
           
                     </div>
                 </div>
@@ -441,60 +441,6 @@ Decoding biological complexity through computational excellence.<br>
     </footer>
 
     <script>
-        const profileImages = [
-    "1.png",
-    "2.png",
-    "3.png",
-    "4.png",
-    "5.png",
-    "6.png",
-    "7.png",
-    "8.png",
-    "9.png",
-    "10.png"
-];
-
-const imageCache = [];
-
-profileImages.forEach((imgSrc) => {
-
-    const img = new Image();
-
-    img.src = imgSrc;
-
-    imageCache.push(img);
-
-});
-
-let currentImageIndex = 0;
-
-const profileImageElement = document.getElementById('profile-image');
-
-profileImageElement.style.transition = "all 1s ease";
-
-setInterval(() => {
-
-    profileImageElement.style.opacity = "0";
-    profileImageElement.style.transform = "scale(0.92) rotate(-3deg)";
-    profileImageElement.style.filter = "blur(8px)";
-
-    setTimeout(() => {
-
-        currentImageIndex++;
-
-        if (currentImageIndex >= profileImages.length) {
-            currentImageIndex = 0;
-        }
-
-        profileImageElement.src = profileImages[currentImageIndex];
-
-        profileImageElement.style.opacity = "1";
-        profileImageElement.style.transform = "scale(1) rotate(0deg)";
-        profileImageElement.style.filter = "blur(0px)";
-
-    }, 900);
-
-}, 5000);
         
         const themeToggle = document.getElementById('theme-toggle');
  const themeIcon = document.getElementById('theme-icon');
