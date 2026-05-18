@@ -417,68 +417,98 @@ Decoding biological complexity through computational excellence.<br>
 
     <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
 
-    <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-accent-theme">
-        Services Provided
-    </h2>
+        <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-accent-theme">
+            Services Provided
+        </h2>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- GENOMIC ANALYSIS -->
-        <div onclick="openServiceModal('genomics')" class="section-card border-l-2 border-accent-primary cursor-pointer">
-            <i class="fas fa-dna text-2xl mb-4"></i>
-            <h3 class="font-bold text-lg mb-2">Genomic Analysis</h3>
-            <p class="text-sm opacity-80">
-                High-performance pipelines for genomic and chromatin interaction data analysis.
-            </p>
+            <!-- GENOMIC ANALYSIS -->
+            <div onclick="openServiceModal('genomics')" class="section-card border-l-2 border-accent-primary cursor-pointer flex flex-col justify-between">
+                <div>
+                    <i class="fas fa-dna text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Genomic Analysis</h3>
+                    <p class="text-sm opacity-80 mb-6">
+                        High-performance pipelines for genomic and chromatin interaction data analysis.
+                    </p>
+                </div>
+                <button class="cv-button w-full justify-center text-center mt-auto">
+                    Click Me <i class="fas fa-arrow-right text-xs ml-1 !text-white"></i>
+                </button>
+            </div>
+
+            <!-- SYSTEM TECHNICIAN -->
+            <div onclick="openServiceModal('system')" class="section-card border-l-2 border-accent-primary cursor-pointer flex flex-col justify-between">
+                <div>
+                    <i class="fas fa-terminal text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">System Technician</h3>
+                    <p class="text-sm opacity-80 mb-6">
+                        OS installation, recovery, activation, and advanced troubleshooting services.
+                    </p>
+                </div>
+                <button class="cv-button w-full justify-center text-center mt-auto">
+                    Click Me <i class="fas fa-arrow-right text-xs ml-1 !text-white"></i>
+                </button>
+            </div>
+
+            <!-- SOFTWARE ENGINEERING -->
+            <div onclick="openServiceModal('software')" class="section-card border-l-2 border-accent-primary cursor-pointer flex flex-col justify-between">
+                <div>
+                    <i class="fas fa-file-shield text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Software Engineering</h3>
+                    <p class="text-sm opacity-80 mb-6">
+                        Software installation, activation, patches, modifications, and support.
+                    </p>
+                </div>
+                <button class="cv-button w-full justify-center text-center mt-auto">
+                    Click Me <i class="fas fa-arrow-right text-xs ml-1 !text-white"></i>
+                </button>
+            </div>
+
+            <!-- WEB DEVELOPMENT -->
+            <div onclick="openServiceModal('web')" class="section-card border-l-2 border-accent-primary cursor-pointer flex flex-col justify-between">
+                <div>
+                    <i class="fas fa-code-branch text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Web Development & Deployment</h3>
+                    <p class="text-sm opacity-80 mb-6">
+                        Academic project development, deployment, debugging, and maintenance.
+                    </p>
+                </div>
+                <button class="cv-button w-full justify-center text-center mt-auto">
+                    Click Me <i class="fas fa-arrow-right text-xs ml-1 !text-white"></i>
+                </button>
+            </div>
+
+            <!-- GRAPHICS -->
+            <div onclick="openServiceModal('graphics')" class="section-card border-l-2 border-accent-primary cursor-pointer flex flex-col justify-between">
+                <div>
+                    <i class="fas fa-bezier-curve text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Graphics Designing</h3>
+                    <p class="text-sm opacity-80 mb-6">
+                        Posters, banners, flyers, presentations, brochures, and academic designs.
+                    </p>
+                </div>
+                <button class="cv-button w-full justify-center text-center mt-auto">
+                    Click Me <i class="fas fa-arrow-right text-xs ml-1 !text-white"></i>
+                </button>
+            </div>
+
+            <!-- OFFICE -->
+            <div onclick="openServiceModal('office')" class="section-card border-l-2 border-accent-primary cursor-pointer flex flex-col justify-between">
+                <div>
+                    <i class="fas fa-laptop-code text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Office Automation</h3>
+                    <p class="text-sm opacity-80 mb-6">
+                        Professional document creation, spreadsheets, presentations, databases, and academic formatting.
+                    </p>
+                </div>
+                <button class="cv-button w-full justify-center text-center mt-auto">
+                    Click Me <i class="fas fa-arrow-right text-xs ml-1 !text-white"></i>
+                </button>
+            </div>
+
         </div>
-
-        <!-- SYSTEM TECHNICIAN -->
-        <div onclick="openServiceModal('system')" class="section-card border-l-2 border-accent-primary cursor-pointer">
-            <i class="fas fa-terminal text-2xl mb-4"></i>
-            <h3 class="font-bold text-lg mb-2">System Technician</h3>
-            <p class="text-sm opacity-80">
-                OS installation, recovery, activation, and advanced troubleshooting services.
-            </p>
-        </div>
-
-        <!-- SOFTWARE ENGINEERING -->
-        <div onclick="openServiceModal('software')" class="section-card border-l-2 border-accent-primary cursor-pointer">
-            <i class="fas fa-file-shield text-2xl mb-4"></i>
-            <h3 class="font-bold text-lg mb-2">Software Engineering</h3>
-            <p class="text-sm opacity-80">
-                Software installation, activation, patches, modifications, and support.
-            </p>
-        </div>
-
-        <!-- WEB DEVELOPMENT -->
-        <div onclick="openServiceModal('web')" class="section-card border-l-2 border-accent-primary cursor-pointer">
-            <i class="fas fa-code-branch text-2xl mb-4"></i>
-            <h3 class="font-bold text-lg mb-2">Web Development & Deployment</h3>
-            <p class="text-sm opacity-80">
-                Academic project development, deployment, debugging, and maintenance.
-            </p>
-        </div>
-
-        <!-- GRAPHICS -->
-        <div onclick="openServiceModal('graphics')" class="section-card border-l-2 border-accent-primary cursor-pointer">
-            <i class="fas fa-bezier-curve text-2xl mb-4"></i>
-            <h3 class="font-bold text-lg mb-2">Graphics Designing</h3>
-            <p class="text-sm opacity-80">
-                Posters, banners, flyers, presentations, brochures, and academic designs.
-            </p>
-        </div>
-
-        <!-- OFFICE -->
-        <div onclick="openServiceModal('office')" class="section-card border-l-2 border-accent-primary cursor-pointer">
-            <i class="fas fa-laptop-code text-2xl mb-4"></i>
-            <h3 class="font-bold text-lg mb-2">Office Automation</h3>
-            <p class="text-sm opacity-80">
-                Professional document creation, spreadsheets, presentations, databases, and academic formatting.
-            </p>
-        </div>
-
-    </div>
-</section>
+    </section>
 
 <!-- SERVICE MODAL -->
 <div id="serviceModal"
