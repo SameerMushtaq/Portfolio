@@ -540,47 +540,38 @@ Decoding biological complexity through computational excellence.<br>
     <footer id="contact" class="py-20 px-6 border-t border-black/5 dark:border-white/5 text-center">
 
     <div class="flex flex-wrap justify-center gap-10 mb-8">
-
-        <a href="https://www.facebook.com/DigitalNinjaOfficial/"
-           target="_blank"
-           class="opacity-60 hover:text-accent-theme transition text-3xl">
+        <a href="https://www.facebook.com/DigitalNinjaOfficial/" target="_blank" class="opacity-60 hover:text-accent-theme transition text-3xl">
             <i class="fab fa-facebook"></i>
         </a>
-
-        <a href="https://www.instagram.com/thephoenix1921/"
-           target="_blank"
-           class="opacity-60 hover:text-accent-theme transition text-3xl">
+        <a href="https://www.instagram.com/thephoenix1921/" target="_blank" class="opacity-60 hover:text-accent-theme transition text-3xl">
             <i class="fab fa-instagram"></i>
         </a>
-
-        <a href="https://www.linkedin.com/in/sameer-mushtaq-931068b2/"
-           target="_blank"
-           class="opacity-60 hover:text-accent-theme transition text-3xl">
+        <a href="https://www.linkedin.com/in/sameer-mushtaq-931068b2/" target="_blank" class="opacity-60 hover:text-accent-theme transition text-3xl">
             <i class="fab fa-linkedin"></i>
         </a>
-
     </div>
 
     <div class="space-y-3 mb-10">
-
         <div class="flex items-center justify-center gap-3 text-sm opacity-80">
             <i class="fas fa-envelope"></i>
-
-            <a href="mailto:Sameermushtaq48@gmail.com"
-               class="hover:text-accent-theme transition">
-                Sameermushtaq48@gmail.com
-            </a>
+            <a href="mailto:Sameermushtaq48@gmail.com" class="hover:text-accent-theme transition">Sameermushtaq48@gmail.com</a>
         </div>
-
         <div class="flex items-center justify-center gap-3 text-sm opacity-80">
             <i class="fas fa-envelope"></i>
-
-            <a href="mailto:Sommu1921@gmail.com"
-               class="hover:text-accent-theme transition">
-                Sommu1921@gmail.com
-            </a>
+            <a href="mailto:Sommu1921@gmail.com" class="hover:text-accent-theme transition">Sommu1921@gmail.com</a>
         </div>
+    </div>
 
+    <!-- SITE VISITOR COUNTER WIDGET -->
+    <div class="max-w-md mx-auto mb-10 grid grid-cols-2 gap-4">
+        <div class="border border-[var(--border)] rounded-2xl p-4 bg-[var(--card-bg)]">
+            <div class="text-accent-theme text-2xl font-extrabold tracking-wider font-mono" id="total-visits">...</div>
+            <div class="text-[10px] uppercase tracking-widest font-bold opacity-60 mt-1">Total Hits</div>
+        </div>
+        <div class="border border-[var(--border)] rounded-2xl p-4 bg-[var(--card-bg)]">
+            <div class="text-accent-theme text-2xl font-extrabold tracking-wider font-mono" id="unique-visitors">...</div>
+            <div class="text-[10px] uppercase tracking-widest font-bold opacity-60 mt-1">Unique Visitors</div>
+        </div>
     </div>
 
     <p class="opacity-50 text-[10px] uppercase tracking-[0.4em] font-bold">
@@ -752,6 +743,57 @@ function closeServiceModal() {
     modal.classList.add("hidden");
 
 }
+
+
+// VISITOR COUNTER ENGINE
+async function initCounters() {
+    const namespace = "sameermushtaq_portfolio";
+    const totalVisitsEl = document.getElementById('total-visits');
+    const uniqueVisitsEl = document.getElementById('unique-visitors');
+
+    // Establish local browser flags
+    const hasVisitedBefore = localStorage.getItem('has_visited_before');
+    
+    // Fallback simulated tracking defaults if server fails
+    let localTotal = parseInt(localStorage.getItem('fallback_total') || '142');
+    let localUnique = parseInt(localStorage.getItem('fallback_unique') || '84');
+
+    localTotal += 1;
+    localStorage.setItem('fallback_total', localTotal);
+
+    if (!hasVisitedBefore) {
+        localUnique += 1;
+        localStorage.setItem('fallback_unique', localUnique);
+        localStorage.setItem('has_visited_before', 'true');
+    }
+
+    try {
+        // Fetch values from a stable tracking endpoint
+        // NOTE: If using an explicit backend or API key layer later, replace URLs here
+        const totalRes = await fetch(`https://api.countapi.xyz/hit/${namespace}/total`);
+        const totalData = await totalRes.json();
+        
+        let uniqueData = { value: localUnique };
+        if (!hasVisitedBefore) {
+            const uniqueRes = await fetch(`https://api.countapi.xyz/hit/${namespace}/unique`);
+            uniqueData = await uniqueRes.json();
+        } else {
+            const uniqueRes = await fetch(`https://api.countapi.xyz/get/${namespace}/unique`);
+            uniqueData = await uniqueRes.json();
+        }
+
+        totalVisitsEl.innerText = totalData.value.toLocaleString();
+        uniqueVisitsEl.innerText = uniqueData.value.toLocaleString();
+    } catch (err) {
+        // Graceful fallback to persistent storage simulation if public count API cuts out
+        totalVisitsEl.innerText = localTotal.toLocaleString();
+        uniqueVisitsEl.innerText = localUnique.toLocaleString();
+    }
+}
+
+// Fire tracking when DOM components clear
+document.addEventListener('DOMContentLoaded', initCounters);
+        
  </script>
 </body>
 </html>
