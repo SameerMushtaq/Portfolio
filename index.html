@@ -222,19 +222,23 @@
             </div>
             
             <div class="flex items-center gap-8">
-                <!-- Added Tailwind drop-shadow and text-shadow classes for the hover glow on links -->
                 <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest opacity-80 items-center">
-                    <a href="#home" class="hover:text-accent-theme hover:[text-shadow:0_0_12px_var(--glow-color)] transition-all duration-300">Home</a>
-                    <a href="#profile" class="hover:text-accent-theme hover:[text-shadow:0_0_12px_var(--glow-color)] transition-all duration-300">Profile</a>
-                    <a href="#services" class="hover:text-accent-theme hover:[text-shadow:0_0_12px_var(--glow-color)] transition-all duration-300">Services</a>
-                    <a href="#expertise" class="hover:text-accent-theme hover:[text-shadow:0_0_12px_var(--glow-color)] transition-all duration-300">Expertise</a>
-                    <a href="#projects" class="hover:text-accent-theme hover:[text-shadow:0_0_12px_var(--glow-color)] transition-all duration-300">Projects</a>
-                    <a href="#interests" class="hover:text-accent-theme hover:[text-shadow:0_0_12px_var(--glow-color)] transition-all duration-300">Interests</a>
-                    <a href="#contact" class="hover:text-accent-theme hover:[text-shadow:0_0_12px_var(--glow-color)] transition-all duration-300">Contact</a>
+                    <a href="#home" class="nav-glow">Home</a>
+                    <a href="#profile" class="nav-glow">Profile</a>
+                    <a href="#services" class="nav-glow">Services</a>
+                    <a href="#expertise" class="nav-glow">Expertise</a>
+                    <a href="#projects" class="nav-glow">Projects</a>
+                    <a href="#interests" class="nav-glow">Interests</a>
+                    <a href="#contact" class="nav-glow">Contact</a>
                     <a href="CV_Sameer.pdf" download class="cv-button">
                         <i class="fas fa-download"></i> Download CV
                     </a>
                 </div>
+            
+                <button id="theme-toggle">
+                    <i id="theme-icon" class="fas fa-moon text-accent-theme"></i>
+                </button>
+            </div>
             
                 <button id="theme-toggle">
                     <i id="theme-icon" class="fas fa-moon text-accent-theme"></i>
