@@ -199,13 +199,22 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* NAVIGATION GLOW EFFECT */
-        .nav-glow {
-            transition: all 0.3s ease-in-out;
+       /* NAVIGATION BUTTON STYLE & GLOW */
+        .nav-button {
+            padding: 0.5rem 1rem;
+            border-radius: 0.75rem; /* Matches your overall rounded aesthetic */
+            border: 1px solid transparent;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: transparent;
         }
-        .nav-glow:hover {
+
+        .nav-button:hover {
             color: var(--accent-primary) !important;
-            text-shadow: 0 0 12px var(--glow-color), 0 0 20px var(--glow-color);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 15px var(--glow-color), inset 0 0 8px var(--border);
+            text-shadow: 0 0 8px var(--glow-color);
+            background: var(--card-bg);
+            transform: translateY(-2px);
             opacity: 1 !important;
         }
     </style>
@@ -222,18 +231,26 @@
             </div>
             
             <div class="flex items-center gap-8">
-                <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest opacity-80 items-center">
-                    <a href="#home" class="nav-glow">Home</a>
-                    <a href="#profile" class="nav-glow">Profile</a>
-                    <a href="#services" class="nav-glow">Services</a>
-                    <a href="#expertise" class="nav-glow">Expertise</a>
-                    <a href="#projects" class="nav-glow">Projects</a>
-                    <a href="#interests" class="nav-glow">Interests</a>
-                    <a href="#contact" class="nav-glow">Contact</a>
-                    <a href="CV_Sameer.pdf" download class="cv-button">
+                <!-- Swapped to gap-2 and flex-wrap to accommodate the button padding -->
+                <div class="hidden md:flex gap-2 text-[10px] lg:text-xs font-bold uppercase tracking-widest opacity-90 items-center">
+                    <a href="#home" class="nav-button">Home</a>
+                    <a href="#profile" class="nav-button">Profile</a>
+                    <a href="#services" class="nav-button">Services</a>
+                    <a href="#expertise" class="nav-button">Expertise</a>
+                    <a href="#projects" class="nav-button">Projects</a>
+                    <a href="#interests" class="nav-button">Interests</a>
+                    <a href="#contact" class="nav-button">Contact</a>
+                    
+                    <!-- CV Button (Kept distinct with its solid background) -->
+                    <a href="CV_Sameer.pdf" download class="cv-button ml-2">
                         <i class="fas fa-download"></i> Download CV
                     </a>
                 </div>
+            
+                <button id="theme-toggle" class="shrink-0">
+                    <i id="theme-icon" class="fas fa-moon text-accent-theme"></i>
+                </button>
+            </div>
             
                 <button id="theme-toggle">
                     <i id="theme-icon" class="fas fa-moon text-accent-theme"></i>
