@@ -198,6 +198,16 @@
             from { opacity: 0; transform: scale(.92); }
             to { opacity: 1; transform: scale(1); }
         }
+
+        /* NAVIGATION GLOW EFFECT */
+        .nav-glow {
+            transition: all 0.3s ease-in-out;
+        }
+        .nav-glow:hover {
+            color: var(--accent-primary) !important;
+            text-shadow: 0 0 12px var(--glow-color), 0 0 20px var(--glow-color);
+            opacity: 1 !important;
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
