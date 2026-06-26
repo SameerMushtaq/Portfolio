@@ -130,101 +130,45 @@
             box-shadow: 0 0 20px var(--glow-color);
         }
 
-        /* ACCENTS & ICONS (NO GLOW) */
-        .text-accent-theme { color: var(--accent-primary) !important;
-        }
+        /* ACCENTS & ICONS */
+        .text-accent-theme { color: var(--accent-primary) !important; }
         .stack-icon, .fas, .fab {
             color: var(--accent-primary) !important;
             filter: none !important;
         }
 
-        /* PHOTO */
+        /* PHOTO - Cleaned up and added theme glow */
         .my-photo {
             width: 300px;
             height: 300px;
             object-fit: cover;
             border-radius: 2.7rem;
-            border: 2px solid var(--border);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border: 3px solid var(--accent-primary);
+            box-shadow: 0 0 20px var(--glow-color);
             transition: all 0.4s ease;
         }
 
-        .neon-border-flow::before {
-    content: "";
-    position: absolute;
-    inset: -6px;
-    border-radius: inherit;
-
-    background: conic-gradient(
-        from 0deg,
-        #ff0000,
-        #ff7300,
-        #fffb00,
-        #48ff00,
-        #00ffd5,
-        #002bff,
-        #7a00ff,
-        #ff00c8,
-        #ff0000
-    );
-
-    animation: rainbowRotate 4s linear infinite;
-
-    z-index: -1;
-
-    filter: blur(12px);
-
-    opacity: 0.95;
-}
-
-    .neon-border-flow::after {
-        content: "";
-        position: absolute;
-        inset: 4px;
-        border-radius: inherit;
-        background: var(--bg-color);
-        z-index: -1;
-    }
-
-    @keyframes rainbowRotate {
-
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-
-    }
-        .neon-border-flow:hover .my-photo {
+        .my-photo:hover {
             box-shadow: 0 0 var(--glow-intensity) var(--glow-color);
+            transform: scale(1.02);
         }
 
-        @media(min-width:768px) { .my-photo { width: 500px; height: 500px;
-        } }
-
-        .floating { animation: floatingFrame 5s ease-in-out infinite;
+        @media(min-width:768px) { 
+            .my-photo { 
+                width: 500px; 
+                height: 500px;
+            } 
         }
+
+        .floating { animation: floatingFrame 5s ease-in-out infinite; }
+        
         @keyframes floatingFrame {
-            0%, 100% { transform: translateY(0);
-            }
-            50% { transform: translateY(-20px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
-        .neon-border-flow {
-        position: relative;
-        display: inline-block;
-        padding: 10px;
-        border-radius: 3rem;
-        isolation: isolate;
-    }
-
-        ::-webkit-scrollbar { width: 10px;
-        }
-        ::-webkit-scrollbar-track { background: var(--bg-color);
-        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-color); }
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(180deg, var(--accent-primary), #064e3b);
             border-radius: 999px;
@@ -251,16 +195,9 @@
         }
 
         @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(.92);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
+            from { opacity: 0; transform: scale(.92); }
+            to { opacity: 1; transform: scale(1); }
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -275,19 +212,20 @@
             </div>
             
             <div class="flex items-center gap-8">
+                <!-- Added Tailwind drop-shadow and text-shadow classes for the hover glow on links -->
                 <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest opacity-80 items-center">
-                    <a href="#home" class="hover:text-accent-theme transition">Home</a>
-                    <a href="#profile" class="hover:text-accent-theme transition">Profile</a>
-                    <a href="#services" class="hover:text-accent-theme transition">Services</a>
-                    <a href="#expertise" class="hover:text-accent-theme transition">Expertise</a>
-                    <a href="#projects" class="hover:text-accent-theme transition">Projects</a>
-                    <a href="#interests" class="hover:text-accent-theme transition">Interests</a>
-                    <a href="#contact" class="hover:text-accent-theme transition">Contact</a>
+                    <a href="#home" class="hover:text-accent-theme hover:[text-shadow:0_0_12px_var(--glow-color)] transition-all duration-300">Home</a>
+                    <a href="#profile" class="hover:text-accent-theme hover:[text-shadow:0_0_12px_var(--glow-color)] transition-all duration-300">Profile</a>
+                    <a href="#services" class="hover:text-accent-theme hover:[text-shadow:0_0_12px_var(--glow-color)] transition-all duration-300">Services</a>
+                    <a href="#expertise" class="hover:text-accent-theme hover:[text-shadow:0_0_12px_var(--glow-color)] transition-all duration-300">Expertise</a>
+                    <a href="#projects" class="hover:text-accent-theme hover:[text-shadow:0_0_12px_var(--glow-color)] transition-all duration-300">Projects</a>
+                    <a href="#interests" class="hover:text-accent-theme hover:[text-shadow:0_0_12px_var(--glow-color)] transition-all duration-300">Interests</a>
+                    <a href="#contact" class="hover:text-accent-theme hover:[text-shadow:0_0_12px_var(--glow-color)] transition-all duration-300">Contact</a>
                     <a href="CV_Sameer.pdf" download class="cv-button">
                         <i class="fas fa-download"></i> Download CV
                     </a>
                 </div>
-           
+            
                 <button id="theme-toggle">
                     <i id="theme-icon" class="fas fa-moon text-accent-theme"></i>
                 </button>
@@ -297,24 +235,21 @@
 
     <section id="home" class="min-h-screen flex items-center px-6 pt-32 pb-16">
         <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-   
+    
             <div class="space-y-6 text-center md:text-left">
                 <h3 class="text-accent-theme font-mono tracking-widest text-sm uppercase">PhD Scholar & Project Research Scientist</h3>
                 <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">Sameer Mushtaq <br><span class="text-accent-theme">Tantray</span></h1>
                 <p class="opacity-90 text-lg leading-relaxed">
-                    
-Decoding biological complexity through computational excellence.<br>
+                    Decoding biological complexity through computational excellence.<br>
                     <span class="text-accent-theme font-semibold">Implementing programming skills in 3D Spatial Genomics and Bioinformatics.</span><br>
                     <span class="opacity-70 text-base">Engineering scalable solutions at the intersection of life sciences and data.</span>
                 </p>
             </div>
-     
+      
             <div class="flex justify-center relative">
                 <div class="floating relative">
-                    <div class="neon-border-flow">
-                        <img src="pp.png" alt="Sameer Mushtaq Tantray" class="my-photo">
-          
-                    </div>
+                    <!-- Removed neon-border-flow and simply applied the my-photo class -->
+                    <img src="pp.png" alt="Sameer Mushtaq Tantray" class="my-photo">
                 </div>
             </div>
         </div>
@@ -323,30 +258,16 @@ Decoding biological complexity through computational excellence.<br>
     <section id="profile" class="py-24 px-6 max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 gap-12">
             <div class="section-card border-l-4 border-accent-primary">
-               
-  <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter border-b border-black/5 dark:border-white/10 pb-2">Professional Summary</h2>
+                <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter border-b border-black/5 dark:border-white/10 pb-2">Professional Summary</h2>
                 <p class="opacity-80 leading-relaxed text-sm text-justify">
-                    My journey in science is rooted in the resilience of Kashmir, where I began my primary education within my local locality before moving to Bijbehara town for my graduation studies.
- These formative years shaped my ability to navigate complex environments with persistence, eventually leading me to the Islamic University of Science and Technology (IUST) for my MCA and now to the University of Kashmir, where I am pursuing a PhD in Computer Science.
- Currently, I serve as a Project Research Scientist at the Chromatin and Epigenetics Lab (CIRI), specializing in the cutting-edge fields of 3D Spatial Genomics and Bioinformatics.
- My core expertise lies in implementing advanced programming skills to decode intricate biological puzzles using high-performance computing pipelines.
- I possess a unique technical balance, combining doctoral-level research with expert root-level system administration and kernel debugging.
- I am recognized for my mastery in lossless system recovery and password restoration, ensuring total data preservation in critical research scenarios.
- Throughout my career, I have successfully managed large-scale multi-platform OS environments while providing professional software engineering services, including patched software solutions tailored for diverse professional purposes.
- My professional path is defined by the seamless fusion of hardware-level optimization and advanced data-driven discovery.
- </p>
+                    My journey in science is rooted in the resilience of Kashmir, where I began my primary education within my local locality before moving to Bijbehara town for my graduation studies. These formative years shaped my ability to navigate complex environments with persistence, eventually leading me to the Islamic University of Science and Technology (IUST) for my MCA and now to the University of Kashmir, where I am pursuing a PhD in Computer Science. Currently, I serve as a Project Research Scientist at the Chromatin and Epigenetics Lab (CIRI), specializing in the cutting-edge fields of 3D Spatial Genomics and Bioinformatics. My core expertise lies in implementing advanced programming skills to decode intricate biological puzzles using high-performance computing pipelines. I possess a unique technical balance, combining doctoral-level research with expert root-level system administration and kernel debugging. I am recognized for my mastery in lossless system recovery and password restoration, ensuring total data preservation in critical research scenarios. Throughout my career, I have successfully managed large-scale multi-platform OS environments while providing professional software engineering services, including patched software solutions tailored for diverse professional purposes. My professional path is defined by the seamless fusion of hardware-level optimization and advanced data-driven discovery.
+                </p>
             </div>
             <div class="section-card border-r-4 border-accent-primary">
                 <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter border-b border-black/5 dark:border-white/10 pb-2">Strategic Objective</h2>
                 <p class="opacity-80 leading-relaxed text-sm text-justify">
-                    My objective is to pioneer the 
- development of advanced computational models and AI-driven methodologies specifically designed to decode the complexities of 3D Spatial Genomics and chromatin organization.
- I aim to leverage my computer applications background to architect highly scalable, cloud-native frameworks capable of performing real-time multi-dimensional analysis on massive biological datasets.
- Through my doctoral research at the University of Kashmir, I seek to integrate advanced Machine Learning models into chromatin architecture studies to identify hidden organizational patterns previously invisible to traditional methods.
- I am dedicated to engineering open-source analytical tools and interactive visualizers that make abstract multi-omic landscapes actionable for the global scientific community.
- My vision involves developing high-fidelity predictive simulations that can forecast genomic structural changes under varying environmental and experimental conditions.
- I intend to lead multidisciplinary research teams at the nexus of Computer Science and Life Sciences, fostering a legacy of innovation through computational excellence and automated discovery.
- </p>
+                    My objective is to pioneer the development of advanced computational models and AI-driven methodologies specifically designed to decode the complexities of 3D Spatial Genomics and chromatin organization. I aim to leverage my computer applications background to architect highly scalable, cloud-native frameworks capable of performing real-time multi-dimensional analysis on massive biological datasets. Through my doctoral research at the University of Kashmir, I seek to integrate advanced Machine Learning models into chromatin architecture studies to identify hidden organizational patterns previously invisible to traditional methods. I am dedicated to engineering open-source analytical tools and interactive visualizers that make abstract multi-omic landscapes actionable for the global scientific community. My vision involves developing high-fidelity predictive simulations that can forecast genomic structural changes under varying environmental and experimental conditions. I intend to lead multidisciplinary research teams at the nexus of Computer Science and Life Sciences, fostering a legacy of innovation through computational excellence and automated discovery.
+                </p>
             </div>
         </div>
     </section>
@@ -356,71 +277,57 @@ Decoding biological complexity through computational excellence.<br>
             <div class="section-card">
                 <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter">Academic Path</h2>
                 <div class="space-y-4">
-  
-                   <div class="border-l-2 border-accent-primary pl-4"><h4 class="font-bold text-accent-theme">PhD Computer Science</h4><p class="text-xs opacity-70">University of Kashmir |
- Present</p></div>
+                    <div class="border-l-2 border-accent-primary pl-4"><h4 class="font-bold text-accent-theme">PhD Computer Science</h4><p class="text-xs opacity-70">University of Kashmir | Present</p></div>
                     <div class="border-l-2 border-accent-primary pl-4"><h4 class="font-bold text-accent-theme">Masters (MCA)</h4><p class="text-xs opacity-70 italic">IUST</p></div>
                     <div class="border-l-2 border-accent-primary pl-4"><h4 class="font-bold text-accent-theme">B.Sc</h4><p class="text-xs opacity-70">University of Kashmir</p></div>
                     <div class="pt-4 border-t border-black/5 dark:border-white/10">
-                
-         <p class="text-[10px] opacity-70 uppercase font-bold mb-2">Vocational Certs</p>
+                        <p class="text-[10px] opacity-70 uppercase font-bold mb-2">Vocational Certs</p>
                         <div class="flex flex-wrap gap-2 text-[10px]">
-                            <span class="font-bold">CCCA - NIELIT</span> |
- <span class="font-bold">Field Tech - PMKVY</span> | <span class="font-bold">CCTV Tech - PMKVY</span>
+                            <span class="font-bold">CCCA - NIELIT</span> | <span class="font-bold">Field Tech - PMKVY</span> | <span class="font-bold">CCTV Tech - PMKVY</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="section-card">
-     
             <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter">Technical Stack</h2>
                 <div class="grid grid-cols-4 gap-4 text-center">
                     <div><i class="fab fa-python text-3xl"></i><p class="text-[10px] mt-2 font-bold">Python</p></div>
                     <div><i class="fas fa-globe text-3xl"></i><p class="text-[10px] mt-2 font-bold">Web Design</p></div>
-         
             <div><i class="fas fa-bezier-curve text-3xl"></i><p class="text-[10px] mt-2 font-bold">Graphics</p></div>
                     <div><i class="fas fa-terminal text-3xl"></i><p class="text-[10px] mt-2 font-bold">OS Setup</p></div>
                     <div><i class="fas fa-unlock text-3xl"></i><p class="text-[10px] mt-2 font-bold">Recovery</p></div>
                     <div><i class="fas fa-file-invoice-dollar text-3xl"></i><p class="text-[10px] mt-2 font-bold">Tally</p></div>
-    
                  <div><i class="fas fa-robot text-3xl"></i><p class="text-[10px] mt-2 font-bold">Bio-ML</p></div>
                     <div><i class="fas fa-code text-3xl"></i><p class="text-[10px] mt-2 font-bold">C/C++</p></div>
                 </div>
             </div>
             <div class="section-card">
-           
       <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter">Research Domain</h2>
                 <ul class="space-y-4 text-sm opacity-80 font-semibold">
                     <li><i class="fas fa-dna mr-2"></i>3D Spatial Genomics</li>
                     <li><i class="fas fa-brain mr-2"></i>Machine Learning</li>
-                   
   <li><i class="fas fa-microscope mr-2"></i>Computational Biology</li>
                     <li><i class="fas fa-chart-area mr-2"></i>Data Analysis</li>
                 </ul>
             </div>
             <div class="section-card">
                 <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter">Additional Skills</h2>
-       
           <ul class="space-y-3 text-sm opacity-80 font-semibold">
                     <li><i class="fas fa-server mr-2"></i>HPC Cluster Management</li>
                     <li><i class="fas fa-chart-line mr-2"></i>Complex Data Visualization</li>
                     <li><i class="fas fa-shield-alt mr-2"></i>Data Integrity & Security</li>
-           
           <li><i class="fas fa-users-cog mr-2"></i>Technical Project Leadership</li>
                     <li><i class="fas fa-microchip mr-2"></i>Hardware Lifecycle Management</li>
                     <li><i class="fas fa-network-wired mr-2"></i>Advanced System Recovery</li>
                 </ul>
             </div>
-        
- </div>
+        </div>
     </section>
 
     <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
-
         <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-accent-theme">
             Services Provided
         </h2>
-
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             <!-- GENOMIC ANALYSIS -->
@@ -512,22 +419,17 @@ Decoding biological complexity through computational excellence.<br>
 
 <!-- SERVICE MODAL -->
 <div id="serviceModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-[9999] p-6">
-    <!-- Changed max-w-3xl to max-w-md or max-w-lg layout dynamic wrapper -->
     <div class="section-card max-w-xl w-full h-fit relative animate-[fadeIn_.3s_ease]">
-
         <button onclick="closeServiceModal()" class="absolute top-5 right-5 text-2xl hover:text-accent-theme transition">
             <i class="fas fa-xmark"></i>
         </button>
-
         <h2 id="modalTitle" class="text-2xl font-extrabold mb-6 text-accent-theme uppercase tracking-widest border-b border-black/5 dark:border-white/10 pb-2">
         </h2>
-
-        <!-- Replaced grid layout with a clean dynamic flex stack so it takes up zero extra empty space -->
         <div id="modalContent" class="flex flex-col gap-3 text-sm opacity-90 max-h-[60vh] overflow-y-auto pr-2">
         </div>
-
     </div>
 </div>
+
     <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
         <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-accent-theme">Featured Projects</h2>
         
@@ -541,7 +443,6 @@ Decoding biological complexity through computational excellence.<br>
                             <h3 class="text-2xl font-bold text-accent-theme">Instrument Bookings System - CIRI</h3>
                             <p class="text-sm font-mono opacity-70 mt-1">Role: Developer & Project Head</p>
                         </div>
-                        <!-- FIXED: Removed !text-accent-theme and hover:!text-white so it defaults to solid white text -->
                         <a href="https://ablabinstruments.vercel.app" target="_blank" class="cv-button shrink-0">
                             <i class="fas fa-external-link-alt !text-white"></i> Visit Project
                         </a>
@@ -583,19 +484,17 @@ Decoding biological complexity through computational excellence.<br>
         <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-accent-theme">Interests & Hobbies</h2>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             <div class="section-card text-center group"><i class="fas fa-baseball-bat-ball text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Cricket</p></div>
-            <div class="section-card 
- text-center group"><i class="fas fa-volleyball text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Volleyball</p></div>
+            <div class="section-card text-center group"><i class="fas fa-volleyball text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Volleyball</p></div>
             <div class="section-card text-center group"><i class="fas fa-utensils text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Cooking</p></div>
             <div class="section-card text-center group"><i class="fas fa-plane-departure text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Travelling</p></div>
             <div class="section-card text-center group"><i class="fas fa-mountain-sun text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Nature Exploring</p></div>
-            <div class="section-card text-center group"><i class="fas 
- fa-person-walking text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Long Walk</p></div>
+            <div class="section-card text-center group"><i class="fas fa-person-walking text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Long Walk</p></div>
         </div>
 </section>
 
     <footer id="contact" class="py-20 px-6 border-t border-black/5 dark:border-white/5 text-center select-none">
 
-    <!-- SOCIAL MEDIA BUTTONS (Click to Redirect / Hover to Glow) -->
+    <!-- SOCIAL MEDIA BUTTONS -->
     <div class="flex flex-wrap justify-center gap-10 mb-8">
         <a href="https://www.facebook.com/DigitalNinjaOfficial/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Profile" class="opacity-60 hover:opacity-100 hover:text-accent-theme hover:drop-shadow-[0_0_15px_var(--glow-color)] transition-all duration-300 text-3xl cursor-pointer transform hover:scale-110">
             <i class="fab fa-facebook"></i>
@@ -608,19 +507,16 @@ Decoding biological complexity through computational excellence.<br>
         </a>
     </div>
 
-    <!-- CONTACT EMAIL BUTTONS (Click to Compose Email / Hover to Glow) -->
+    <!-- CONTACT EMAIL BUTTONS -->
     <div class="space-y-4 mb-10 flex flex-col items-center">
-        
         <a href="mailto:Sameermushtaq48@gmail.com" class="flex items-center justify-center gap-3 text-sm opacity-80 hover:opacity-100 group transition-all duration-300 max-w-fit cursor-pointer">
             <i class="fas fa-envelope transition-all duration-300 group-hover:text-accent-theme group-hover:drop-shadow-[0_0_8px_var(--glow-color)]"></i>
             <span class="group-hover:text-accent-theme group-hover:drop-shadow-[0_0_10px_var(--glow-color)] transition-all duration-300">Sameermushtaq48@gmail.com</span>
         </a>
-
         <a href="mailto:Sommu1921@gmail.com" class="flex items-center justify-center gap-3 text-sm opacity-80 hover:opacity-100 group transition-all duration-300 max-w-fit cursor-pointer">
             <i class="fas fa-envelope transition-all duration-300 group-hover:text-accent-theme group-hover:drop-shadow-[0_0_8px_var(--glow-color)]"></i>
             <span class="group-hover:text-accent-theme group-hover:drop-shadow-[0_0_10px_var(--glow-color)] transition-all duration-300">Sommu1921@gmail.com</span>
         </a>
-
     </div>
 
     <!-- SITE VISITOR COUNTER WIDGETS -->
@@ -643,16 +539,15 @@ Decoding biological complexity through computational excellence.<br>
 </footer>
 
     <script>
-        
         const themeToggle = document.getElementById('theme-toggle');
- const themeIcon = document.getElementById('theme-icon');
+        const themeIcon = document.getElementById('theme-icon');
         const html = document.documentElement;
 
         const savedTheme = localStorage.getItem('theme') || 'dark';
- if (savedTheme === 'light') {
+        if (savedTheme === 'light') {
             html.classList.remove('dark');
             themeIcon.classList.replace('fa-moon', 'fa-sun');
- }
+        }
 
         themeToggle.addEventListener('click', () => {
             if (html.classList.contains('dark')) {
@@ -660,7 +555,6 @@ Decoding biological complexity through computational excellence.<br>
                 themeIcon.classList.replace('fa-moon', 'fa-sun');
                 localStorage.setItem('theme', 'light');
             } else {
-           
                  html.classList.add('dark');
                 themeIcon.classList.replace('fa-sun', 'fa-moon');
                 localStorage.setItem('theme', 'dark');
@@ -668,105 +562,57 @@ Decoding biological complexity through computational excellence.<br>
         });
 
     const serviceData = {
-
     genomics: {
         title: "Genomic Analysis",
         items: [
-            "HI-C Data Analysis",
-            "Micro-C Data Analysis",
-            "Whole Genome Sequencing Data Analysis",
-            "RNA-Seq Data Analysis",
-            "Chip-Seq Data Analysis",
-            "ATAC-Seq Data Analysis",
-            "FastQ Processing",
-            "Pairs File Generation",
-            "Cool / Mcool File Generation",
-            "Genome Interaction Pipelines",
-            "Chromatin Structure Analysis"
+            "HI-C Data Analysis", "Micro-C Data Analysis", "Whole Genome Sequencing Data Analysis",
+            "RNA-Seq Data Analysis", "Chip-Seq Data Analysis", "ATAC-Seq Data Analysis",
+            "FastQ Processing", "Pairs File Generation", "Cool / Mcool File Generation",
+            "Genome Interaction Pipelines", "Chromatin Structure Analysis"
         ]
     },
-
     system: {
         title: "System Technician",
         items: [
-            "OS Installation",
-            "OS Upgradation",
-            "OS Activation",
-            "System Recovery",
-            "Password Recovery",
-            "USB Data Recovery",
-            "HDD Recovery",
-            "SSD Recovery",
-            "Driver Installation",
-            "System Optimization"
+            "OS Installation", "OS Upgradation", "OS Activation", "System Recovery",
+            "Password Recovery", "USB Data Recovery", "HDD Recovery", "SSD Recovery",
+            "Driver Installation", "System Optimization"
         ]
     },
-
     software: {
         title: "Software Engineering",
         items: [
-            "Windows Software Installation",
-            "Mac OS Software Installation",
-            "Cracks & Patches",
-            "Software Activation",
-            "Software Modification",
-            "Application Deployment",
-            "Professional Tool Setup",
-            "Environment Configuration",
-            "Troubleshooting",
+            "Windows Software Installation", "Mac OS Software Installation", "Cracks & Patches",
+            "Software Activation", "Software Modification", "Application Deployment",
+            "Professional Tool Setup", "Environment Configuration", "Troubleshooting",
             "Custom Software Support"
         ]
     },
-
     web: {
         title: "Web Development & Deployment",
         items: [
-            "Semester Projects",
-            "Final Year Projects",
-            "Web Development",
-            "Deployment",
-            "Version Control",
-            "Bug Fixing",
-            "Custom Modules",
-            "Frontend Development",
-            "Backend Integration",
-            "Project Maintenance"
+            "Semester Projects", "Final Year Projects", "Web Development", "Deployment",
+            "Version Control", "Bug Fixing", "Custom Modules", "Frontend Development",
+            "Backend Integration", "Project Maintenance"
         ]
     },
-
     graphics: {
         title: "Graphics Designing",
         items: [
-            "Canva Designing",
-            "Adobe Illustrator",
-            "CorelDraw",
-            "PhotoShop",
-            "Inkscape",
-            "Posters",
-            "Banners",
-            "Flyers",
-            "Presentations",
-            "Brochures",
-            "Academic Designs"
+            "Canva Designing", "Adobe Illustrator", "CorelDraw", "PhotoShop",
+            "Inkscape", "Posters", "Banners", "Flyers", "Presentations",
+            "Brochures", "Academic Designs"
         ]
     },
-
     office: {
         title: "Office Automation",
         items: [
-            "MS Word Documents",
-            "MS Excel Workbooks",
-            "MS PowerPoint Presentations",
-            "MS Access Databases",
-            "Libre Office",
-            "Mendeley Formatting",
-            "Academic Formatting",
-            "Research Documentation",
-            "Data Sheets",
+            "MS Word Documents", "MS Excel Workbooks", "MS PowerPoint Presentations",
+            "MS Access Databases", "Libre Office", "Mendeley Formatting",
+            "Academic Formatting", "Research Documentation", "Data Sheets",
             "Presentation Design"
         ]
     }
-
 };
 
 function openServiceModal(serviceKey) {
@@ -791,15 +637,10 @@ function openServiceModal(serviceKey) {
 }
 
 function closeServiceModal() {
-
     const modal = document.getElementById("serviceModal");
-
     modal.classList.remove("flex");
-
     modal.classList.add("hidden");
-
 }
-
 
 // VISITOR COUNTER ENGINE
 async function initCounters() {
@@ -807,10 +648,8 @@ async function initCounters() {
     const totalVisitsEl = document.getElementById('total-visits');
     const uniqueVisitsEl = document.getElementById('unique-visitors');
 
-    // Establish local browser flags
     const hasVisitedBefore = localStorage.getItem('has_visited_before');
     
-    // Fallback simulated tracking defaults if server fails
     let localTotal = parseInt(localStorage.getItem('fallback_total') || '142');
     let localUnique = parseInt(localStorage.getItem('fallback_unique') || '84');
 
@@ -824,8 +663,6 @@ async function initCounters() {
     }
 
     try {
-        // Fetch values from a stable tracking endpoint
-        // NOTE: If using an explicit backend or API key layer later, replace URLs here
         const totalRes = await fetch(`https://api.countapi.xyz/hit/${namespace}/total`);
         const totalData = await totalRes.json();
         
@@ -841,15 +678,12 @@ async function initCounters() {
         totalVisitsEl.innerText = totalData.value.toLocaleString();
         uniqueVisitsEl.innerText = uniqueData.value.toLocaleString();
     } catch (err) {
-        // Graceful fallback to persistent storage simulation if public count API cuts out
         totalVisitsEl.innerText = localTotal.toLocaleString();
         uniqueVisitsEl.innerText = localUnique.toLocaleString();
     }
 }
 
-// Fire tracking when DOM components clear
 document.addEventListener('DOMContentLoaded', initCounters);
-        
  </script>
 </body>
 </html>
