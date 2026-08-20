@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sameer Mushtaq Tantray | Project Research Scientist & PhD Scholar</title>
+    <title>Sameer Mushtaq Tantray | ML Specialist, PhD Scholar & Research Scientist</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -11,16 +11,13 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono&family=Noto+Sans+Arabic:wght@900&display=swap');
         :root {
-            /* LIGHT MODE: WHITE BG, GREEN TEXT, YELLOW GLOW */
             --bg-color: #ffffff;
             --bg-gradient: linear-gradient(135deg, #ffffff 0%, #f7fee7 100%);
             --card-bg: #ffffff;
             --text: #166534;
-            /* Dark Green for readability */
             --muted: #3f6212;
-            --accent-primary: #22c55e; /* Green Accent */
+            --accent-primary: #22c55e;
             --glow-color: rgba(0, 204, 0, 0.85);
-            /* Intense Yellow Glow */
             --glow-intensity: 60px;
             --border: rgba(34, 197, 94, 0.2);
             --nav-bg: rgba(255, 255, 255, 0.9);
@@ -28,16 +25,13 @@
         }
 
         .dark {
-            /* DARK MODE: BLACK BG, RED ACCENTS, WHITE GLOW */
             --bg-color: #020208;
             --bg-gradient: linear-gradient(135deg, #020208 0%, #050512 40%, #020208 100%);
             --card-bg: rgba(10, 10, 18, 0.85);
             --text: #f8fafc;
             --muted: #9ca3af;
             --accent-primary: #ff003c;
-            /* Neon Red */
             --glow-color: rgba(255, 0, 0, 0.85);
-            /* Intense White Glow */
             --glow-intensity: 65px;
             --border: rgba(255, 0, 60, 0.15);
             --nav-bg: rgba(0, 0, 0, 0.6);
@@ -55,7 +49,6 @@
             overflow-x: hidden;
         }
 
-        /* GRID */
         body::before {
             content: "";
             position: fixed;
@@ -67,7 +60,6 @@
             z-index: -2;
         }
 
-        /* WATERMARK */
         .urdu-watermark {
             position: fixed;
             inset: 0;
@@ -87,14 +79,12 @@
             filter: blur(1px);
         }
 
-        /* NAVBAR */
         .glass-nav {
             background: var(--nav-bg);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
 
-        /* CARDS */
         .section-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -111,7 +101,6 @@
             box-shadow: 0 0 var(--glow-intensity) var(--glow-color);
         }
 
-        /* THEME TOGGLE */
         #theme-toggle {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -130,14 +119,12 @@
             box-shadow: 0 0 20px var(--glow-color);
         }
 
-        /* ACCENTS & ICONS */
         .text-accent-theme { color: var(--accent-primary) !important; }
         .stack-icon, .fas, .fab {
             color: var(--accent-primary) !important;
             filter: none !important;
         }
 
-        /* PHOTO - Cleaned up and added theme glow */
         .my-photo {
             width: 300px;
             height: 300px;
@@ -174,7 +161,6 @@
             border-radius: 999px;
         }
 
-        /* CV BUTTON STYLING */
         .cv-button {
             background: var(--accent-primary);
             color: white !important;
@@ -199,10 +185,9 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-       /* NAVIGATION BUTTON STYLE & GLOW */
         .nav-button {
             padding: 0.5rem 1rem;
-            border-radius: 0.75rem; /* Matches your overall rounded aesthetic */
+            border-radius: 0.75rem;
             border: 1px solid transparent;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             background: transparent;
@@ -231,7 +216,6 @@
             </div>
             
             <div class="flex items-center gap-8">
-                <!-- Swapped to gap-2 and flex-wrap to accommodate the button padding -->
                 <div class="hidden md:flex gap-2 text-[10px] lg:text-xs font-bold uppercase tracking-widest opacity-90 items-center">
                     <a href="#home" class="nav-button">Home</a>
                     <a href="#profile" class="nav-button">Profile</a>
@@ -241,7 +225,6 @@
                     <a href="#interests" class="nav-button">Interests</a>
                     <a href="#contact" class="nav-button">Contact</a>
                     
-                    <!-- CV Button (Kept distinct with its solid background) -->
                     <a href="CV_Sameer.pdf" download class="cv-button ml-2">
                         <i class="fas fa-download"></i> Download CV
                     </a>
@@ -251,8 +234,6 @@
                     <i id="theme-icon" class="fas fa-moon text-accent-theme"></i>
                 </button>
             </div>
-            
-            </div>
         </div>
     </nav>
 
@@ -260,18 +241,17 @@
         <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
     
             <div class="space-y-6 text-center md:text-left">
-                <h3 class="text-accent-theme font-mono tracking-widest text-sm uppercase">PhD Scholar & Project Research Scientist</h3>
+                <h3 class="text-accent-theme font-mono tracking-widest text-sm uppercase">PhD Scholar & Research Scientist | ML in Genomics</h3>
                 <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">Sameer Mushtaq <br><span class="text-accent-theme">Tantray</span></h1>
                 <p class="opacity-90 text-lg leading-relaxed">
-                    Decoding biological complexity through computational excellence.<br>
-                    <span class="text-accent-theme font-semibold">Implementing programming skills in 3D Spatial Genomics and Bioinformatics.</span><br>
-                    <span class="opacity-70 text-base">Engineering scalable solutions at the intersection of life sciences and data.</span>
+                    Pioneering Machine Learning architectures to decode 3D Spatial Genomics.<br>
+                    <span class="text-accent-theme font-semibold">Applying Deep Learning and Predictive Modeling to Chromatin Organization.</span><br>
+                    <span class="opacity-70 text-base">Engineering scalable AI pipelines at the convergence of computational intelligence and bioinformatics.</span>
                 </p>
             </div>
       
             <div class="flex justify-center relative">
                 <div class="floating relative">
-                    <!-- Removed neon-border-flow and simply applied the my-photo class -->
                     <img src="DP.png" alt="Sameer Mushtaq Tantray" class="my-photo">
                 </div>
             </div>
@@ -283,13 +263,13 @@
             <div class="section-card border-l-4 border-accent-primary">
                 <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter border-b border-black/5 dark:border-white/10 pb-2">Professional Summary</h2>
                 <p class="opacity-80 leading-relaxed text-sm text-justify">
-                    My journey in science is rooted in the resilience of Kashmir, where I began my primary education within my local locality before moving to Bijbehara town for my graduation studies. These formative years shaped my ability to navigate complex environments with persistence, eventually leading me to the Islamic University of Science and Technology (IUST) for my MCA and now to the University of Kashmir, where I am pursuing a PhD in Computer Science. Currently, I serve as a Project Research Scientist at the Chromatin and Epigenetics Lab (CIRI), specializing in the cutting-edge fields of 3D Spatial Genomics and Bioinformatics. My core expertise lies in implementing advanced programming skills to decode intricate biological puzzles using high-performance computing pipelines. I possess a unique technical balance, combining doctoral-level research with expert root-level system administration and kernel debugging. I am recognized for my mastery in lossless system recovery and password restoration, ensuring total data preservation in critical research scenarios. Throughout my career, I have successfully managed large-scale multi-platform OS environments while providing professional software engineering services, including patched software solutions tailored for diverse professional purposes. My professional path is defined by the seamless fusion of hardware-level optimization and advanced data-driven discovery.
+                    My scientific trajectory is rooted in the resilience of Kashmir, advancing from foundational schooling to graduation in Bijbehara, completing my MCA at the Islamic University of Science and Technology (IUST), and now pursuing a PhD in Computer Science at the University of Kashmir. Grounded in a strong core background in <strong>Machine Learning and Artificial Intelligence</strong>, I apply deep learning architectures, graph neural networks, and pattern recognition systems to solve complex biological questions. Currently serving as a Project Research Scientist at the Chromatin and Epigenetics Lab (CIRI), I develop AI-driven pipelines to decipher high-order 3D spatial genomics and chromatin interactions. Alongside my algorithmic expertise, I bring elite systems-engineering competencies, including root-level kernel debugging, lossless system and storage recovery, HPC cluster management, and scalable enterprise application deployment.
                 </p>
             </div>
             <div class="section-card border-r-4 border-accent-primary">
                 <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter border-b border-black/5 dark:border-white/10 pb-2">Strategic Objective</h2>
                 <p class="opacity-80 leading-relaxed text-sm text-justify">
-                    My objective is to pioneer the development of advanced computational models and AI-driven methodologies specifically designed to decode the complexities of 3D Spatial Genomics and chromatin organization. I aim to leverage my computer applications background to architect highly scalable, cloud-native frameworks capable of performing real-time multi-dimensional analysis on massive biological datasets. Through my doctoral research at the University of Kashmir, I seek to integrate advanced Machine Learning models into chromatin architecture studies to identify hidden organizational patterns previously invisible to traditional methods. I am dedicated to engineering open-source analytical tools and interactive visualizers that make abstract multi-omic landscapes actionable for the global scientific community. My vision involves developing high-fidelity predictive simulations that can forecast genomic structural changes under varying environmental and experimental conditions. I intend to lead multidisciplinary research teams at the nexus of Computer Science and Life Sciences, fostering a legacy of innovation through computational excellence and automated discovery.
+                    My objective is to advance state-of-the-art Machine Learning frameworks specifically engineered for multi-dimensional biological datasets and 3D spatial genomics. Through my doctoral research at the University of Kashmir, I focus on constructing self-supervised and predictive AI models to uncover hidden chromatin conformation states, topologically associating domains (TADs), and gene regulation dynamics. I aim to deliver open-source ML pipelines, high-fidelity neural network simulations, and high-performance interactive tools that convert high-throughput genomic data into actionable biological insights, bridging Computer Science and Life Sciences.
                 </p>
             </div>
         </div>
@@ -300,9 +280,9 @@
             <div class="section-card">
                 <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter">Academic Path</h2>
                 <div class="space-y-4">
-                    <div class="border-l-2 border-accent-primary pl-4"><h4 class="font-bold text-accent-theme">PhD Computer Science</h4><p class="text-xs opacity-70">University of Kashmir | Present</p></div>
-                    <div class="border-l-2 border-accent-primary pl-4"><h4 class="font-bold text-accent-theme">Masters (MCA)</h4><p class="text-xs opacity-70 italic">IUST</p></div>
-                    <div class="border-l-2 border-accent-primary pl-4"><h4 class="font-bold text-accent-theme">B.Sc</h4><p class="text-xs opacity-70">University of Kashmir</p></div>
+                    <div class="border-l-2 border-accent-primary pl-4"><h4 class="font-bold text-accent-theme">PhD Computer Science (ML & Genomics)</h4><p class="text-xs opacity-70">University of Kashmir | Present</p></div>
+                    <div class="border-l-2 border-accent-primary pl-4"><h4 class="font-bold text-accent-theme">Masters in Computer Applications (MCA)</h4><p class="text-xs opacity-70 italic">Islamic University of Science & Technology (IUST)</p></div>
+                    <div class="border-l-2 border-accent-primary pl-4"><h4 class="font-bold text-accent-theme">B.Sc Computer Science</h4><p class="text-xs opacity-70">University of Kashmir</p></div>
                     <div class="pt-4 border-t border-black/5 dark:border-white/10">
                         <p class="text-[10px] opacity-70 uppercase font-bold mb-2">Vocational Certs</p>
                         <div class="flex flex-wrap gap-2 text-[10px]">
@@ -312,36 +292,36 @@
                 </div>
             </div>
             <div class="section-card">
-            <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter">Technical Stack</h2>
+                <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter">Technical Stack</h2>
                 <div class="grid grid-cols-4 gap-4 text-center">
+                    <div><i class="fas fa-brain text-3xl"></i><p class="text-[10px] mt-2 font-bold">ML / DL</p></div>
                     <div><i class="fab fa-python text-3xl"></i><p class="text-[10px] mt-2 font-bold">Python</p></div>
-                    <div><i class="fas fa-globe text-3xl"></i><p class="text-[10px] mt-2 font-bold">Web Design</p></div>
-            <div><i class="fas fa-bezier-curve text-3xl"></i><p class="text-[10px] mt-2 font-bold">Graphics</p></div>
-                    <div><i class="fas fa-terminal text-3xl"></i><p class="text-[10px] mt-2 font-bold">OS Setup</p></div>
-                    <div><i class="fas fa-unlock text-3xl"></i><p class="text-[10px] mt-2 font-bold">Recovery</p></div>
-                    <div><i class="fas fa-file-invoice-dollar text-3xl"></i><p class="text-[10px] mt-2 font-bold">Tally</p></div>
-                 <div><i class="fas fa-robot text-3xl"></i><p class="text-[10px] mt-2 font-bold">Bio-ML</p></div>
-                    <div><i class="fas fa-code text-3xl"></i><p class="text-[10px] mt-2 font-bold">C/C++</p></div>
+                    <div><i class="fas fa-network-wired text-3xl"></i><p class="text-[10px] mt-2 font-bold">PyTorch / TF</p></div>
+                    <div><i class="fas fa-dna text-3xl"></i><p class="text-[10px] mt-2 font-bold">Bio-Pipelines</p></div>
+                    <div><i class="fas fa-terminal text-3xl"></i><p class="text-[10px] mt-2 font-bold">HPC / Linux</p></div>
+                    <div><i class="fas fa-unlock text-3xl"></i><p class="text-[10px] mt-2 font-bold">Sys Recovery</p></div>
+                    <div><i class="fas fa-globe text-3xl"></i><p class="text-[10px] mt-2 font-bold">Web Dev</p></div>
+                    <div><i class="fas fa-code text-3xl"></i><p class="text-[10px] mt-2 font-bold">C / C++</p></div>
                 </div>
             </div>
             <div class="section-card">
-      <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter">Research Domain</h2>
+                <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter">Research Domain</h2>
                 <ul class="space-y-4 text-sm opacity-80 font-semibold">
-                    <li><i class="fas fa-dna mr-2"></i>3D Spatial Genomics</li>
-                    <li><i class="fas fa-brain mr-2"></i>Machine Learning</li>
-  <li><i class="fas fa-microscope mr-2"></i>Computational Biology</li>
-                    <li><i class="fas fa-chart-area mr-2"></i>Data Analysis</li>
+                    <li><i class="fas fa-brain mr-2"></i>Machine Learning & Deep Learning Architectures</li>
+                    <li><i class="fas fa-dna mr-2"></i>3D Spatial Genomics & Chromatin Architecture</li>
+                    <li><i class="fas fa-microscope mr-2"></i>Predictive AI in Computational Biology</li>
+                    <li><i class="fas fa-chart-area mr-2"></i>High-Dimensional Multi-Omics Data Modeling</li>
                 </ul>
             </div>
             <div class="section-card">
                 <h2 class="text-2xl font-bold mb-6 text-accent-theme uppercase tracking-tighter">Additional Skills</h2>
-          <ul class="space-y-3 text-sm opacity-80 font-semibold">
-                    <li><i class="fas fa-server mr-2"></i>HPC Cluster Management</li>
-                    <li><i class="fas fa-chart-line mr-2"></i>Complex Data Visualization</li>
-                    <li><i class="fas fa-shield-alt mr-2"></i>Data Integrity & Security</li>
-          <li><i class="fas fa-users-cog mr-2"></i>Technical Project Leadership</li>
-                    <li><i class="fas fa-microchip mr-2"></i>Hardware Lifecycle Management</li>
-                    <li><i class="fas fa-network-wired mr-2"></i>Advanced System Recovery</li>
+                <ul class="space-y-3 text-sm opacity-80 font-semibold">
+                    <li><i class="fas fa-server mr-2"></i>HPC Cluster Management & GPU Acceleration</li>
+                    <li><i class="fas fa-chart-line mr-2"></i>Complex Biological Data Visualization</li>
+                    <li><i class="fas fa-shield-alt mr-2"></i>Data Integrity, Backup & Lossless Recovery</li>
+                    <li><i class="fas fa-users-cog mr-2"></i>AI & Computational Research Leadership</li>
+                    <li><i class="fas fa-microchip mr-2"></i>Hardware Lifecycle Management & Optimization</li>
+                    <li><i class="fas fa-cogs mr-2"></i>Kernel Diagnostics & Low-Level Troubleshooting</li>
                 </ul>
             </div>
         </div>
@@ -353,13 +333,13 @@
         </h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            <!-- GENOMIC ANALYSIS -->
+            <!-- ML IN GENOMICS -->
             <div onclick="openServiceModal('genomics')" class="section-card border-l-2 border-accent-primary cursor-pointer flex flex-col justify-between items-center text-center">
                 <div>
-                    <i class="fas fa-dna text-2xl mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Genomic Analysis</h3>
+                    <i class="fas fa-brain text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">ML & Genomic Analysis</h3>
                     <p class="text-sm opacity-80 mb-6 text-justify md:text-center">
-                        High-performance pipelines for genomic and chromatin interaction data analysis.
+                        AI-driven pipelines for 3D genomics, Hi-C/Micro-C data modeling, and predictive chromatin analysis.
                     </p>
                 </div>
                 <button class="cv-button w-fit mt-auto mx-auto">
@@ -373,7 +353,7 @@
                     <i class="fas fa-terminal text-2xl mb-4"></i>
                     <h3 class="font-bold text-lg mb-2">System Technician</h3>
                     <p class="text-sm opacity-80 mb-6 text-justify md:text-center">
-                        OS installation, recovery, activation, and advanced troubleshooting services.
+                        OS installation, recovery, activation, kernel tuning, and advanced hardware troubleshooting.
                     </p>
                 </div>
                 <button class="cv-button w-fit mt-auto mx-auto">
@@ -387,7 +367,7 @@
                     <i class="fas fa-file-shield text-2xl mb-4"></i>
                     <h3 class="font-bold text-lg mb-2">Software Engineering</h3>
                     <p class="text-sm opacity-80 mb-6 text-justify md:text-center">
-                        Software installation, activation, patches, modifications, and support.
+                        Toolchain setup, environment configuration, patched utilities, and high-performance software builds.
                     </p>
                 </div>
                 <button class="cv-button w-fit mt-auto mx-auto">
@@ -401,7 +381,7 @@
                     <i class="fas fa-code-branch text-2xl mb-4"></i>
                     <h3 class="font-bold text-lg mb-2">Web Development & Deployment</h3>
                     <p class="text-sm opacity-80 mb-6 text-justify md:text-center">
-                        Academic project development, deployment, debugging, and maintenance.
+                        Academic dashboards, web-based genomic visualizers, full-stack portals, and production deployment.
                     </p>
                 </div>
                 <button class="cv-button w-fit mt-auto mx-auto">
@@ -415,7 +395,7 @@
                     <i class="fas fa-bezier-curve text-2xl mb-4"></i>
                     <h3 class="font-bold text-lg mb-2">Graphics Designing</h3>
                     <p class="text-sm opacity-80 mb-6 text-justify md:text-center">
-                        Posters, banners, flyers, presentations, brochures, and academic designs.
+                        Scientific figures, publication posters, banners, presentations, and vector illustrations.
                     </p>
                 </div>
                 <button class="cv-button w-fit mt-auto mx-auto">
@@ -429,7 +409,7 @@
                     <i class="fas fa-laptop-code text-2xl mb-4"></i>
                     <h3 class="font-bold text-lg mb-2">Office Automation</h3>
                     <p class="text-sm opacity-80 mb-6 text-justify md:text-center">
-                        Professional document creation, spreadsheets, presentations, databases, and academic formatting.
+                        Automated reporting, advanced data spreadsheets, reference formatting, and LaTeX documentation.
                     </p>
                 </div>
                 <button class="cv-button w-fit mt-auto mx-auto">
@@ -440,63 +420,61 @@
         </div>
     </section>
 
-<!-- SERVICE MODAL -->
-<div id="serviceModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-[9999] p-6">
-    <div class="section-card max-w-xl w-full h-fit relative animate-[fadeIn_.3s_ease]">
-        <button onclick="closeServiceModal()" class="absolute top-5 right-5 text-2xl hover:text-accent-theme transition">
-            <i class="fas fa-xmark"></i>
-        </button>
-        <h2 id="modalTitle" class="text-2xl font-extrabold mb-6 text-accent-theme uppercase tracking-widest border-b border-black/5 dark:border-white/10 pb-2">
-        </h2>
-        <div id="modalContent" class="flex flex-col gap-3 text-sm opacity-90 max-h-[60vh] overflow-y-auto pr-2">
+    <!-- SERVICE MODAL -->
+    <div id="serviceModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-[9999] p-6">
+        <div class="section-card max-w-xl w-full h-fit relative animate-[fadeIn_.3s_ease]">
+            <button onclick="closeServiceModal()" class="absolute top-5 right-5 text-2xl hover:text-accent-theme transition">
+                <i class="fas fa-xmark"></i>
+            </button>
+            <h2 id="modalTitle" class="text-2xl font-extrabold mb-6 text-accent-theme uppercase tracking-widest border-b border-black/5 dark:border-white/10 pb-2">
+            </h2>
+            <div id="modalContent" class="flex flex-col gap-3 text-sm opacity-90 max-h-[60vh] overflow-y-auto pr-2">
+            </div>
         </div>
     </div>
-</div>
 
     <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
         <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-accent-theme">Featured Projects</h2>
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
-            <!-- INSTRUMENT BOOKINGS SYSTEM - CIRI -->
             <div class="section-card border-t-4 border-accent-primary flex flex-col justify-between">
                 <div>
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
                         <div>
                             <h3 class="text-2xl font-bold text-accent-theme">Instrument Bookings System - CIRI</h3>
-                            <p class="text-sm font-mono opacity-70 mt-1">Role: Developer & Project Head</p>
+                            <p class="text-sm font-mono opacity-70 mt-1">Role: Lead Developer & System Architect</p>
                         </div>
                         <a href="https://ablabinstruments.vercel.app" target="_blank" class="cv-button shrink-0">
                             <i class="fas fa-external-link-alt !text-white"></i> Visit Project
                         </a>
                     </div>
                     <p class="opacity-80 leading-relaxed text-justify text-sm mb-6">
-                        A comprehensive management and scheduling platform engineered for CIRI to streamline laboratory instrument reservations. Designed to optimize research workflows and ensure transparent, multi-user resource allocation for advanced scientific equipment.
+                        A centralized platform engineered for CIRI to manage laboratory instrument scheduling. Streamlines access protocols, tracks utilization metrics, and maintains transparent allocation for mission-critical scientific hardware.
                     </p>
                 </div>
                 <div class="flex flex-wrap gap-2 text-[10px] font-mono opacity-60 border-t border-black/5 dark:border-white/10 pt-4 mt-auto">
-                    <span>#Next.js</span> • <span>#TailwindCSS</span> • <span>#SchedulerEngine</span>
+                    <span>#Next.js</span> • <span>#TailwindCSS</span> • <span>#SchedulerEngine</span> • <span>#ResearchInfra</span>
                 </div>
             </div>
 
-            <!-- IUST PLACEMENT MANAGEMENT SYSTEM -->
             <div class="section-card border-t-4 border-accent-primary flex flex-col justify-between">
                 <div>
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
                         <div>
                             <h3 class="text-2xl font-bold text-accent-theme">Placement Management System - IUST</h3>
-                            <p class="text-sm font-mono opacity-70 mt-1">Role: Developer & Project Head</p>
+                            <p class="text-sm font-mono opacity-70 mt-1">Role: Lead Developer & System Architect</p>
                         </div>
                         <span class="cv-button bg-transparent border border-[var(--border)] !text-[var(--muted)] select-none shrink-0 cursor-not-allowed">
                             <i class="fas fa-lock"></i> Internal Portal
                         </span>
                     </div>
                     <p class="opacity-80 leading-relaxed text-justify text-sm mb-6">
-                        An enterprise-grade academic utility designed for the Islamic University of Science and Technology to centralize corporate hiring drives. Features dynamic student profiles, automatic eligibility filtering based on academic transcripts, and robust analytics modules for institutional tracking.
+                        An institutional portal developed for IUST to automate university-wide recruitment drives. Features dynamic profile matching, automated transcript validation, and comprehensive predictive placement statistics.
                     </p>
                 </div>
                 <div class="flex flex-wrap gap-2 text-[10px] font-mono opacity-60 border-t border-black/5 dark:border-white/10 pt-4 mt-auto">
-                    <span>#DatabaseArchitecture</span> • <span>#Automation</span> • <span>#EnterpriseAnalytics</span>
+                    <span>#DatabaseArchitecture</span> • <span>#Automation</span> • <span>#DataAnalytics</span> • <span>#Enterprise</span>
                 </div>
             </div>
 
@@ -504,70 +482,66 @@
     </section>
 
     <section id="interests" class="py-24 px-6 max-w-7xl mx-auto">
-    <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-accent-theme">Interests & Hobbies</h2>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-6">
-        <div class="section-card text-center group"><i class="fas fa-baseball-bat-ball text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Cricket</p></div>
-        <div class="section-card text-center group"><i class="fas fa-volleyball text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Volleyball</p></div>
-        <div class="section-card text-center group"><i class="fas fa-utensils text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Cooking</p></div>
-        <div class="section-card text-center group"><i class="fas fa-plane-departure text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Travelling</p></div>
-        <div class="section-card text-center group"><i class="fas fa-mountain-sun text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Nature Exploring</p></div>
-        <div class="section-card text-center group"><i class="fas fa-person-walking text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Long Walk</p></div>
-        
-        <!-- CLICKABLE PHOTOGRAPHY OPTION -->
-        <a href="gallery/" target="_blank" rel="noopener noreferrer" class="section-card text-center group cursor-pointer flex flex-col justify-center items-center hover:border-accent-theme transition-all duration-300">
-            <i class="fas fa-camera text-3xl mb-4 group-hover:scale-110 group-hover:rotate-6 transition"></i>
-            <p class="font-bold text-xs uppercase text-accent-theme flex items-center gap-1 justify-center">
-                Photography <i class="fas fa-external-link-alt text-[9px] opacity-70"></i>
-            </p>
-        </a>
-    </div>
-</section>
+        <h2 class="text-3xl font-extrabold text-center mb-16 uppercase tracking-widest text-accent-theme">Interests & Hobbies</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-6">
+            <div class="section-card text-center group"><i class="fas fa-baseball-bat-ball text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Cricket</p></div>
+            <div class="section-card text-center group"><i class="fas fa-volleyball text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Volleyball</p></div>
+            <div class="section-card text-center group"><i class="fas fa-utensils text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Cooking</p></div>
+            <div class="section-card text-center group"><i class="fas fa-plane-departure text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Travelling</p></div>
+            <div class="section-card text-center group"><i class="fas fa-mountain-sun text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Nature Exploring</p></div>
+            <div class="section-card text-center group"><i class="fas fa-person-walking text-3xl mb-4 group-hover:rotate-12 transition"></i><p class="font-bold text-xs uppercase">Long Walk</p></div>
+            
+            <!-- GITHUB PHOTO REPO LINK -->
+            <a href="https://github.com/YOUR_GITHUB_USERNAME/YOUR_PHOTOS_REPO" target="_blank" rel="noopener noreferrer" class="section-card text-center group cursor-pointer flex flex-col justify-center items-center hover:border-accent-theme transition-all duration-300">
+                <i class="fas fa-camera text-3xl mb-4 group-hover:scale-110 group-hover:rotate-6 transition"></i>
+                <p class="font-bold text-xs uppercase text-accent-theme flex items-center gap-1 justify-center">
+                    Photography <i class="fas fa-arrow-up-right-from-square text-[9px] opacity-70"></i>
+                </p>
+            </a>
+        </div>
+    </section>
 
     <footer id="contact" class="py-20 px-6 border-t border-black/5 dark:border-white/5 text-center select-none">
 
-    <!-- SOCIAL MEDIA BUTTONS -->
-    <div class="flex flex-wrap justify-center gap-10 mb-8">
-        <a href="https://www.facebook.com/DigitalNinjaOfficial/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Profile" class="opacity-60 hover:opacity-100 hover:text-accent-theme hover:drop-shadow-[0_0_15px_var(--glow-color)] transition-all duration-300 text-3xl cursor-pointer transform hover:scale-110">
-            <i class="fab fa-facebook"></i>
-        </a>
-        <a href="https://www.instagram.com/thephoenix1921/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile" class="opacity-60 hover:opacity-100 hover:text-accent-theme hover:drop-shadow-[0_0_15px_var(--glow-color)] transition-all duration-300 text-3xl cursor-pointer transform hover:scale-110">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/sameer-mushtaq-931068b2/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="opacity-60 hover:opacity-100 hover:text-accent-theme hover:drop-shadow-[0_0_15px_var(--glow-color)] transition-all duration-300 text-3xl cursor-pointer transform hover:scale-110">
-            <i class="fab fa-linkedin"></i>
-        </a>
-    </div>
-
-    <!-- CONTACT EMAIL BUTTONS -->
-    <div class="space-y-4 mb-10 flex flex-col items-center">
-        <a href="mailto:Sameermushtaq48@gmail.com" class="flex items-center justify-center gap-3 text-sm opacity-80 hover:opacity-100 group transition-all duration-300 max-w-fit cursor-pointer">
-            <i class="fas fa-envelope transition-all duration-300 group-hover:text-accent-theme group-hover:drop-shadow-[0_0_8px_var(--glow-color)]"></i>
-            <span class="group-hover:text-accent-theme group-hover:drop-shadow-[0_0_10px_var(--glow-color)] transition-all duration-300">Sameermushtaq48@gmail.com</span>
-        </a>
-        <a href="mailto:Sommu1921@gmail.com" class="flex items-center justify-center gap-3 text-sm opacity-80 hover:opacity-100 group transition-all duration-300 max-w-fit cursor-pointer">
-            <i class="fas fa-envelope transition-all duration-300 group-hover:text-accent-theme group-hover:drop-shadow-[0_0_8px_var(--glow-color)]"></i>
-            <span class="group-hover:text-accent-theme group-hover:drop-shadow-[0_0_10px_var(--glow-color)] transition-all duration-300">Sommu1921@gmail.com</span>
-        </a>
-    </div>
-
-    <!-- SITE VISITOR COUNTER WIDGETS -->
-    <div class="max-w-md mx-auto mb-10 grid grid-cols-2 gap-4">
-        <div class="border border-[var(--border)] rounded-2xl p-4 bg-[var(--card-bg)] transition-all duration-400 ease-out hover:border-[var(--accent-primary)] hover:-translate-y-1 hover:shadow-[0_0_var(--glow-intensity)_var(--glow-color)]">
-            <div class="text-accent-theme text-2xl font-extrabold tracking-wider font-mono" id="total-visits">...</div>
-            <div class="text-[10px] uppercase tracking-widest font-bold opacity-60 mt-1">Total Hits</div>
+        <div class="flex flex-wrap justify-center gap-10 mb-8">
+            <a href="https://www.facebook.com/DigitalNinjaOfficial/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Profile" class="opacity-60 hover:opacity-100 hover:text-accent-theme hover:drop-shadow-[0_0_15px_var(--glow-color)] transition-all duration-300 text-3xl cursor-pointer transform hover:scale-110">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/thephoenix1921/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile" class="opacity-60 hover:opacity-100 hover:text-accent-theme hover:drop-shadow-[0_0_15px_var(--glow-color)] transition-all duration-300 text-3xl cursor-pointer transform hover:scale-110">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/sameer-mushtaq-931068b2/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="opacity-60 hover:opacity-100 hover:text-accent-theme hover:drop-shadow-[0_0_15px_var(--glow-color)] transition-all duration-300 text-3xl cursor-pointer transform hover:scale-110">
+                <i class="fab fa-linkedin"></i>
+            </a>
         </div>
-        <div class="border border-[var(--border)] rounded-2xl p-4 bg-[var(--card-bg)] transition-all duration-400 ease-out hover:border-[var(--accent-primary)] hover:-translate-y-1 hover:shadow-[0_0_var(--glow-intensity)_var(--glow-color)]">
-            <div class="text-accent-theme text-2xl font-extrabold tracking-wider font-mono" id="unique-visitors">...</div>
-            <div class="text-[10px] uppercase tracking-widest font-bold opacity-60 mt-1">Unique Visitors</div>
+
+        <div class="space-y-4 mb-10 flex flex-col items-center">
+            <a href="mailto:Sameermushtaq48@gmail.com" class="flex items-center justify-center gap-3 text-sm opacity-80 hover:opacity-100 group transition-all duration-300 max-w-fit cursor-pointer">
+                <i class="fas fa-envelope transition-all duration-300 group-hover:text-accent-theme group-hover:drop-shadow-[0_0_8px_var(--glow-color)]"></i>
+                <span class="group-hover:text-accent-theme group-hover:drop-shadow-[0_0_10px_var(--glow-color)] transition-all duration-300">Sameermushtaq48@gmail.com</span>
+            </a>
+            <a href="mailto:Sommu1921@gmail.com" class="flex items-center justify-center gap-3 text-sm opacity-80 hover:opacity-100 group transition-all duration-300 max-w-fit cursor-pointer">
+                <i class="fas fa-envelope transition-all duration-300 group-hover:text-accent-theme group-hover:drop-shadow-[0_0_8px_var(--glow-color)]"></i>
+                <span class="group-hover:text-accent-theme group-hover:drop-shadow-[0_0_10px_var(--glow-color)] transition-all duration-300">Sommu1921@gmail.com</span>
+            </a>
         </div>
-    </div>
 
-    <!-- COPYRIGHT TEXT -->
-    <p class="opacity-50 hover:opacity-90 text-[10px] uppercase tracking-[0.4em] font-bold transition-all duration-300 hover:text-accent-theme hover:drop-shadow-[0_0_6px_var(--glow-color)] inline-block cursor-default">
-        &copy; 2026 SAMEER MUSHTAQ TANTRAY
-    </p>
+        <div class="max-w-md mx-auto mb-10 grid grid-cols-2 gap-4">
+            <div class="border border-[var(--border)] rounded-2xl p-4 bg-[var(--card-bg)] transition-all duration-400 ease-out hover:border-[var(--accent-primary)] hover:-translate-y-1 hover:shadow-[0_0_var(--glow-intensity)_var(--glow-color)]">
+                <div class="text-accent-theme text-2xl font-extrabold tracking-wider font-mono" id="total-visits">...</div>
+                <div class="text-[10px] uppercase tracking-widest font-bold opacity-60 mt-1">Total Hits</div>
+            </div>
+            <div class="border border-[var(--border)] rounded-2xl p-4 bg-[var(--card-bg)] transition-all duration-400 ease-out hover:border-[var(--accent-primary)] hover:-translate-y-1 hover:shadow-[0_0_var(--glow-intensity)_var(--glow-color)]">
+                <div class="text-accent-theme text-2xl font-extrabold tracking-wider font-mono" id="unique-visitors">...</div>
+                <div class="text-[10px] uppercase tracking-widest font-bold opacity-60 mt-1">Unique Visitors</div>
+            </div>
+        </div>
 
-</footer>
+        <p class="opacity-50 hover:opacity-90 text-[10px] uppercase tracking-[0.4em] font-bold transition-all duration-300 hover:text-accent-theme hover:drop-shadow-[0_0_6px_var(--glow-color)] inline-block cursor-default">
+            &copy; 2026 SAMEER MUSHTAQ TANTRAY
+        </p>
+
+    </footer>
 
     <script>
         const themeToggle = document.getElementById('theme-toggle');
@@ -586,135 +560,150 @@
                 themeIcon.classList.replace('fa-moon', 'fa-sun');
                 localStorage.setItem('theme', 'light');
             } else {
-                 html.classList.add('dark');
+                html.classList.add('dark');
                 themeIcon.classList.replace('fa-sun', 'fa-moon');
                 localStorage.setItem('theme', 'dark');
             }
         });
 
-    const serviceData = {
-    genomics: {
-        title: "Genomic Analysis",
-        items: [
-            "HI-C Data Analysis", "Micro-C Data Analysis", "Whole Genome Sequencing Data Analysis",
-            "RNA-Seq Data Analysis", "Chip-Seq Data Analysis", "ATAC-Seq Data Analysis",
-            "FastQ Processing", "Pairs File Generation", "Cool / Mcool File Generation",
-            "Genome Interaction Pipelines", "Chromatin Structure Analysis"
-        ]
-    },
-    system: {
-        title: "System Technician",
-        items: [
-            "OS Installation", "OS Upgradation", "OS Activation", "System Recovery",
-            "Password Recovery", "USB Data Recovery", "HDD Recovery", "SSD Recovery",
-            "Driver Installation", "System Optimization"
-        ]
-    },
-    software: {
-        title: "Software Engineering",
-        items: [
-            "Windows Software Installation", "Mac OS Software Installation", "Cracks & Patches",
-            "Software Activation", "Software Modification", "Application Deployment",
-            "Professional Tool Setup", "Environment Configuration", "Troubleshooting",
-            "Custom Software Support"
-        ]
-    },
-    web: {
-        title: "Web Development & Deployment",
-        items: [
-            "Semester Projects", "Final Year Projects", "Web Development", "Deployment",
-            "Version Control", "Bug Fixing", "Custom Modules", "Frontend Development",
-            "Backend Integration", "Project Maintenance"
-        ]
-    },
-    graphics: {
-        title: "Graphics Designing",
-        items: [
-            "Canva Designing", "Adobe Illustrator", "CorelDraw", "PhotoShop",
-            "Inkscape", "Posters", "Banners", "Flyers", "Presentations",
-            "Brochures", "Academic Designs"
-        ]
-    },
-    office: {
-        title: "Office Automation",
-        items: [
-            "MS Word Documents", "MS Excel Workbooks", "MS PowerPoint Presentations",
-            "MS Access Databases", "Libre Office", "Mendeley Formatting",
-            "Academic Formatting", "Research Documentation", "Data Sheets",
-            "Presentation Design"
-        ]
-    }
-};
+        const serviceData = {
+            genomics: {
+                title: "Machine Learning & Genomics",
+                items: [
+                    "Deep Learning for Hi-C / Micro-C Modeling",
+                    "Chromatin Conformation & TAD Prediction",
+                    "Neural Network Architectures for Multi-Omics",
+                    "Whole Genome Sequencing (WGS) ML Pipelines",
+                    "RNA-Seq, ChIP-Seq & ATAC-Seq Predictive Analysis",
+                    "FastQ to Contact Map Automated Processing",
+                    "Pairs, Cool & Mcool High-Performance Parsing",
+                    "Graph Neural Networks for Genomic Topology",
+                    "Feature Engineering for Biological Sequences"
+                ]
+            },
+            system: {
+                title: "System Technician",
+                items: [
+                    "OS Installation & Linux Kernel Optimization",
+                    "System Recovery & Deep Disk Diagnostics",
+                    "Password Recovery & Total Data Preservation",
+                    "HPC Cluster Setup & GPU Configuration",
+                    "NVMe/SSD/HDD Lossless Partition Recovery",
+                    "Driver & CUDA Toolchain Environment Config"
+                ]
+            },
+            software: {
+                title: "Software Engineering",
+                items: [
+                    "Bioinformatics & ML Software Environment Setup",
+                    "PyTorch, TensorFlow & CUDA Installations",
+                    "Windows / macOS / Linux System Patches",
+                    "Binary Modification & Custom Packaging",
+                    "Application Deployment & Performance Profiling",
+                    "Custom Developer Environment Configuration"
+                ]
+            },
+            web: {
+                title: "Web Development & Deployment",
+                items: [
+                    "Interactive Genomic & ML Dashboards",
+                    "Full-Stack Academic Portals & APIs",
+                    "Cloud Deployment (Vercel, AWS, Cloudflare)",
+                    "Data Visualization with D3 / Plotly / Canvas",
+                    "Frontend & Backend Integration",
+                    "Research Platform Optimization & Maintenance"
+                ]
+            },
+            graphics: {
+                title: "Graphics Designing",
+                items: [
+                    "Publication Figures & Scientific Visualizations",
+                    "Conference Posters & High-Resolution Banners",
+                    "Vector Illustration (Illustrator, Corel, Inkscape)",
+                    "Academic Slide Decks & Graphical Abstracts",
+                    "Branding, Logos & Digital Ninja Media"
+                ]
+            },
+            office: {
+                title: "Office Automation",
+                items: [
+                    "Automated Research Pipelines & Scripting",
+                    "LaTeX Document Preparation & Mendeley Sync",
+                    "Complex Statistical Excel Worksheets & Macros",
+                    "MS Word Academic Formatting & Journal Standards",
+                    "Relational Database Layouts & Queries"
+                ]
+            }
+        };
 
-function openServiceModal(serviceKey) {
-    const modal = document.getElementById("serviceModal");
-    const title = document.getElementById("modalTitle");
-    const content = document.getElementById("modalContent");
+        function openServiceModal(serviceKey) {
+            const modal = document.getElementById("serviceModal");
+            const title = document.getElementById("modalTitle");
+            const content = document.getElementById("modalContent");
 
-    title.innerText = serviceData[serviceKey].title;
-    content.innerHTML = "";
+            title.innerText = serviceData[serviceKey].title;
+            content.innerHTML = "";
 
-    serviceData[serviceKey].items.forEach(item => {
-        content.innerHTML += `
-            <div class="border border-[var(--border)] rounded-xl px-4 py-3 hover:border-[var(--accent-primary)] bg-[var(--bg-color)] transition flex items-center gap-3 font-semibold">
-                <i class="fas fa-check-circle text-xs text-accent-theme"></i>
-                ${item}
-            </div>
-        `;
-    });
+            serviceData[serviceKey].items.forEach(item => {
+                content.innerHTML += `
+                    <div class="border border-[var(--border)] rounded-xl px-4 py-3 hover:border-[var(--accent-primary)] bg-[var(--bg-color)] transition flex items-center gap-3 font-semibold">
+                        <i class="fas fa-check-circle text-xs text-accent-theme"></i>
+                        ${item}
+                    </div>
+                `;
+            });
 
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-}
-
-function closeServiceModal() {
-    const modal = document.getElementById("serviceModal");
-    modal.classList.remove("flex");
-    modal.classList.add("hidden");
-}
-
-// VISITOR COUNTER ENGINE
-async function initCounters() {
-    const namespace = "sameermushtaq_portfolio";
-    const totalVisitsEl = document.getElementById('total-visits');
-    const uniqueVisitsEl = document.getElementById('unique-visitors');
-
-    const hasVisitedBefore = localStorage.getItem('has_visited_before');
-    
-    let localTotal = parseInt(localStorage.getItem('fallback_total') || '142');
-    let localUnique = parseInt(localStorage.getItem('fallback_unique') || '84');
-
-    localTotal += 1;
-    localStorage.setItem('fallback_total', localTotal);
-
-    if (!hasVisitedBefore) {
-        localUnique += 1;
-        localStorage.setItem('fallback_unique', localUnique);
-        localStorage.setItem('has_visited_before', 'true');
-    }
-
-    try {
-        const totalRes = await fetch(`https://api.countapi.xyz/hit/${namespace}/total`);
-        const totalData = await totalRes.json();
-        
-        let uniqueData = { value: localUnique };
-        if (!hasVisitedBefore) {
-            const uniqueRes = await fetch(`https://api.countapi.xyz/hit/${namespace}/unique`);
-            uniqueData = await uniqueRes.json();
-        } else {
-            const uniqueRes = await fetch(`https://api.countapi.xyz/get/${namespace}/unique`);
-            uniqueData = await uniqueRes.json();
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
         }
 
-        totalVisitsEl.innerText = totalData.value.toLocaleString();
-        uniqueVisitsEl.innerText = uniqueData.value.toLocaleString();
-    } catch (err) {
-        totalVisitsEl.innerText = localTotal.toLocaleString();
-        uniqueVisitsEl.innerText = localUnique.toLocaleString();
-    }
-}
+        function closeServiceModal() {
+            const modal = document.getElementById("serviceModal");
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
+        }
 
-document.addEventListener('DOMContentLoaded', initCounters);
- </script>
+        async function initCounters() {
+            const namespace = "sameermushtaq_portfolio";
+            const totalVisitsEl = document.getElementById('total-visits');
+            const uniqueVisitsEl = document.getElementById('unique-visitors');
+
+            const hasVisitedBefore = localStorage.getItem('has_visited_before');
+            
+            let localTotal = parseInt(localStorage.getItem('fallback_total') || '142');
+            let localUnique = parseInt(localStorage.getItem('fallback_unique') || '84');
+
+            localTotal += 1;
+            localStorage.setItem('fallback_total', localTotal);
+
+            if (!hasVisitedBefore) {
+                localUnique += 1;
+                localStorage.setItem('fallback_unique', localUnique);
+                localStorage.setItem('has_visited_before', 'true');
+            }
+
+            try {
+                const totalRes = await fetch(`https://api.countapi.xyz/hit/${namespace}/total`);
+                const totalData = await totalRes.json();
+                
+                let uniqueData = { value: localUnique };
+                if (!hasVisitedBefore) {
+                    const uniqueRes = await fetch(`https://api.countapi.xyz/hit/${namespace}/unique`);
+                    uniqueData = await uniqueRes.json();
+                } else {
+                    const uniqueRes = await fetch(`https://api.countapi.xyz/get/${namespace}/unique`);
+                    uniqueData = await uniqueRes.json();
+                }
+
+                totalVisitsEl.innerText = totalData.value.toLocaleString();
+                uniqueVisitsEl.innerText = uniqueData.value.toLocaleString();
+            } catch (err) {
+                totalVisitsEl.innerText = localTotal.toLocaleString();
+                uniqueVisitsEl.innerText = localUnique.toLocaleString();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initCounters);
+    </script>
 </body>
 </html>
